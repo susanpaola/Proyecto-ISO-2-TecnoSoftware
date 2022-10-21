@@ -2,7 +2,7 @@ package persistencia;
 
 import java.util.Date;
 
-public abstract class AbsEntityDAO<E> {
+public abstract class AbstractEntityDAO<E> {
 
 	private String id;
 	private Date fechaCreacion;
