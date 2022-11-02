@@ -1,7 +1,7 @@
 # Proyecto-ISO-2-TecnoSoftware
-Plan de configuracion  proyecto  Iso2 TecnoSoftware
+Plan de configuracion proyecto-Iso2-TecnoSoftware
 
-ndice
+Indice
 1. Introducción
   1.1. Propósito del plan
   1.2. Alcance del plan 
