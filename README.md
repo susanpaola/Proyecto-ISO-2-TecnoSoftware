@@ -1,22 +1,22 @@
 # Plan de configuracion Proyecto-ISO-2-TecnoSoftware
 
 Indice
-1. Introducción
-  1.1. Propósito del plan
-  1.2. Alcance del plan 
-  1.3. Relación con la organización y con otros proyectos
-  1.4. Términos claves
-  1.5. Referencias
-2. Criterios para la identificación de los elementos de configuración a los cuales el CM
-será aplicado
-3. Limitaciones y suposiciones que afectan al plan
-4. Responsabilidades y autoridades del Plan
-5. Organización del proyecto
-6. Responsabilidades de CM 
-7. Políticas aplicables, directivas y procedimientos
-8. Actividades planificadas, agenda y recursos
-  8.1. Agendas del CM 
-  8.2. Recursos del CM 
+  1. Introducción
+    1.1. Propósito del plan
+    1.2. Alcance del plan 
+    1.3. Relación con la organización y con otros proyectos
+    1.4. Términos claves
+    1.5. Referencias
+  2. Criterios para la identificación de los elementos de configuración a los cuales el CM será aplicado
+  3. Limitaciones y suposiciones que afectan al plan
+  4. Responsabilidades y autoridades del Plan
+  5. Organización del proyecto
+  6. Responsabilidades de CM 
+  7. Políticas aplicables, directivas y procedimientos
+  8. Actividades planificadas, agenda y recursos
+    8.1. Agendas del CM 
+    8.2. Recursos del CM 
+  9. Mantenimiento del plan de CM
 
 
 1. Introducción
