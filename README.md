@@ -1,5 +1,4 @@
-# Proyecto-ISO-2-TecnoSoftware
-#Plan de configuracion proyecto-Iso2-TecnoSoftware
+# Plan de configuracion Proyecto-ISO-2-TecnoSoftware
 
 Indice
 1. Introducción
@@ -18,6 +17,8 @@ será aplicado
 8. Actividades planificadas, agenda y recursos
   8.1. Agendas del CM 
   8.2. Recursos del CM 
+
+
 
 
 1. Introducción
