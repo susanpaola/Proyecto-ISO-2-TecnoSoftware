@@ -1,6 +1,12 @@
 package presentacion;
 
 import javax.swing.JButton;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Vector;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,6 +29,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JEditorPane;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import persistencia.GestorBD;
+
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.awt.Panel;
@@ -32,10 +41,12 @@ import java.awt.Canvas;
 import java.awt.Toolkit;
 
 public class PantallaLogin  {
+
 	public PantallaLogin() {
 	}
 	private static JTextField UsuarioText;
 	private static JTextField user;
+	
 
 	public void login() {
 		// TODO - implement PantallaLogin.login
@@ -46,19 +57,17 @@ public class PantallaLogin  {
 		// TODO - implement PantallaLogin.logout
 		throw new UnsupportedOperationException();
 	}
+
 	private static void placeComponents(JPanel panel) {
 
 		panel.setLayout(null);
-
 	
-		
-
-		
 	}
 
-
-	
-		public static void main(String[] args) {
+		/**
+		 * @wbp.parser.entryPoint
+		 */
+		public static void mostrar() {
 			JFrame frmUclm = new JFrame("Demo application");
 			frmUclm.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\IconUCLM.png"));
 			frmUclm.setTitle("UCLM");
@@ -75,8 +84,8 @@ public class PantallaLogin  {
 			loginButton.setForeground(Color.WHITE);
 			loginButton.setBackground(SystemColor.textHighlight);
 			loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			loginButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			loginButton.setBounds(380, 300, 133, 48);
+			loginButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+			loginButton.setBounds(380, 300, 168, 48);
 			panel.add(loginButton);
 			
 			JPasswordField ContraseñaText = new JPasswordField(20);
@@ -119,9 +128,9 @@ public class PantallaLogin  {
 			JButton btnSiguiente = new JButton("Siguiente");
 			btnSiguiente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			btnSiguiente.setForeground(Color.WHITE);
-			btnSiguiente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 15));
 			btnSiguiente.setBackground(SystemColor.textHighlight);
-			btnSiguiente.setBounds(380, 300, 133, 48);
+			btnSiguiente.setBounds(380, 300, 148, 48);
 			panel.add(btnSiguiente);
 			
 			JLabel userLabel = new JLabel("Iniciar sesi\u00F3n");
@@ -141,7 +150,7 @@ public class PantallaLogin  {
 			user.setBorder(null);
 			user.setEditable(false);
 			user.hide();
-			user.setBounds(79, 109, 182, 19);
+			user.setBounds(79, 109, 252, 19);
 			panel.add(user);
 			user.setColumns(10);
 			
@@ -161,9 +170,8 @@ public class PantallaLogin  {
 
 			btnSiguiente.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-		
-			if (UsuarioText.getText().length()==0) {
+				String usu=UsuarioText.getText();
+			if (usu.length()==0) {
 				JOptionPane.showMessageDialog(null, "Debe introducir su usuario.", "ERROR", JOptionPane.ERROR_MESSAGE);
 			}
 			else {
@@ -177,13 +185,53 @@ public class PantallaLogin  {
 				btnNoAcceder.hide();
 				user.show();
 				user.setText(" Usuario: "+ UsuarioText.getText());	
-			}
-			
 				
-				
-			}
+				loginButton.addActionListener((ActionListener) new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						String pass =ContraseñaText.getText();
+						if (pass.length()==0) {
+							JOptionPane.showMessageDialog(null, "Debe introducir su contraseña.", "ERROR", JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+									 try {
+										 GestorBD.conectar();
+										 String user= "SELECT usuario FROM login WHERE usuario = '"+usu+"'";
+										 Vector<Object> usuario,contra;
+										usuario = GestorBD.getAgente().select(user);
+										
+										 String passw= "SELECT contraseña FROM login WHERE contraseña = '"+pass+"'";
+										 contra = GestorBD.getAgente().select(passw);
+										 
+										 if (usuario.isEmpty()==false && contra.isEmpty()==false) {
+											 JOptionPane.showMessageDialog(null, "Bienvenido.", "UCLM", JOptionPane.INFORMATION_MESSAGE);
+											 PantallaEnDesarrollo pa = new PantallaEnDesarrollo();
+											 pa.show();
+											 frmUclm.dispose();
+											 
+							//SIGUIENTES PANTALLAS.... 
+										 }
+										 else {
+											 JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos. Por favor, introduzca correctamente los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);
+											 frmUclm.dispose();
+											 PantallaLogin.mostrar();
+											
+											
+										 }
+										 
+									} catch (Exception e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+						}
+					}
+					});
+		
+				}
+				}
 			});
+		
 		}
 }
+		
 
 	
