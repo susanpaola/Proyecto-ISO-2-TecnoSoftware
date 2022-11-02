@@ -19,8 +19,6 @@ será aplicado
   8.2. Recursos del CM 
 
 
-
-
 1. Introducción
   1.1. Propósito del plan
   Se realiza la creación de un Plan de Gestión de Configuración paragarantizar que los cambios no se realicen de forma inapropiada y así
