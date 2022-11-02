@@ -1,5 +1,5 @@
 # Proyecto-ISO-2-TecnoSoftware
-Plan de configuracion proyecto-Iso2-TecnoSoftware
+#Plan de configuracion proyecto-Iso2-TecnoSoftware
 
 Indice
 1. Introducción
