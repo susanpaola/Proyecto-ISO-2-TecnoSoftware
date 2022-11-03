@@ -35,6 +35,7 @@ Indice
   
   1.2. Alcance del plan
   El Plan de Configuración pretende: 
+  
     ● Tener control sobre cada una de las iteraciones y fases, del  producto generado en estas y de los cambios que puedan surgirque deberán ser evaluados y aproba-
        dos.
     ● Si es estrictamente necesario, se realizará las modificaciones  que el cliente ha pedido, siempre y cuando no afecte al contratoestablecido.
