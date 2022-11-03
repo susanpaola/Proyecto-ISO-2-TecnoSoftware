@@ -102,6 +102,7 @@ Indice
   Otra limitación que afecta al desarrollo del proyecto es definir claramente los objetivosde este y las funcionalidades. 
   
 #4. Responsabilidades y autoridades del Plan
+
   El proyecto es realizado por todos los integrantes del grupo de trabajo Iván Muñoz,Pedro Alcázar, Samuel Blanchart y Susan Herrera. Nuestros objetivos como grupo
   es organizar las tareas con igualdad codificando y gestionando el proyecto de forma unánime asignando tareas a los distintos integrantes del grupo. Somos los úni-
   cos que podemos realizar cambios dentro del proyecto de acuerdo a los requisitos o modificaciones que sugiera el cliente.
@@ -110,6 +111,7 @@ Indice
   El resto de miembros de grupo de trabajo realizan revisiones, proponen cambios, realizan auditorías, etc. 
   
 #5. Organización del proyecto
+
   La empresa está compuesta por 4 desarrolladores, de los cuales uno es el jefe delequipo y los demás realizan las tareas que el jefe del equipo asigna a cada
   desarrollador.
   Se han tenido en cuenta determinados factores como la duración del proyecto, el número de integrantes y la relación entre ellos para seleccionar esta distribución
@@ -183,6 +185,7 @@ Indice
       ○ Miembros del proyecto.
       
 #9. Mantenimiento del Plan de CM
+
   Ante cualquier cambio propuesto por alguno de los miembros o aquellos cambios que se decidan tomar en conjunto, el Comité de control de cambio, será el que decida
   la implementación (o rechazará su implantación) de este, analizando apartados como el impacto que este producirá y/o el coste añadido.
   Si el cambio es admitido, el responsable de la gestión de la configuración del software, deberá acometer los ajustes necesarios del plan de gestión de la 
