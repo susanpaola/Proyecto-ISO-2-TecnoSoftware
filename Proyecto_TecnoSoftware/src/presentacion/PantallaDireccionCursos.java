@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Cursor;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class PantallaDireccionCursos extends JFrame {
 
@@ -103,31 +104,38 @@ public class PantallaDireccionCursos extends JFrame {
 		btnRealizarPropuesta.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					//presentacion.PantallaLogin p = new presentacion.PantallaLogin();
-					//p.mostrar();
-					setVisible(false);
+					//presentacion.PantallaRealizarPropuesta p = new presentacion.PantallaRealizarPropuesta();
+					//p.setVisible(true);
+					//setVisible(false);
 				}
 		});
 		
 		
 		NombreUsu = new JTextField();
+		NombreUsu.setHorizontalAlignment(SwingConstants.RIGHT);
 		NombreUsu.setFont(new Font("Tahoma", Font.BOLD, 15));
 		NombreUsu.setText("NOMBRE");
 		NombreUsu.setEditable(false);
 		NombreUsu.setColumns(10);
 		NombreUsu.setBorder(null);
 		NombreUsu.setBackground(Color.WHITE);
-		NombreUsu.setBounds(461, 128, 252, 19);
+		NombreUsu.setBounds(327, 103, 252, 19);
 		contentPane.add(NombreUsu);
 		
 		TipoUsuario = new JTextField();
+		TipoUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		TipoUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
 		TipoUsuario.setText("TIPO USUARIO\r\n");
 		TipoUsuario.setEditable(false);
 		TipoUsuario.setColumns(10);
 		TipoUsuario.setBorder(null);
 		TipoUsuario.setBackground(Color.WHITE);
-		TipoUsuario.setBounds(461, 173, 252, 19);
+		TipoUsuario.setBounds(327, 145, 252, 19);
 		contentPane.add(TipoUsuario);
+		
+		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("");
+		lblNewJgoodiesLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\images2.jpg"));
+		lblNewJgoodiesLabel_1.setBounds(609, 39, 125, 125);
+		contentPane.add(lblNewJgoodiesLabel_1);
 	}
 }
