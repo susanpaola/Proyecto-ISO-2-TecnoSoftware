@@ -62,7 +62,7 @@ public class PantallaDireccionCursos extends JFrame {
 	 */
 	public PantallaDireccionCursos() {
 		setTitle("UCLM");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\IconUCLM.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 783, 520);
 		contentPane = new JPanel();
@@ -90,7 +90,7 @@ public class PantallaDireccionCursos extends JFrame {
 		
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("");
-		lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\ImagenUCLM.png"));
+		lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\ImagenUCLM.png"));
 		lblNewJgoodiesLabel.setBounds(20, 10, 310, 99);
 		contentPane.add(lblNewJgoodiesLabel);
 		
@@ -104,9 +104,9 @@ public class PantallaDireccionCursos extends JFrame {
 		btnRealizarPropuesta.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					//presentacion.PantallaRealizarPropuesta p = new presentacion.PantallaRealizarPropuesta();
-					//p.setVisible(true);
-					//setVisible(false);
+					presentacion.PantallaRealizarPropuesta p = new presentacion.PantallaRealizarPropuesta();
+					p.setVisible(true);
+					setVisible(false);
 				}
 		});
 		
@@ -134,7 +134,7 @@ public class PantallaDireccionCursos extends JFrame {
 		contentPane.add(TipoUsuario);
 		
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("");
-		lblNewJgoodiesLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\images2.jpg"));
+		lblNewJgoodiesLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\images2.jpg"));
 		lblNewJgoodiesLabel_1.setBounds(609, 39, 125, 125);
 		contentPane.add(lblNewJgoodiesLabel_1);
 	}

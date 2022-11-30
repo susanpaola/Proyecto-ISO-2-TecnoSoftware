@@ -69,7 +69,7 @@ public class PantallaLogin  {
 		 */
 		public static void mostrar() {
 			JFrame frmUclm = new JFrame("Demo application");
-			frmUclm.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\IconUCLM.png"));
+			frmUclm.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 			frmUclm.setTitle("UCLM");
 			frmUclm.setSize(625, 428);
 			frmUclm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -109,7 +109,7 @@ public class PantallaLogin  {
 			
 		
 			JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("");
-			lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\ImagenUCLM.png"));
+			lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\ImagenUCLM.png"));
 			lblNewJgoodiesLabel.setBounds(44, 10, 310, 99);
 			panel.add(lblNewJgoodiesLabel);
 			
@@ -204,7 +204,7 @@ public class PantallaLogin  {
 										 
 										 if (usuario.isEmpty()==false && contra.isEmpty()==false) {
 											 JOptionPane.showMessageDialog(null, "Bienvenido.", "UCLM", JOptionPane.INFORMATION_MESSAGE);
-											 PantallaEnDesarrollo pa = new PantallaEnDesarrollo();
+											 presentacion.PantallaDireccionCursos pa = new presentacion.PantallaDireccionCursos();
 											 pa.show();
 											 frmUclm.dispose();
 											 
