@@ -42,10 +42,9 @@ import java.awt.Toolkit;
 
 public class PantallaLogin  {
 
-	public PantallaLogin() {
-	}
-	private static JTextField UsuarioText;
-	private static JTextField user;
+	public static JTextField UsuarioText;
+	public static JTextField ContraseñaText;
+	public static JTextField user;
 	
 
 	public void login() {
@@ -216,20 +215,21 @@ public class PantallaLogin  {
 						else {
 									 try {
 										 GestorBD.conectar();
-										 String user= "SELECT usuario FROM login WHERE usuario = '"+usu+"'";
+										 String user= "SELECT usuario FROM Usuarios WHERE usuario = '"+usu+"'";
 										 Vector<Object> usuario,contra;
 										usuario = GestorBD.getAgente().select(user);
 										
-										 String passw= "SELECT contraseña FROM login WHERE contraseña = '"+pass+"'";
+										 String passw= "SELECT contraseña FROM Usuarios WHERE contraseña = '"+pass+"'";
 										 contra = GestorBD.getAgente().select(passw);
 										 
 										 if (usuario.isEmpty()==false && contra.isEmpty()==false) {
 											 JOptionPane.showMessageDialog(null, "Bienvenido.", "UCLM", JOptionPane.INFORMATION_MESSAGE);
 											 presentacion.PantallaDireccionCursos pa = new presentacion.PantallaDireccionCursos();
 											 pa.show();
+											pa.NombreUsu.setText(devolverNombre(UsuarioText.getText()));
+											pa.TipoUsuario.setText(devolverTipo(UsuarioText.getText()));
 											 frmUclm.dispose();
-											 
-	
+
 										 }
 										 else {
 											 JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos. Por favor, introduzca correctamente los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -243,6 +243,7 @@ public class PantallaLogin  {
 										// TODO Auto-generated catch block
 										e1.printStackTrace();
 									}
+									
 						}
 					}
 					});
@@ -252,7 +253,36 @@ public class PantallaLogin  {
 			});
 		
 		}
+		public static String devolverNombre(String usu) {
+			String nombre;
+			String name= "SELECT nombre FROM Usuarios WHERE usuario = '"+usu+"'";
+			String ape= "SELECT apellidos FROM Usuarios WHERE usuario = '"+usu+"'";
+			 Vector<Object> nom,apellidos;
+			try {
+				nom = GestorBD.getAgente().select(name);
+				apellidos=GestorBD.getAgente().select(ape);
+				nombre=(nom.get(0).toString()+""+apellidos.get(0).toString());
+				return nombre;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			return "";
 }
-		
+		public static String devolverTipo(String usu) {
+			String tipo;
+			String sql= "SELECT tipoUsuario FROM Usuarios WHERE usuario = '"+usu+"'";
+			 Vector<Object> nom;
+			try {
+				nom = GestorBD.getAgente().select(sql);
+				tipo=(nom.get(0).toString());
+				return tipo;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			return "";
+}
+}		
 
 	

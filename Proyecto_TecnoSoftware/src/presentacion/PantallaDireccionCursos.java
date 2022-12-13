@@ -20,11 +20,13 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class PantallaDireccionCursos extends JFrame {
+	
 
 		public void altaCurso() {
 			// TODO - implement PantallaDireccionCursos.altaCurso
@@ -38,8 +40,9 @@ public class PantallaDireccionCursos extends JFrame {
 
 
 	private JPanel contentPane;
-	private JTextField NombreUsu;
-	private JTextField TipoUsuario;
+	public JTextField NombreUsu;
+	public JTextField TipoUsuario;
+	presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 
 	/**
 	 * Launch the application.
@@ -49,7 +52,6 @@ public class PantallaDireccionCursos extends JFrame {
 			public void run() {
 				try {
 					PantallaDireccionCursos frame = new PantallaDireccionCursos();
-					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -122,6 +124,7 @@ public class PantallaDireccionCursos extends JFrame {
 		NombreUsu.setBounds(327, 103, 252, 19);
 		contentPane.add(NombreUsu);
 		
+		
 		TipoUsuario = new JTextField();
 		TipoUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		TipoUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -132,10 +135,13 @@ public class PantallaDireccionCursos extends JFrame {
 		TipoUsuario.setBackground(Color.WHITE);
 		TipoUsuario.setBounds(327, 145, 252, 19);
 		contentPane.add(TipoUsuario);
+		 
+		
 		
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("");
 		lblNewJgoodiesLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\images2.jpg"));
 		lblNewJgoodiesLabel_1.setBounds(609, 39, 125, 125);
 		contentPane.add(lblNewJgoodiesLabel_1);
 	}
+
 }

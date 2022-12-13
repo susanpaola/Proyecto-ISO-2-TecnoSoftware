@@ -20,12 +20,12 @@ import java.util.Vector;
 		// Conexion con la base de datos
 		protected static Connection mBD;
 		// Identificador ODBC de la base de datos
-		private static String url = "jdbc:mysql://127.0.0.1:3306/TecnoSoftware?user=root";
+		private static String url = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7583293";
 		// Driven para conectar con bases de datos MySQL
 		
 		private static String driver= "com.mysql.cj.jdbc.Driver";
-		private static String user= "root";
-		private static String password="admin";
+		private static String user= "sql7583293";
+		private static String password="nDgqYiEi3C";
 	
 		
 		public static void conectar() throws Exception {
@@ -52,7 +52,7 @@ import java.util.Vector;
 		}
 
 
-		public int insert(String SQL) throws SQLException, Exception {
+		public  int insert(String SQL) throws SQLException, Exception {
 			conectar();
 			PreparedStatement stmt = mBD.prepareStatement(SQL);
 			int res = stmt.executeUpdate(SQL);
