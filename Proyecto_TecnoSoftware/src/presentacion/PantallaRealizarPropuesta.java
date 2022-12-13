@@ -38,7 +38,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	private JTextField NombreCurso;
 	private JTextField NumCreditos;
 	private JTextField Facultad;
-	private JTextField Duracion;
+	private JTextField Edicion;
 	private JTextField NombreProf;
 	private JTextField CategoriaProf;
 
@@ -61,7 +61,6 @@ public class PantallaRealizarPropuesta extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	private JComboBox<String> comboBox;
 	String c="";
 	String Num;
 	public PantallaRealizarPropuesta() {
@@ -123,12 +122,12 @@ public class PantallaRealizarPropuesta extends JFrame {
 		Facultad.setBounds(454, 298, 259, 39);
 		contentPane.add(Facultad);
 		
-		Duracion = new JTextField();
-		Duracion.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
-		Duracion.setFont(new Font("Tahoma", Font.BOLD, 13));
-		Duracion.setColumns(10);
-		Duracion.setBounds(454, 376, 259, 39);
-		contentPane.add(Duracion);
+		Edicion = new JTextField();
+		Edicion.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
+		Edicion.setFont(new Font("Tahoma", Font.BOLD, 13));
+		Edicion.setColumns(10);
+		Edicion.setBounds(454, 376, 259, 39);
+		contentPane.add(Edicion);
 		
 		NombreProf = new JTextField();
 		NombreProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
@@ -156,13 +155,17 @@ public class PantallaRealizarPropuesta extends JFrame {
 		btnSiguiente.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Num=NumCreditos.getText();
+				
+					if (!textoVacio(Facultad)||!textoVacio(Edicion) || !textoVacio(NombreCurso) || !textoVacio(NombreProf)||!textoVacio(CategoriaProf) ) {
+						JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos para realizar la propuesta.", "ERROR", JOptionPane.ERROR_MESSAGE);}
+					else {
 				if (NumCreditos.getText().isEmpty()|| !isNumeric(NumCreditos.getText()))
 					JOptionPane.showMessageDialog(null, "Introduzca los créditos de manera correcta.", "ERROR", JOptionPane.ERROR_MESSAGE);
-				else {
+				else 
 				compruebaCreditos(c);
-				}
-				}
-		});
+				
+				
+					}}});
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -178,6 +181,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 		 comboBox.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					
 					c= comboBox.getSelectedItem().toString();
 
 					}
@@ -324,5 +328,11 @@ public class PantallaRealizarPropuesta extends JFrame {
 		} catch (NumberFormatException nfe){
 			return false;
 		}
+	}
+	public static boolean textoVacio (JTextField cuadro){
+		boolean vacio=true;
+		if(cuadro.getText().equals(""))
+			vacio=false;
+		return vacio;
 	}
 }

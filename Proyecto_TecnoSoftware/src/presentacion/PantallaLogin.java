@@ -229,7 +229,7 @@ public class PantallaLogin  {
 											 pa.show();
 											 frmUclm.dispose();
 											 
-							//SIGUIENTES PANTALLAS.... 
+	
 										 }
 										 else {
 											 JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos. Por favor, introduzca correctamente los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);

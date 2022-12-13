@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -34,6 +35,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.DropMode;
 
 public class PantallaElegirFechas extends JFrame {
+
 
 	private JPanel contentPane;
 
@@ -164,26 +166,43 @@ public class PantallaElegirFechas extends JFrame {
 		btnSiguiente.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				datePickerFin.show();
-				datePickerIni.hide();
-				btnFinalizar.show();
-				btnVolver.show();
-				System.out.println(datePickerIni.getJFormattedTextField().getText());
+
+				if (datePickerFin.getJFormattedTextField().getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					datePickerFin.show();
+					datePickerIni.hide();
+					btnFinalizar.show();
+					btnVolver.show();
 				label.setText("Seleccione la fecha de fin:");
 				datePickerFin.getJFormattedTextField().setText("");
 				}
+			}
 		});
 		btnSiguiente.setForeground(Color.WHITE);
 		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnSiguiente.setBackground(SystemColor.textHighlight);
 		btnSiguiente.setBounds(594, 490, 114, 49);
 		contentPane.add(btnSiguiente);
-	
 		btnFinalizar.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println(datePickerFin.getJFormattedTextField().getText());
+				if (datePickerFin.getJFormattedTextField().getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
 				}
+				else {
+					
+				
+				int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea enviar su propuesta de curso?", "ATENCIÓN", JOptionPane.OK_CANCEL_OPTION);
+				if (respuesta == JOptionPane.OK_OPTION) {
+					JOptionPane.showMessageDialog(null, "Su propuesta ha sido enviada de manera correcta.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
+					p.setVisible(true);
+					setVisible(false);
+				}
+				
+				}}
+			
 		});
 		
 		
