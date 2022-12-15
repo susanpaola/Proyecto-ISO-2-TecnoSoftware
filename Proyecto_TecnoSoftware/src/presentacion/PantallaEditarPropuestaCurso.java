@@ -122,6 +122,7 @@ public class PantallaEditarPropuestaCurso {
 
 	public static void obtain_ECTS() {
 		System.out.println("Introduzca el ECTS que desee: ");
+		
 	}
 
 	public static void obtain_Init_Date() {
