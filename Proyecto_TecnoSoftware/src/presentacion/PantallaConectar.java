@@ -70,7 +70,7 @@ public class PantallaConectar extends JFrame {
 		conectBtn.setBackground(SystemColor.textHighlight);
 		conectBtn.setBounds(148, 158, 220, 93);
 		contentPane.add(conectBtn);
-	conectBtn.addActionListener((ActionListener) new ActionListener() {
+		conectBtn.addActionListener((ActionListener) new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			
 			try {
@@ -80,7 +80,7 @@ public class PantallaConectar extends JFrame {
 				setVisible(false);
 				
 			} catch (Exception ea) {
-				JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos. Revise sus datos de conexión", "ERROR", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos. Revise sus datos de conexiï¿½n", "ERROR", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 }

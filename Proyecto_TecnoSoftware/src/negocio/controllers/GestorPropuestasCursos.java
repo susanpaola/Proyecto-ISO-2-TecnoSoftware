@@ -1,16 +1,31 @@
 package negocio.controllers;
 
+import java.awt.*;
 import java.text.*;
 import java.time.*;
 import java.util.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import negocio.entities.*;
 
-public class GestorPropuestasCursos {
+public class GestorPropuestasCursos extends JFrame{
 
+	// Terminado
 	public CursoPropio realizarPropuestaCurso() {
 		// TODO - implement GestorPropuestasCursos.realizarPropuestaCurso
 		//throw new UnsupportedOperationException();
-		System.out.print("Propuesta de curso realizada");
+		JPanel contentPanel = new JPanel();
+		contentPanel.setBackground(Color.WHITE);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPanel);
+		contentPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Propuesta de curso realizada");
+		lblNewLabel.setForeground(SystemColor.textHighlight);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
+		lblNewLabel.setBounds(60, 112, 581, 75);
+		contentPanel.add(lblNewLabel);
 		CursoPropio propuesta = new CursoPropio();
 		return propuesta;
 	}
@@ -28,16 +43,8 @@ public class GestorPropuestasCursos {
 		Date fecha = null;
 		boolean seguir = true;
 		while (seguir) {
-			System.out.print("Inserta parámetro que desea editar:\n"
-					+ "	1.- (String) id\n"
-					+ " 2.- (String) nombre\n"
-					+ " 3.- (int= ECTS\n"
-					+ " 4.- (Date) fechaInicio\n"
-					+ " 5.- (Date) fechaFin\n"
-					+ " 6.- (double) tasaMatricula\n"
-					+ " 7.- (int) edicion\n"
-			);
 			
+			//MÃ©todo Menu
 			entradaTeclado = entradaEscaner.nextLine ();
 			
 			if (entradaTeclado.equals("id")) {
@@ -77,17 +84,17 @@ public class GestorPropuestasCursos {
 				curso.setFechaFin(fecha);
 				seguir = preguntaContinuacion();
 			} else if (entradaTeclado.equals("tasaMatricula")) {
-				System.out.println("Introduce la tasa de matrícula que desee: ");
+				System.out.println("Introduce la tasa de matrï¿½cula que desee: ");
 				entradaTeclado = entradaEscaner.nextLine ();
 				curso.setTasaMatricula(Double.parseDouble(entradaTeclado));
 				seguir = preguntaContinuacion();
 			} else if (entradaTeclado.equals("edicion")) {
-				System.out.println("Introduce la edición que desee: ");
+				System.out.println("Introduce la ediciï¿½n que desee: ");
 				entradaTeclado = entradaEscaner.nextLine ();
 				curso.setEdicion(Integer.parseInt(entradaTeclado)); 
 				seguir = preguntaContinuacion();
 			} else {
-				System.out.println("Opción no válida, introduce una que no lo sea");
+				//MÃ©todo invalid option
 			}
 		}
 	}
@@ -98,7 +105,8 @@ public class GestorPropuestasCursos {
 	 */
 	public EstadoCurso evaluarPropuesta(CursoPropio curso) {
 		// TODO - implement GestorPropuestasCursos.evaluarPropuesta
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**
@@ -107,12 +115,24 @@ public class GestorPropuestasCursos {
 	 */
 	public void altaCursoAprobado(CursoPropio curso) {
 		// TODO - implement GestorPropuestasCursos.altaCursoAprobado
-		throw new UnsupportedOperationException();
+		// throw new UnsupportedOperationException();
+		JPanel contentPanel = new JPanel();
+		contentPanel.setBackground(Color.WHITE);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPanel);
+		contentPanel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Curso dado de alta");
+		lblNewLabel.setForeground(SystemColor.textHighlight);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
+		lblNewLabel.setBounds(60, 112, 581, 75);
+		contentPanel.add(lblNewLabel);
+		// Insertar curso de la base de datos (PENDIENTE)
 	}
 	
 	public boolean preguntaContinuacion() {
 		boolean pregunta = false;
-		System.out.println("¿Desea editar más valores? (Introduzca S para sí | N para no)");
+		System.out.println("Â¿Desea editar mas valores? (Introduzca S para si | N para no)");
 		Scanner entradaEscaner = new Scanner (System.in);
 		String entradaTeclado = entradaEscaner.nextLine();
 		
