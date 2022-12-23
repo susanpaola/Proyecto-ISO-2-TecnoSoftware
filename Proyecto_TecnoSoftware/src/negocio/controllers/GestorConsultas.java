@@ -15,6 +15,7 @@ public class GestorConsultas {
 	 */
 	public List<CursoPropio> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
 		// TODO - implement GestorConsultas.consultarIngresos
+		//nuevo
 		throw new UnsupportedOperationException();
 	}
 
