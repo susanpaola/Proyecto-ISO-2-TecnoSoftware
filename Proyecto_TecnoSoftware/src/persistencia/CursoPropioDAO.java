@@ -60,8 +60,9 @@ public class CursoPropioDAO<E> extends AbstractEntityDAO<E> {
 	 * 
 	 * @param fechaInicio
 	 * @param fechaFin
+	 * @return 
 	 */
-	public void listarEdicionesCursos(Date fechaInicio, Date fechaFin) {
+	public List<CursoPropio> listarEdicionesCurso(Date fechaInicio, Date fechaFin) {
 		// TODO - implement CursoPropioDAO.listarEdicionesCursos
 		throw new UnsupportedOperationException();
 	}
