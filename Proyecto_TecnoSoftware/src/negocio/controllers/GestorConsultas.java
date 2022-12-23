@@ -17,12 +17,13 @@ public class GestorConsultas {
 	 */
 	public List<List<String>> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
 		// TODO - implement GestorConsultas.consultarIngresos
+
 		List<List<String>> ingreso = new ArrayList<>();
 		CursoPropioDAO<CursoPropio> curso = new CursoPropioDAO<>();
 		
 		ingreso = curso.listarIngresos(tipo, fechaInicio, fechaFin);
 		return ingreso;
-		
+
 	}
 
 	/**
