@@ -1,9 +1,11 @@
 package negocio.controllers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import negocio.entities.*;
+import persistencia.CursoPropioDAO;
 
 public class GestorConsultas {
 
@@ -13,10 +15,14 @@ public class GestorConsultas {
 	 * @param fechaInicio
 	 * @param fechaFin
 	 */
-	public List<CursoPropio> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
+	public List<List<String>> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
 		// TODO - implement GestorConsultas.consultarIngresos
-		//nuevo
-		throw new UnsupportedOperationException();
+		List<List<String>> ingreso = new ArrayList<>();
+		CursoPropioDAO<CursoPropio> curso = new CursoPropioDAO<>();
+		
+		ingreso = curso.listarIngresos(tipo, fechaInicio, fechaFin);
+		return ingreso;
+		
 	}
 
 	/**
