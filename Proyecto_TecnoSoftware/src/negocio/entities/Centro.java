@@ -11,6 +11,16 @@ public class Centro {
 	private int attribute;
 	private int Id;
 	
+	public Centro(Collection<CursoPropio> cursoPropios, Collection<ProfesorUCLM> plantilla, String nombre,
+			String localizacion, int attribute, int id) {
+		super();
+		this.cursoPropios = cursoPropios;
+		this.plantilla = plantilla;
+		this.nombre = nombre;
+		this.localizacion = localizacion;
+		this.attribute = attribute;
+		Id = id;
+	}
 	public int getId() {
 		return Id;
 	}
