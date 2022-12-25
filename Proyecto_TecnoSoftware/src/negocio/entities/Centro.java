@@ -9,5 +9,43 @@ public class Centro {
 	private String nombre;
 	private String localizacion;
 	private int attribute;
+	private int Id;
+	
+	public int getId() {
+		return Id;
+	}
+	public void setId(int id) {
+		Id = id;
+	}
+	public Collection<CursoPropio> getCursoPropios() {
+		return cursoPropios;
+	}
+	public void setCursoPropios(Collection<CursoPropio> cursoPropios) {
+		this.cursoPropios = cursoPropios;
+	}
+	public Collection<ProfesorUCLM> getPlantilla() {
+		return plantilla;
+	}
+	public void setPlantilla(Collection<ProfesorUCLM> plantilla) {
+		this.plantilla = plantilla;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getLocalizacion() {
+		return localizacion;
+	}
+	public void setLocalizacion(String localizacion) {
+		this.localizacion = localizacion;
+	}
+	public int getAttribute() {
+		return attribute;
+	}
+	public void setAttribute(int attribute) {
+		this.attribute = attribute;
+	}
 
 }
