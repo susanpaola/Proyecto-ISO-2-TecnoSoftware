@@ -17,6 +17,8 @@ import java.awt.ComponentOrientation;
 import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AccesoMenuPantalla extends JFrame {
 
@@ -52,12 +54,29 @@ public class AccesoMenuPantalla extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnEstudiante = new JButton("MATRICULA ESTUDIANTE");
+		btnEstudiante.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MatriculacionPantalla matricula = new MatriculacionPantalla();
+				matricula.setVisible(true);
+				dispose();
+			}
+		});
 		btnEstudiante.setIcon(null);
 		btnEstudiante.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnEstudiante.setBounds(79, 157, 177, 60);
 		contentPane.add(btnEstudiante);
 		
 		JButton btnVicerrector = new JButton("VICERRECTORADO");
+		btnVicerrector.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				EmpleadosVicerrectoradoPantalla vicerrectorado = new EmpleadosVicerrectoradoPantalla();
+				vicerrectorado.setVisible(true);
+				dispose();
+			}
+		});
+		
 		btnVicerrector.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -81,6 +100,14 @@ public class AccesoMenuPantalla extends JFrame {
 		contentPane.add(btnLogo);
 		
 		JButton btnDireccion = new JButton("DIRECCION CURSOS");
+		btnDireccion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				DireccionCursosPantalla dirCursos = new DireccionCursosPantalla();
+				dirCursos.setVisible(true);
+				dispose();
+			}
+		});
 		btnDireccion.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnDireccion.setBounds(278, 82, 177, 63);
 		contentPane.add(btnDireccion);
@@ -91,6 +118,14 @@ public class AccesoMenuPantalla extends JFrame {
 		contentPane.add(lblAcceso);
 		
 		JButton btnJefeVice = new JButton("JEFE VICERRECTORADO");
+		btnJefeVice.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JefeGabineteVicerrectoradoPantalla jefeVice = new JefeGabineteVicerrectoradoPantalla();
+				jefeVice.setVisible(true);
+				dispose();
+			}
+		});
 		btnJefeVice.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnJefeVice.setBounds(278, 156, 177, 63);
 		contentPane.add(btnJefeVice);
