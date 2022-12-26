@@ -5,10 +5,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.SystemColor;
+import javax.swing.JRadioButton;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class RealizarPagoPantalla extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -31,11 +40,65 @@ public class RealizarPagoPantalla extends JFrame {
 	 */
 	public RealizarPagoPantalla() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 466, 392);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JRadioButton rdbtnTarjeta = new JRadioButton("Pago con Tarjeta");
+		rdbtnTarjeta.setFont(new Font("Tahoma", Font.BOLD, 13));
+		rdbtnTarjeta.setBounds(17, 125, 151, 34);
+		contentPane.add(rdbtnTarjeta);
+		
+		JRadioButton rdbtnEfectivo = new JRadioButton("Pago en Efectivo");
+		rdbtnEfectivo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		rdbtnEfectivo.setBounds(17, 18, 151, 34);
+		contentPane.add(rdbtnEfectivo);
+		
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNombre.setBounds(17, 176, 54, 22);
+		contentPane.add(lblNombre);
+		
+		JLabel lblNumero = new JLabel("Numero tarjeta");
+		lblNumero.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNumero.setBounds(17, 209, 90, 22);
+		contentPane.add(lblNumero);
+		
+		JLabel lblCvv = new JLabel("CVV");
+		lblCvv.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCvv.setBounds(17, 242, 49, 14);
+		contentPane.add(lblCvv);
+		
+		textField = new JTextField();
+		textField.setBounds(113, 178, 240, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(113, 211, 240, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(113, 240, 112, 20);
+		contentPane.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnPagar = new JButton("Realizar Pago");
+		btnPagar.setFont(new Font("Tahoma", Font.BOLD, 13));
+		btnPagar.setBounds(157, 278, 128, 39);
+		contentPane.add(btnPagar);
+		
+		JLabel lblanuncio = new JLabel("El pago se realizara de forma presencial en la administracion\r\n");
+		lblanuncio.setBounds(30, 59, 385, 34);
+		contentPane.add(lblanuncio);
+		
+		JLabel lblNewLabel = new JLabel("de la Universidad");
+		lblNewLabel.setBounds(30, 84, 119, 22);
+		contentPane.add(lblNewLabel);
 	}
-
 }
