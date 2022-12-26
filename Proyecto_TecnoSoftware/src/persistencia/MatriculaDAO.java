@@ -6,27 +6,27 @@ import negocio.entities.*;
 
 public class MatriculaDAO extends AbstractEntityDAO<Object> {
 
-	private AbstractEntityDAO<Matricula> abstractEntityDAO;
+	//private AbstractEntityDAO<Matricula> abstractEntityDAO;
+	private GestorBD agenteBD;
 
-	public MatriculaDAO(Class entityClass) {
-		super(entityClass);
-		this.abstractEntityDAO = new AbstractEntityDAO<Matricula>(entityClass) {
-		};
+	public MatriculaDAO() {
+		this.agenteBD = agenteBD.getAgente();
 	}
 	
-	public List<Matricula> selectMatriculas(){
-		return abstractEntityDAO.showAll();
+	public Vector<Object> selectMatriculas(String sql){
+		return agenteBD.select(sql);
 	}
 	
-	public void insertMatricula(Matricula matricula) {
-		abstractEntityDAO.save(matricula);
+	public int insertMatricula(String sql) {
+		return agenteBD.insert(sql);
 	}
 
-	public void updateMatricula(Matricula matricula) {
-		abstractEntityDAO.update(matricula);
+	public int updateMatricula(String sql) {
+		return agenteBD.update(sql);
 	}
-	public void deleteMatricula(Matricula matricula) {
-		abstractEntityDAO.delete(matricula);
+	
+	public int deleteMatricula(String sql) {
+		return agenteBD.delete(sql);
 	}
 
 }
