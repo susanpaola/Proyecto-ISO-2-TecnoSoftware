@@ -21,7 +21,7 @@ public class GestorBD {
 		
 	private static String driver= "com.mysql.cj.jdbc.Driver";
 	private static String user= "proyecto_iso";
-	private static String password="contraseña";
+	private static String password="contrase\u00f1a";
 	
 		
 	public static void connect() {
@@ -89,7 +89,7 @@ public class GestorBD {
 		connect();
 		Statement stmt = mBD.createStatement();
 		ResultSet res = stmt.executeQuery(SQL);
-		ResultSetMetaData rsmd = rs.getMetaData();
+		ResultSetMetaData rsmd = res.getMetaData();
 		int columns = rsmd.getColumnCount();
 		
 		while (res.next()) {
