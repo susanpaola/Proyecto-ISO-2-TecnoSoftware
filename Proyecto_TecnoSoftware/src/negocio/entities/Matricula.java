@@ -2,16 +2,32 @@ package negocio.entities;
 
 import java.util.Date;
 
-public class Matricula {
+import persistencia.MatriculaDAO;
 
+public class Matricula {
+	public MatriculaDAO matriculaDAO;
 	public Estudiante estudiante;
 	public CursoPropio titulo;
-	ModoPago tipoPago;
+	public static ModoPago tipoPago;
 	private Date fecha;
 	private boolean pagado;
 	private int attribute;
 	private int idMatricula;
 	String idEstudiante;
+	public Matricula(Estudiante estudiante, CursoPropio titulo) throws Exception{
+		matriculaDAO = new MatriculaDAO();
+		this.estudiante = estudiante;
+		this.titulo = titulo;
+	}
+	public Matricula(Date fecha, boolean pagado, int attribute, ModoPago tipoPago, CursoPropio titulo, Estudiante estudiante) throws Exception {
+		matriculaDAO = new MatriculaDAO();
+		this.estudiante = estudiante;
+		this.titulo = titulo;
+		this.tipoPago = tipoPago;
+		this.fecha = fecha;
+		this.pagado = pagado;
+		this.attribute = attribute;
+	}
 	public int getIdMatricula() {
 		return idMatricula;
 	}
