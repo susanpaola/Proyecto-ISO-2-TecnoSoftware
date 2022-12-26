@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class GestorBD {
 	//Instancia 
-	protected static mInstancia = null;
+	protected static GestorBD mInstancia = null;
 	// Conexion con la base de datos
 	protected static Connection mBD;
 	// Identificador ODBC de la base de datos
