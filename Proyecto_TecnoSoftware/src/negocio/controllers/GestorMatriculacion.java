@@ -1,9 +1,24 @@
 package negocio.controllers;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 
+import negocio.entities.Matricula;
+import persistencia.MatriculaDAO;
 import negocio.entities.*;
+
 
 public class GestorMatriculacion {
 
+	public void realizarMatriculacion(Matricula matricula) throws SQLException {
+		MatriculaDAO<Matricula> agenteMatriculaDAO = new MatriculaDAO<>();
+		try {
+			agenteMatriculaDAO.crearNuevaMatricula(matricula);
+		} catch (SQLSyntaxErrorException e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 	/**
 	 * 
 	 * @param curso
