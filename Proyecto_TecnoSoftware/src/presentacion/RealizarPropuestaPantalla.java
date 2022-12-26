@@ -38,6 +38,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
 
+@SuppressWarnings({ "serial", "unused" })
 public class RealizarPropuestaPantalla extends JFrame {
 
 	private JPanel contentPane;
@@ -85,6 +86,7 @@ public class RealizarPropuestaPantalla extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public RealizarPropuestaPantalla() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 718, 475);
@@ -171,6 +173,19 @@ public class RealizarPropuestaPantalla extends JFrame {
 		contentPane.add(textId);
 		
 		TextField textNombre = new TextField();
+		textNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char validar3 = e.getKeyChar();
+				if(Character.isDigit(validar3)){
+					getToolkit().beep();
+					e.consume();
+					
+					JOptionPane.showMessageDialog(null, "Solo se permiten letras no caracteres numericos", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+				}
+			}
+		});
 		textNombre.setBounds(34, 170, 165, 21);
 		contentPane.add(textNombre);
 		
@@ -207,10 +222,34 @@ public class RealizarPropuestaPantalla extends JFrame {
 		contentPane.add(textTasa);
 		
 		TextField textEdicion = new TextField();
+		textEdicion.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char validar2 = e.getKeyChar();
+				if(Character.isLetter(validar2)){
+					getToolkit().beep();
+					e.consume();
+					
+					JOptionPane.showMessageDialog(null, "Introduzca solo valores numericos", "ERROR", JOptionPane.ERROR_MESSAGE);					
+				}				
+			}
+		});
 		textEdicion.setBounds(225, 113, 177, 21);
 		contentPane.add(textEdicion);
 		
 		TextField textEstado = new TextField();
+		textEstado.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char validar4 = e.getKeyChar();
+				if(Character.isDigit(validar4)){
+					getToolkit().beep();
+					e.consume();
+					
+					JOptionPane.showMessageDialog(null, "Solo se permiten letras no caracteres numericos", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 		textEstado.setBounds(34, 278, 165, 21);
 		contentPane.add(textEstado);
 		
