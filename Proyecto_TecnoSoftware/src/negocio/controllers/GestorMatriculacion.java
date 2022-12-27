@@ -11,79 +11,47 @@ import negocio.entities.*;
 public class GestorMatriculacion {
 	/**
 	 * 
-	 * @param curso
-	 * @param estudiante
-	 * @throws Exception 
-
+	 * @param matricula
 	 */
-	public void realizarMatriculacion(Matricula matricula) throws Exception {
+	public void realizarMatriculacion(Matricula matricula) {
 		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
+		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
+		
 		try {
-			agenteMatriculaDAO.insertMatricula(
-					"INSERT INTO Matricula(id, tipoPago, titulo, estudiante, atributo, pagado, fecha) VALUES ('"
-					+ matricula.getIdMatricula()+", '"
-					+ matricula.getTipoPago()+", '"
-					+ matricula.getIdTitulo()+", '"
-					+ matricula.getIdEstudiante()+", '"
-					+ matricula.getAttribute()+", '"
-					+ matricula.isPagado()+", '"
-					+ matricula.getFecha()+"')");
-		} catch (SQLSyntaxErrorException e) {
-			e.printStackTrace();
-			throw e;
+			PreparedStatement insert = cnt.prepareStatement("INSERT INTO Matricula VALUES (?,?,?,?,?,?,?)");
+			insert.setInt(1, matricula.getIdMatricula()); //id
+			insert.setString(2, matricula.getTipoPago()); //tipoPago
+			insert.setInt(3, matricula.getIdTitulo()); //titulo
+			insert.setString(4, matricula.getIdEstudiante()); //estudiante
+			insert.setInt(5, matricula.getAttribute()); //atributo
+			insert.setBoolean(6, matricula.isPagado()); //pagado
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			java.util.Date parseado = sdf.parse(matricula.getFecha());
+			Date fecha = new java.sql.Date(parseado.getTime());
+			insert.setDate(7, fecha); //fecha
+			
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 
 	/**
 	 * 
-	 * @param curso
-	 * @param estudiante
-	 * @throws Exception 
+	 * @param matricula
 	 */
-	public void realizarPagoMatricula(CursoPropio curso, Estudiante estudiante) throws Exception {
-		Matricula matricula = new Matricula(estudiante, curso);
-		matricula.matriculaDAO.selectMatriculas("SELECT * FROM matricula WHERE cursoPropio_id='"
-				+matricula.titulo.getId()+"' AND cursoPropio_edicion="
-				+matricula.titulo.getEdicion()+" AND estudiante_dni='"
-				+matricula.estudiante.getDni()+"'");
-
-
-		matricula.setPagado(true);
+	private void realizarPago(Matricula matricula) {
+		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
+		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
+		
+		try {
+			PreparedStatement insert = cnt.prepareStatement("UPDATE Matricula SET pagado=?, tipoPago=? WHERE id=?");
+			insert.setBoolean(1, matricula.isPagado()); //pagado
+			insert.setString(2, matricula.getTipoPago()); //tipoPago
+			insert.setInt(3, matricula.getIdMatricula()); //id
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
-
-	/**
-	 * 
-	 * @param curso
-	 * @param estudiante
-	 * @throws Exception 
-	 */
-	private void realizarPagoTarjeta(CursoPropio curso, Estudiante estudiante) throws Exception {
-		Matricula matricula = new Matricula(estudiante, curso);
-		matricula.matriculaDAO.selectMatriculas("SELECT * FROM matricula WHERE cursoPropio_id='"
-				+matricula.titulo.getId()+"' AND cursoPropio_edicion="
-				+matricula.titulo.getEdicion()+" AND estudiante_dni='"
-				+matricula.estudiante.getDni()+"'");
-		matricula.tipoPago = ModoPago.TARJETA_CREDITO;
-	}
-
-	/**
-	 * 
-	 * @param curso
-	 * @param estudiante
-	 * @throws Exception 
-	 */
-	private void realizarPagoTransferencia(CursoPropio curso, Estudiante estudiante) throws Exception {
-		Matricula matricula = new Matricula(estudiante, curso);
-		matricula.matriculaDAO.selectMatriculas("SELECT * FROM matricula WHERE cursoPropio_id='"
-				+matricula.titulo.getId()+"' AND cursoPropio_edicion="
-				+matricula.titulo.getEdicion()+" AND estudiante_dni='"
-				+matricula.estudiante.getDni()+"'");
-		matricula.tipoPago = ModoPago.TRANSFERENCIA;
-	}
-
-	private void operation() {
-		// TODO - implement GestorMatriculacion.operation
-		throw new UnsupportedOperationException();
-	}
-
 }
