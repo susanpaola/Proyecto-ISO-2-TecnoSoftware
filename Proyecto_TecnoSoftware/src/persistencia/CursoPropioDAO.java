@@ -1,69 +1,44 @@
 package persistencia;
 
-import java.util.Date;
-import java.util.List;
-
+import java.util.*;
 import negocio.entities.*;
+import persistencia.*;
 
-public class CursoPropioDAO<E> extends AbstractEntityDAO<E> {
-
-	/**
-	 * 
-	 * @param curso
-	 */
-	public int crearNuevoCurso(CursoPropio curso) {
-		// TODO - implement CursoPropioDAO.crearNuevoCurso
-		throw new UnsupportedOperationException();
+public class CursoPropioDAO {
+	private GestorBD agenteBD;
+	
+	public CursoPropioDAO() {
+		try {
+			this.agenteBD = this.agenteBD.getAgente();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	public int insertarCurso(String sql) {
+		return agenteBD.insert(sql);
 	}
 
-	/**
-	 * 
-	 * @param curso
-	 */
-	public CursoPropio seleccionarCurso(CursoPropio curso) {
-		// TODO - implement CursoPropioDAO.seleccionarCurso
-		throw new UnsupportedOperationException();
+	public Vector<Object> seleccionarCursos(String sql) {
+		return agenteBD.select(sql);
 	}
 
-	/**
-	 * 
-	 * @param curso
-	 */
-	public CursoPropio editarCurso(CursoPropio curso) {
-		// TODO - implement CursoPropioDAO.editarCurso
-		throw new UnsupportedOperationException();
+	public int editarCurso(String sql) {
+		return agenteBD.update(sql);
 	}
 
-	/**
-	 * 
-	 * @param estado
-	 * @param fechaInicio
-	 * @param fechaFin
-	 */
-	public List<CursoPropio> listarCursosPorEstado(EstadoCurso estado, Date fechaInicio, Date fechaFin) {
-		// TODO - implement CursoPropioDAO.listarCursosPorEstado
-		throw new UnsupportedOperationException();
+	//Dado un estado, devolver un Vector<Object> con ellos
+	public Vector<Object> listarCursosPorEstado(EstadoCurso estado) {
+		return agenteBD.select(sql);
 	}
 
-	/**
-	 * 
-	 * @param tipo
-	 * @param fechaInicio
-	 * @param fechaFin
-	 */
+	//Dado un tipo de curso, devolver un double con la suma de sus campos tasa
 	public double listarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
-		// TODO - implement CursoPropioDAO.listarIngresos
-		throw new UnsupportedOperationException();
+		return 0.00;
 	}
-
-	/**
-	 * 
-	 * @param fechaInicio
-	 * @param fechaFin
-	 */
+	
+	//Devolver una EDA con los ids de las ediciones
 	public void listarEdicionesCursos(Date fechaInicio, Date fechaFin) {
-		// TODO - implement CursoPropioDAO.listarEdicionesCursos
-		throw new UnsupportedOperationException();
+		
 	}
-
 }
