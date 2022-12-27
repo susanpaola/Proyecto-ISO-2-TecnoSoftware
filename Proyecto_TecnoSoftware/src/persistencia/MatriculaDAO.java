@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Vector;
 
 import negocio.entities.*;
+import persistencia.*;
 
 public class MatriculaDAO {
 	private GestorBD agenteBD;
