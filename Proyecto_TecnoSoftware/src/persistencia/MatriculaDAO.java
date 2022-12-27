@@ -6,15 +6,12 @@ import java.util.Vector;
 
 import negocio.entities.*;
 
-public class MatriculaDAO extends AbstractEntityDAO<Object> {
-
-	public MatriculaDAO(Class<Object> entityClass) {
-		super(entityClass);
-		// TODO Auto-generated constructor stub
-	}
-
-	//private AbstractEntityDAO<Matricula> abstractEntityDAO;
+public class MatriculaDAO {
 	private GestorBD agenteBD;
+
+	public MatriculaDAO() {
+		this.agenteBD = this.agenteBD.getAgente();
+	}
 	
 	public Vector<Object> selectMatriculas(String sql) throws Exception{
 		return agenteBD.select(sql);
@@ -31,5 +28,4 @@ public class MatriculaDAO extends AbstractEntityDAO<Object> {
 	public int deleteMatricula(String sql) {
 		return agenteBD.delete(sql);
 	}
-
 }
