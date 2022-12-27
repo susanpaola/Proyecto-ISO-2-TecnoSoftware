@@ -8,12 +8,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
 import java.awt.Color;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import negocio.entities.CursoPropio;
+
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -32,15 +37,18 @@ import java.awt.SystemColor;
 import javax.swing.border.MatteBorder;
 import java.awt.Panel;
 
-public class PantallaRealizarPropuesta extends JFrame {
+public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 
-	private JPanel contentPane;
-	private JTextField NombreCurso;
-	private JTextField NumCreditos;
-	private JTextField Facultad;
-	private JTextField Edicion;
-	private JTextField NombreProf;
-	private JTextField CategoriaProf;
+	public JPanel contentPane;
+	public JTextField NombreCurso;
+	public JTextField NumCreditos;
+	public JTextField Facultad;
+	public JTextField Edicion;
+	public JTextField NombreProf;
+	public JTextField CategoriaProf;
+	//public JComboBox<String> comboBox ;
+	public JTextField textPrecio;
+	CursoPropio curso;
 
 	/**
 	 * Launch the application.
@@ -61,8 +69,9 @@ public class PantallaRealizarPropuesta extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	String c="";
+	 String c="";
 	String Num;
+	
 	public PantallaRealizarPropuesta() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 		setTitle("UCLM\r\n");
@@ -104,12 +113,14 @@ public class PantallaRealizarPropuesta extends JFrame {
 				}
 		});
 		
-		JFormattedTextField NumCreditos  = new JFormattedTextField ();
+		NumCreditos  = new JTextField ();
 		NumCreditos.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
 		NumCreditos.setFont(new Font("Tahoma", Font.BOLD, 13));
 		NumCreditos.setColumns(10);
 		NumCreditos.setBounds(454, 220, 259, 39);
+		NumCreditos.addFocusListener(this);
 		contentPane.add(NumCreditos);
+		
 		
 		
 
@@ -153,7 +164,10 @@ public class PantallaRealizarPropuesta extends JFrame {
 		btnSiguiente.setBounds(599, 496, 114, 49);
 		contentPane.add(btnSiguiente);
 		btnSiguiente.addActionListener((ActionListener) new ActionListener() {
+	
+
 			public void actionPerformed(ActionEvent e) {
+				
 				Num=NumCreditos.getText();
 				
 					if (!textoVacio(Facultad)||!textoVacio(Edicion) || !textoVacio(NombreCurso) || !textoVacio(NombreProf)||!textoVacio(CategoriaProf) ) {
@@ -161,11 +175,11 @@ public class PantallaRealizarPropuesta extends JFrame {
 					else {
 				if (NumCreditos.getText().isEmpty()|| !isNumeric(NumCreditos.getText()))
 					JOptionPane.showMessageDialog(null, "Introduzca los créditos de manera correcta.", "ERROR", JOptionPane.ERROR_MESSAGE);
-				else 
+				else {
 				compruebaCreditos(c);
+			System.out.println(curso.toString());
 				
-				
-					}}});
+				}}}});
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -182,7 +196,8 @@ public class PantallaRealizarPropuesta extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					c= comboBox.getSelectedItem().toString();
+				c= comboBox.getSelectedItem().toString();
+					
 
 					}
 					
@@ -232,6 +247,21 @@ public class PantallaRealizarPropuesta extends JFrame {
 		lblDuracinDelCurso.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblDuracinDelCurso.setBounds(454, 347, 259, 39);
 		contentPane.add(lblDuracinDelCurso);
+		
+		textPrecio = new JTextField();
+		textPrecio.setEditable(false);
+		textPrecio.setFont(new Font("Tahoma", Font.BOLD, 13));
+		textPrecio.setColumns(10);
+		textPrecio.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
+		textPrecio.setBounds(232, 502, 259, 39);
+		contentPane.add(textPrecio);
+		
+		
+		JLabel lblPrecio = new JLabel("Precio de la matr\u00EDcula:");
+		lblPrecio.setForeground(SystemColor.textHighlight);
+		lblPrecio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblPrecio.setBounds(232, 453, 259, 39);
+		contentPane.add(lblPrecio);
 		System.out.println();
 	}
 	public void compruebaCreditos (String c) {
@@ -241,8 +271,11 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    case "Master de Formación Permanente":
 	    
 	    	if (num ==60 || num ==90 || num ==120) {
+	    	curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
+				new String ();
+				
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -252,6 +285,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	
 	    case "Especialización":
 	    	if (num >29 && num<60) {
+	    		curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	}
@@ -262,6 +296,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	break;
 	    case "Diploma de Experto":
 	    	if (num >14 && num<30) {
+	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	}
@@ -272,8 +307,10 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	break;
 	    case "Microcredenciales":
 	    	if (num >1 && num<15) {
+	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
+			
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -282,6 +319,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	break;
 	    case "Curso de Formacion Avanzada":
 	    	if (num >14 && num<31) {
+	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	}
@@ -292,6 +330,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	break;
 	    case "Curso de Formacion Continua":
 	    	if (num >2 && num<15) {
+	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	}
@@ -302,6 +341,7 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	break;
 	    case "Actividades de Corta Duración":
 	    	if (num >0 && num<2) {
+	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	}
@@ -311,10 +351,12 @@ public class PantallaRealizarPropuesta extends JFrame {
 	    	} 
 	    	break;
 	    case "Cursos de Verano":
+	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 				break;
 	    case "Extensión de Mayores":
+	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
 				p.setVisible(true);
 				setVisible(false);
 	    	break;
@@ -334,5 +376,25 @@ public class PantallaRealizarPropuesta extends JFrame {
 		if(cuadro.getText().equals(""))
 			vacio=false;
 		return vacio;
+	}
+	@Override
+	public void focusGained(FocusEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void focusLost(FocusEvent e) {
+		if(e.getSource()== NumCreditos) {
+			Num=NumCreditos.getText();
+			String a= String.valueOf((Double.parseDouble(Num))*18.87);
+			textPrecio.setText(a);
+		}
+	
+		// TODO Auto-generated method stub
+		
+	}
+	public int numRand() {
+		int numero = (int)(Math.random()*100+1);
+		return numero;
 	}
 }

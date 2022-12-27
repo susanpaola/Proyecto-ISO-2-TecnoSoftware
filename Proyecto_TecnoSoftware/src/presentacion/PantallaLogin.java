@@ -214,7 +214,7 @@ public class PantallaLogin  {
 						}
 						else {
 									 try {
-										 GestorBD.conectar();
+										 GestorBD.connect();
 										 String user= "SELECT usuario FROM Usuarios WHERE usuario = '"+usu+"'";
 										 Vector<Object> usuario,contra;
 										usuario = GestorBD.getAgente().select(user);

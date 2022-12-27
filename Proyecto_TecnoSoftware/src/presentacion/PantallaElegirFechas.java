@@ -17,7 +17,10 @@ import org.jdatepicker.impl.UtilDateModel;
 import com.google.protobuf.TextFormat.ParseException;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import negocio.entities.CursoPropio;
+
 import java.awt.Toolkit;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Properties;
@@ -35,7 +38,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.DropMode;
 
 public class PantallaElegirFechas extends JFrame {
-
 
 	private JPanel contentPane;
 
@@ -79,6 +81,8 @@ public class PantallaElegirFechas extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaElegirFechas() {
+
+
 		setTitle("UCLM\r\n");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -197,7 +201,11 @@ public class PantallaElegirFechas extends JFrame {
 				if (respuesta == JOptionPane.OK_OPTION) {
 					JOptionPane.showMessageDialog(null, "Su propuesta ha sido enviada de manera correcta.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
 					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
+
 					p.setVisible(true);
+					//curso2 = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
+					// DateFormat dfDateMedium = DateFormat.getDateInstance(DateFormat.MEDIUM);
+					 
 					setVisible(false);
 				}
 				

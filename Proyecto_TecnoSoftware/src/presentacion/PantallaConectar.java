@@ -76,7 +76,7 @@ public class PantallaConectar extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			try {
-				GestorBD.conectar();
+				GestorBD.connect();
 				presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 				p.mostrar();
 				setVisible(false);
