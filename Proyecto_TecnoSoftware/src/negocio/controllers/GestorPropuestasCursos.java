@@ -13,7 +13,7 @@ public class GestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		
 		try {
-			String sql = "INSERT INTO CursoPropio VALUES (" + curso.getId() + ",'" + curso.getNombre() + "'," + curso.getECTS() + ",'" + curso.getFechaInicio() + "','" + curso.getFechaFin() + "'," + curso.getTasaMatricula() + "," + curso.getEdicion() + ",'" + curso.getCentro().getNombre() + "','" + curso.getDirector().getDni() + "','" + curso.getSecretario().getDni() + "','" + curso.getEstado().toString() + "','" + curso.getTipo().toString() + "')";
+			String sql = "INSERT INTO CursoPropio VALUES (" + curso.getId() + ",'" + curso.getNombre() + "'," + curso.getECTS() + ",'" + curso.getFechaInicio() + "','" + curso.getFechaFin() + "'," + curso.getTasaMatricula() + "," + curso.getEdicion() + ",'" + curso.getCentro() + "','" + curso.getDirector() + "','" + curso.getSecretario() + "','" + curso.getEstadoCurso().toString() + "','" + curso.getTipoCurso().toString() + "')";
 			agenteCursoPropioDAO.insertarCurso(sql);
 			
 		} catch (Exception e) {
