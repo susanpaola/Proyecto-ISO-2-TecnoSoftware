@@ -56,7 +56,7 @@ public class CursoPropio {
 	}
 	
 	public void setECTS(int eCTS) {
-		ECTS = eCTS;
+		this.ECTS = eCTS;
 	}
 	
 	public String getFechaInicio() {
