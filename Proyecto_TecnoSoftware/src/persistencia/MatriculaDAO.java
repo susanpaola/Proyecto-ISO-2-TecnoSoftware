@@ -10,7 +10,11 @@ public class MatriculaDAO {
 	private GestorBD agenteBD;
 
 	public MatriculaDAO() {
-		this.agenteBD = this.agenteBD.getAgente();
+		try {
+			this.agenteBD = this.agenteBD.getAgente();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	public Vector<Object> selectMatriculas(String sql) throws Exception{
