@@ -34,6 +34,15 @@ public class GestorPropuestasCursos {
 	}
 
 	public EstadoCurso evaluarPropuesta(CursoPropio curso) {
+		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
+		
+		try {
+			String sql = "SELECT * FROM CursoPropio WHERE id=" + curso.getId();
+			Vector<Object> = agenteCursoPropioDAO.seleccionarCursos(sql);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		return null;
 	}
