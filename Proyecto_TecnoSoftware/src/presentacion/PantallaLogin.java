@@ -257,11 +257,15 @@ public class PantallaLogin  {
 			String nombre;
 			String name= "SELECT nombre FROM Usuarios WHERE usuario = '"+usu+"'";
 			String ape= "SELECT apellidos FROM Usuarios WHERE usuario = '"+usu+"'";
+			String charsToRemove="[]";
 			 Vector<Object> nom,apellidos;
 			try {
 				nom = GestorBD.getAgente().select(name);
 				apellidos=GestorBD.getAgente().select(ape);
-				nombre=(nom.get(0).toString()+""+apellidos.get(0).toString());
+				nombre=(nom.get(0).toString()+" "+apellidos.get(0).toString());
+				for(char c :charsToRemove.toCharArray()) {
+					nombre=nombre.replace(String.valueOf(c),"");
+				}
 				return nombre;
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
@@ -271,11 +275,15 @@ public class PantallaLogin  {
 }
 		public static String devolverTipo(String usu) {
 			String tipo;
+			String charsToRemove="[]";
 			String sql= "SELECT tipoUsuario FROM Usuarios WHERE usuario = '"+usu+"'";
 			 Vector<Object> nom;
 			try {
 				nom = GestorBD.getAgente().select(sql);
 				tipo=(nom.get(0).toString());
+				for(char c :charsToRemove.toCharArray()) {
+					tipo=tipo.replace(String.valueOf(c),"");
+				}
 				return tipo;
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
