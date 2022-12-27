@@ -74,7 +74,7 @@ public class GestorBD {
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de
-			 * datos El método select develve un vector de vectores, donde cada uno de los
+			 * datos El m≈Ωtodo select develve un vector de vectores, donde cada uno de los
 			 * vectores que contiene el vector principal representa los registros que se
 			 * recuperan de la base de datos.
 			*/
@@ -112,5 +112,4 @@ public class GestorBD {
 	public GestorBD() throws Exception {
 		connect();
 	}
-
 }

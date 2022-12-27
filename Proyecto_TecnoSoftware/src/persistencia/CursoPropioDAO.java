@@ -7,6 +7,11 @@ import negocio.entities.*;
 
 public class CursoPropioDAO extends AbstractEntityDAO<Object> {
 
+	public CursoPropioDAO(Class<Object> entityClass) {
+		super(entityClass);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 * @param curso

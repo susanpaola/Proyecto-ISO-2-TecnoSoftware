@@ -6,7 +6,7 @@ import java.util.*;
 import negocio.entities.*;
 
 public class GestorPropuestasCursos {
-	persistencia.CursoPropioDAO cDAO = new persistencia.CursoPropioDAO();
+	persistencia.CursoPropioDAO cDAO = new persistencia.CursoPropioDAO(null);
 	/**
 	 * 
 	 * @param curso
