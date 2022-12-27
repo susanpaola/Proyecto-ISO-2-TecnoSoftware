@@ -5,85 +5,86 @@ import java.util.Date;
 import persistencia.MatriculaDAO;
 
 public class Matricula {
-	public MatriculaDAO matriculaDAO;
-	public Estudiante estudiante;
-	public CursoPropio titulo;
-	public static ModoPago tipoPago;
-	private Date fecha;
+	private static ModoPago tipoPago;
+	private String fecha;
 	private boolean pagado;
-	private int attribute;
+	private int atributo;
 	private int idMatricula;
-	String idEstudiante;
-	public Matricula(Estudiante estudiante, CursoPropio titulo) throws Exception{
-		matriculaDAO = new MatriculaDAO();
-		this.estudiante = estudiante;
-		this.titulo = titulo;
-	}
-	public Matricula(Date fecha, boolean pagado, int attribute, ModoPago tipoPago, CursoPropio titulo, Estudiante estudiante) throws Exception {
-		matriculaDAO = new MatriculaDAO();
-		this.estudiante = estudiante;
-		this.titulo = titulo;
+	private int idTitulo;
+	private String idEstudiante;
+	
+	public Matricula(int idMatricula, String fecha, boolean pagado, int atributo, ModoPago tipoPago, int idTitulo, String idEstudiante) {
+		this.idEstudiante = idEstudiante;
+		this.idTitulo = idTitulo;
 		this.tipoPago = tipoPago;
 		this.fecha = fecha;
 		this.pagado = pagado;
-		this.attribute = attribute;
+		this.idMatricula = idMatricula;
+		this.atributo = atributo;
 	}
+	
 	public int getIdMatricula() {
 		return idMatricula;
 	}
+	
 	public void setIdMatricula(int idMatricula) {
 		this.idMatricula = idMatricula;
 	}
+	
 	public String getIdEstudiante() {
 		return idEstudiante;
 	}
+	
 	public void setIdEstudiante(String idEstudiante) {
 		this.idEstudiante = idEstudiante;
 	}
-	public String getIdTitulo() {
+	
+	public int getIdTitulo() {
 		return idTitulo;
 	}
-	public void setIdTitulo(String idTitulo) {
+	
+	public void setIdTitulo(int idTitulo) {
 		this.idTitulo = idTitulo;
 	}
-	String idTitulo;
 	
+	public int getIdTitulo() {
+		return idTitulo;
+	}
 	
-	public Estudiante getEstudiante() {
-		return estudiante;
+	public void setIdTitulo(int titulo) {
+		this.idTitulo = titulo;
 	}
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
-	}
-	public CursoPropio getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(CursoPropio titulo) {
-		this.titulo = titulo;
-	}
+	
 	public ModoPago getTipoPago() {
 		return tipoPago;
 	}
+	
 	public void setTipoPago(ModoPago tipoPago) {
 		this.tipoPago = tipoPago;
 	}
-	public Date getFecha() {
+	
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
+	
 	public boolean isPagado() {
 		return pagado;
 	}
+	
 	public void setPagado(boolean pagado) {
 		this.pagado = pagado;
 	}
-	public int getAttribute() {
-		return attribute;
+	
+	public int getAtributo() {
+		return atributo;
 	}
-	public void setAttribute(int attribute) {
-		this.attribute = attribute;
+	
+	public void setAtributo(int atributo) {
+		this.atributo = atributo;
 	}
 
 }
