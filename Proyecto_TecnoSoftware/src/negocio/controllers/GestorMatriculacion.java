@@ -13,11 +13,10 @@ public class GestorMatriculacion {
 	 */
 	public void realizarMatriculacion(Matricula matricula) {
 		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
-		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
 		
 		try {
 			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago().toString() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.getAtributo() + "," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
-			agenteBD.insert(sql);
+			agenteMatriculaDAO.insertMatricula(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -30,11 +29,10 @@ public class GestorMatriculacion {
 	 */
 	private void realizarPago(Matricula matricula) {
 		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
-		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
 		
 		try {
 			String sql = "UPDATE Matricula SET pagado=" + matricula.isPagado() +", tipoPago=" + "'" + matricula.getTipoPago().toString() + "'" + " WHERE id=" +  matricula.getIdMatricula();
-			agenteBD.update(sql);
+			agenteMatriculaDAO.updateMatricula(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
