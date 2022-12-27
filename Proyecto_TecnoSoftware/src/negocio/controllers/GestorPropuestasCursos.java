@@ -37,14 +37,42 @@ public class GestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		
 		try {
-			String sql = "SELECT * FROM CursoPropio WHERE id=" + curso.getId();
-			Vector<Object> = agenteCursoPropioDAO.seleccionarCursos(sql);
+			String sql = "SELECT estado FROM CursoPropio WHERE id=" + curso.getId();
+			Vector<Object> res = agenteCursoPropioDAO.seleccionarCursos(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
-		return null;
+		String estado = res.get(0).toString();
+		String charsToRemove = "[]";
+			 
+	        for (char c : charsToRemove.toCharArray()) {
+	            estado = estado.replace(String.valueOf(c), "");
+		}
+		
+		EstadoCurso ec = null;
+		switch(estado) {
+			case "PROPUESTO":
+				ec = EstadoCurso.PROPUESTO;
+				break;
+			case "VALIDADO":
+				ec = EstadoCurso.VALIDADO;
+				break;
+			case "PROPUESTA_RECHAZADA":
+				ec = EstadoCurso.PROPUESTA_RECHAZADA;
+				break;
+			case "EN_MATRICULACION":
+				ec = EstadoCurso.EN_MATRICULACION;
+				break;
+			case "EN_IMPARTIZICION":
+				ec = EstadoCurso.EN_IMPARTIZICION;
+				break;
+			case "TERMINADO":
+				ec = EstadoCurso.TERMINADO;
+				break;
+		}
+		return ec;
 	}
 
 	public void altaCursoAprobado(CursoPropio curso) {
