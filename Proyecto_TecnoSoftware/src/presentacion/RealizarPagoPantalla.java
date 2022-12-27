@@ -9,15 +9,18 @@ import java.awt.SystemColor;
 import javax.swing.JRadioButton;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RealizarPagoPantalla extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textNombre;
+	private JTextField textNumero;
+	private JTextField textCVV;
 
 	/**
 	 * Launch the application.
@@ -73,22 +76,34 @@ public class RealizarPagoPantalla extends JFrame {
 		lblCvv.setBounds(17, 242, 49, 14);
 		contentPane.add(lblCvv);
 		
-		textField = new JTextField();
-		textField.setBounds(113, 178, 240, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNombre = new JTextField();
+		textNombre.setBounds(113, 178, 240, 20);
+		contentPane.add(textNombre);
+		textNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(113, 211, 240, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textNumero = new JTextField();
+		textNumero.setBounds(113, 211, 240, 20);
+		contentPane.add(textNumero);
+		textNumero.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(113, 240, 112, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textCVV = new JTextField();
+		textCVV.setBounds(113, 240, 112, 20);
+		contentPane.add(textCVV);
+		textCVV.setColumns(10);
 		
 		JButton btnPagar = new JButton("Realizar Pago");
+		btnPagar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//Hay que indicar en que radiobutton se realiza la funcion
+				if(textNombre.getText().isEmpty() || textNumero.getText().isEmpty() || textCVV.getText().isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, "Procesandose pago", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
+		
 		btnPagar.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnPagar.setBounds(157, 278, 128, 39);
 		contentPane.add(btnPagar);
