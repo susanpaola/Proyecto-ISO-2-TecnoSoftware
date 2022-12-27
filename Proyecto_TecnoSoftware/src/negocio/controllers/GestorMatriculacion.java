@@ -17,7 +17,7 @@ public class GestorMatriculacion {
 		
 		try {
 			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.getAttribute() + "," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
-			agenteBD.update(sql);
+			agenteBD.insert(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
