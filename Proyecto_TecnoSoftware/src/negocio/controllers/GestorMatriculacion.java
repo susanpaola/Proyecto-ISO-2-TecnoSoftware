@@ -1,10 +1,8 @@
 package negocio.controllers;
 import java.sql.SQLException;
 
-import java.sql.SQLSyntaxErrorException;
-
-import negocio.entities.Matricula;
-import persistencia.MatriculaDAO;
+import java.sql.*;
+import persistencia.*;
 import negocio.entities.*;
 
 
@@ -18,18 +16,8 @@ public class GestorMatriculacion {
 		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
 		
 		try {
-			PreparedStatement insert = cnt.prepareStatement("INSERT INTO Matricula VALUES (?,?,?,?,?,?,?)");
-			insert.setInt(1, matricula.getIdMatricula()); //id
-			insert.setString(2, matricula.getTipoPago()); //tipoPago
-			insert.setInt(3, matricula.getIdTitulo()); //titulo
-			insert.setString(4, matricula.getIdEstudiante()); //estudiante
-			insert.setInt(5, matricula.getAttribute()); //atributo
-			insert.setBoolean(6, matricula.isPagado()); //pagado
-			
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-			java.util.Date parseado = sdf.parse(matricula.getFecha());
-			Date fecha = new java.sql.Date(parseado.getTime());
-			insert.setDate(7, fecha); //fecha
+			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.getAttribute() + "," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
+			agenteBD.update(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
@@ -45,10 +33,8 @@ public class GestorMatriculacion {
 		AgenteBD agenteBD = agenteMatriculaDAO.getAgenteBD();
 		
 		try {
-			PreparedStatement insert = cnt.prepareStatement("UPDATE Matricula SET pagado=?, tipoPago=? WHERE id=?");
-			insert.setBoolean(1, matricula.isPagado()); //pagado
-			insert.setString(2, matricula.getTipoPago()); //tipoPago
-			insert.setInt(3, matricula.getIdMatricula()); //id
+			String sql = "UPDATE Matricula SET pagado=" + matricula.isPagado() +", tipoPago=" + "'" + matricula.getTipoPago() + "'" + " WHERE id=" +  matricula.getIdMatricula();
+			agenteBD.update(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
