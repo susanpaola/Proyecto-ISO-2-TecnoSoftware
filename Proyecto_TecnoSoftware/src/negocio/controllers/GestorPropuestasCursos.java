@@ -11,11 +11,10 @@ public class GestorPropuestasCursos {
 
 	public void realizarPropuestaCurso(CursoPropio curso) {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
-		AgenteBD agenteBD = agenteCursoPropioDAO.getAgenteBD();
 		
 		try {
 			String sql = "INSERT INTO CursoPropio VALUES (" + curso.getId() + ",'" + curso.getNombre() + "'," + curso.getECTS() + ",'" + curso.getFechaInicio() + "','" + curso.getFechaFin() + "'," + curso.getTasaMatricula() + "," + curso.getEdicion() + ",'" + curso.getCentro().getNombre() + "','" + curso.getDirector().getDni() + "','" + curso.getSecretario().getDni() + "','" + curso.getEstado().toString() + "','" + curso.getTipo().toString() + "')";
-			agenteBD.insert(sql);
+			agenteCursoPropioDAO.insertarCurso(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
