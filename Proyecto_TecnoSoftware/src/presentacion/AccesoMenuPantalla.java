@@ -53,7 +53,7 @@ public class AccesoMenuPantalla extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnEstudiante = new JButton("MATRICULA ESTUDIANTE");
+		JButton btnEstudiante = new JButton("MATRICULA");
 		btnEstudiante.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
