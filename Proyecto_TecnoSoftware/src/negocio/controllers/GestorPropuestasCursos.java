@@ -1,33 +1,25 @@
 package negocio.controllers;
 
-import java.awt.*;
 import java.text.*;
 import java.time.*;
 import java.util.*;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 import negocio.entities.*;
+import persistencia.*;
 
-public class GestorPropuestasCursos extends JFrame{
+public class GestorPropuestasCursos {
 
-	// Terminado
-	public CursoPropio realizarPropuestaCurso() {
-		// TODO - implement GestorPropuestasCursos.realizarPropuestaCurso
-		//throw new UnsupportedOperationException();
-		JPanel contentPanel = new JPanel();
-		contentPanel.setBackground(Color.WHITE);
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPanel);
-		contentPanel.setLayout(null);
+	public void realizarPropuestaCurso(CursoPropio curso) {
+		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
+		AgenteBD agenteBD = agenteCursoPropioDAO.getAgenteBD();
 		
-		JLabel lblNewLabel = new JLabel("Propuesta de curso realizada");
-		lblNewLabel.setForeground(SystemColor.textHighlight);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 28));
-		lblNewLabel.setBounds(60, 112, 581, 75);
-		contentPanel.add(lblNewLabel);
-		CursoPropio propuesta = new CursoPropio();
-		return propuesta;
+		try {
+			String sql = "INSERT INTO CursoPropio VALUES (" + curso.getId() + ",'" + curso.getNombre() + "'," + curso.getECTS() + ",'" + curso.getFechaInicio() + "','" + curso.getFechaFin() + "'," + curso.getTasaMatricula() + "," + curso.getEdicion() + ",'" + curso.getCentro().getNombre() + "','" + curso.getDirector().getDni() + "','" + curso.getSecretario().getDni() + "','" + curso.getEstado().toString() + "','" + curso.getTipo().toString() + "')";
+			agenteBD.insert(sql);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	/**
