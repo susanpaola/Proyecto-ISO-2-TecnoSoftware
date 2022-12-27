@@ -13,7 +13,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-import presentacion.PantallaElegirFechas.DateLabelFormatter;
+//import presentacion.PantallaElegirFechas.DateLabelFormatter;
 
 import javax.swing.JLabel;
 import java.awt.TextField;
