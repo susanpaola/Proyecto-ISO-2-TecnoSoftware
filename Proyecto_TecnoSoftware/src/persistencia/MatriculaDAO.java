@@ -32,4 +32,8 @@ public class MatriculaDAO {
 	public int deleteMatricula(String sql) {
 		return agenteBD.delete(sql);
 	}
+	
+	public GestorBD getAgenteBD() {
+		return this.agenteBD;	
+	}
 }
