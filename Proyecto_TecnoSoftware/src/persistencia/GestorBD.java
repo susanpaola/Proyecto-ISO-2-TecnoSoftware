@@ -69,10 +69,6 @@ public class GestorBD {
 		disconnect();
 		return res;
 	}
-	
-	public boolean update(PreparedStatement SQL) {
-		return SQL.execute();
-	}
 
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
