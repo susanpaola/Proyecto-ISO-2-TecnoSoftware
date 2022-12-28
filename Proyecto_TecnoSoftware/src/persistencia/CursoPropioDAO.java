@@ -26,6 +26,14 @@ public class CursoPropioDAO {
 			return cursos;
 	}
 
+	public Vector<Object> estadoResuelto() throws Exception {
+		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`<>'PROPUESTO'");
+	return a;
+	}
+	public Vector<Object> estadoPendiente() throws Exception {
+		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`='PROPUESTO'");
+	return a;
+	}
 	public int editarCurso(String sql) throws SQLException, Exception {
 		return agenteBD.update(sql);
 	}

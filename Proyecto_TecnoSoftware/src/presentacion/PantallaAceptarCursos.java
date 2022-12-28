@@ -36,7 +36,6 @@ import java.awt.Cursor;
 public class PantallaAceptarCursos extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
 	CursoPropioDAO cDAO = new CursoPropioDAO ();
 
 	/**
@@ -119,7 +118,9 @@ public class PantallaAceptarCursos extends JFrame {
             				try {
             					String b=a.get(list.getSelectedIndex()).toString().replace("[", "").split(",")[0];
             					cDAO.editarCurso("UPDATE CursoPropio SET `estado`= 'PROPUESTA_RECHAZADA' WHERE `id` = '"+b+"'");
+            					JOptionPane.showInputDialog("Envie los motivos de la denegación del curso.");
             					listModel.remove(list.getSelectedIndex());
+            					
             				} catch (Exception e1) {
             					e1.printStackTrace();
             				}

@@ -18,13 +18,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Properties;
+import java.util.Vector;
 import java.awt.Color;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import negocio.entities.CursoPropio;
 import persistencia.CursoPropioDAO;
-import presentacion.PantallaElegirFechas.DateLabelFormatter;
+import persistencia.GestorBD;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
@@ -158,7 +159,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		NombreProf = new JTextField();
 		NombreProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
 		NombreProf.setFont(new Font("Tahoma", Font.BOLD, 13));
-		NombreProf.setText("AUTO\r\n");
 		NombreProf.setColumns(10);
 		NombreProf.setBounds(71, 259, 259, 39);
 		contentPane.add(NombreProf);
@@ -173,7 +173,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		CategoriaProf = new JTextField();
 		CategoriaProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
 		CategoriaProf.setFont(new Font("Tahoma", Font.BOLD, 13));
-		CategoriaProf.setText("AUTO");
 		CategoriaProf.setColumns(10);
 		CategoriaProf.setBounds(71, 337, 259, 39);
 		contentPane.add(CategoriaProf);
@@ -319,7 +318,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		lblNewLabel.setBounds(71, 142, 259, 39);
 		contentPane.add(lblNewLabel);
 		
-		lblNombreDelProfesor = new JLabel("Nombre del profesor:");
+		lblNombreDelProfesor = new JLabel("DNI del profesor");
 		lblNombreDelProfesor.setForeground(SystemColor.textHighlight);
 		lblNombreDelProfesor.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNombreDelProfesor.setBounds(71, 230, 259, 39);
