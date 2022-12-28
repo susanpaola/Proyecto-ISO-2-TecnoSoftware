@@ -2,9 +2,9 @@ name: SonarCloud
 on:
   push:
     branches:
-      - develop
-      - testing
-      - main
+      - Master
+      - Develop
+      - Feature-BBDD
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
