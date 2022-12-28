@@ -7,10 +7,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<sonar.organization>tecnosoftware</sonar.organization>
-  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
   		<sonar.projectKey>Proyecto_TecnoSoftware:Proyecto_TecnoSoftware</sonar.projectKey>
   		<sonar.login>baa073e21fd996de76c40d8c3521b34b217e3c90</sonar.login>
+		<sonar.organization>tecnosoftware</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			<sonar.sources>C:\Users\Usuario\git\PROYECTOS_GIT\TecnoSoftware\Proyecto-ISO-2-TecnoSoftware </sonar.sources>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -230,11 +231,8 @@
 			
 		</plugins>
 	</reporting>
-	<properties>
-		<sonar.organization>tecnosoftware</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-			<sonar.sources>C:\Users\Usuario\git\PROYECTOS_GIT\TecnoSoftware\Proyecto-ISO-2-TecnoSoftware </sonar.sources>
-	</properties>
+	
+
 
 </project>
 
