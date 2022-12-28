@@ -72,11 +72,14 @@ public class GestorBD {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> refs/remotes/origin/Feature-GestorMatriculacion
 =======
 >>>>>>> refs/heads/Feature-GestorConsultas
+=======
+>>>>>>> refs/heads/Feature-GestorPropuestasCursos
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de

@@ -1,9 +1,12 @@
 package persistencia;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.sql.SQLException;
 =======
 >>>>>>> refs/heads/Feature-GestorConsultas
+=======
+>>>>>>> refs/heads/Feature-GestorPropuestasCursos
 import java.util.*;
 import negocio.entities.*;
 import persistencia.*;
@@ -24,6 +27,7 @@ public class CursoPropioDAO {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public Vector<Object> seleccionarCursos(String sql) throws Exception {
 		Vector<Object> cursos;
 			cursos = GestorBD.getAgente().select(sql);			
@@ -32,13 +36,23 @@ public class CursoPropioDAO {
 	public Vector<Object> seleccionarCursos(String sql) {
 		return agenteBD.select(sql);
 >>>>>>> refs/heads/Feature-GestorConsultas
+=======
+	public Vector<Object> seleccionarCursos(String sql) {
+		return agenteBD.select(sql);
+>>>>>>> refs/heads/Feature-GestorPropuestasCursos
 	}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public Vector<Object> estadoResuelto() throws Exception {
 		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`<>'PROPUESTO'");
 	return a;
+=======
+	public int editarCurso(String sql) {
+		return agenteBD.update(sql);
+>>>>>>> refs/heads/Feature-GestorPropuestasCursos
 	}
+<<<<<<< HEAD
 	public Vector<Object> estadoPendiente() throws Exception {
 		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`='PROPUESTO'");
 	return a;
@@ -67,4 +81,6 @@ public class CursoPropioDAO {
 	}
 =======
 >>>>>>> refs/heads/Feature-GestorConsultas
+=======
+>>>>>>> refs/heads/Feature-GestorPropuestasCursos
 }
