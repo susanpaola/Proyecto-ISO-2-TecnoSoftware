@@ -15,7 +15,6 @@ public class GestorConsultas {
 	 * @param fechaInicio
 	 * @param fechaFin
 	 */
-<<<<<<< HEAD
 	public double consultarIngresos(TipoCurso tipo, String fechaInicio, String fechaFin) {
 		double ganancia = 0.00;
 		String charsToRemove = "[] ";
@@ -52,18 +51,6 @@ public class GestorConsultas {
 		
 		return ganancia;		
 	}
-=======
-	/*public List<List<String>> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
-		// TODO - implement GestorConsultas.consultarIngresos
-
-		List<List<String>> ingreso = new ArrayList<>();
-		CursoPropioDAO<CursoPropio> curso = new CursoPropioDAO<>();
-		
-		ingreso = curso.listarIngresos(tipo, fechaInicio, fechaFin);
-		return ingreso;
-
-	}*/
->>>>>>> refs/remotes/origin/Feature-BBDD
 
 	/**
 	 * 
