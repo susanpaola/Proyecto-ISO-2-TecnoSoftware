@@ -224,9 +224,16 @@
 	<properties>
 		<sonar.organization>tecnosoftware</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+<<<<<<< HEAD
 		<sonar.sources>C:\Users\Usuario\git\Proyecto-ISO-2-TecnoSoftware\Proyecto_TecnoSoftware\src</sonar.sources>
+=======
+>>>>>>> refs/remotes/origin/Feature-BBDD
 	</properties>
 
 </project>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Feature-BBDD

@@ -22,8 +22,42 @@ public class CursoPropioDAO {
 
 	public Vector<Object> seleccionarCursos(String sql) throws Exception {
 		Vector<Object> cursos;
+<<<<<<< HEAD
 		cursos = GestorBD.getAgente().select(sql);			
 		return cursos;
+=======
+			cursos = GestorBD.getAgente().select(sql);			
+			return cursos;
+	}
+
+	public Vector<Object> estadoResuelto() throws Exception {
+		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`<>'PROPUESTO'");
+	return a;
+	}
+	public Vector<Object> estadoPendiente() throws Exception {
+		Vector<Object> a = seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`='PROPUESTO'");
+	return a;
+	}
+	public int editarCurso(String sql) throws SQLException, Exception {
+		return agenteBD.update(sql);
+	}
+
+	//Dado un estado, devolver un Vector<Object> con ellos
+	/*public Vector<Object> listarCursosPorEstado(EstadoCurso estado) throws Exception {
+	return agenteBD.select(sql);
+	}*/
+
+
+	/**
+	 * 
+	 * @param tipo
+	 * @param fechaInicio
+	 * @param fechaFin
+	 */
+	public List<List<String>> listarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
+		// TODO - implement CursoPropioDAO.listarIngresos
+		throw new UnsupportedOperationException();
+>>>>>>> refs/remotes/origin/Feature-BBDD
 	}
 	
 	public int editarCurso(String sql) {
