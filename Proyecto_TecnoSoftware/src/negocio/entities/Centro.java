@@ -8,8 +8,7 @@ public class Centro {
 	Collection<ProfesorUCLM> plantilla;
 	private String nombre;
 	private String localizacion;
-	private int attribute;
-	private int Id;
+	private int attribute;		
 	
 	public Centro(Collection<CursoPropio> cursoPropios, Collection<ProfesorUCLM> plantilla, String nombre,
 			String localizacion, int attribute, int id) {
