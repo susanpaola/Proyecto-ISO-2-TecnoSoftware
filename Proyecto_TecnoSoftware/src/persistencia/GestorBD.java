@@ -11,7 +11,6 @@ public class GestorBD {
 	// Identificador ODBC de la base de datos
 	private static String url = "jdbc:mysql://db4free.net:3306/proyecto_iso";
 	// Driven para conectar con bases de datos MySQL
-		
 	private static String driver= "com.mysql.cj.jdbc.Driver";
 	private static String user= "proyecto_iso";
 	private static String password="contrase\u00f1a";
@@ -60,7 +59,6 @@ public class GestorBD {
 		return res;
 	}
 
-	// Metodo para realizar una eliminacion en la base de datos
 	public int update(String SQL) throws SQLException, Exception {
 		connect();
 		PreparedStatement stmt = mBD.prepareStatement(SQL);
@@ -69,14 +67,7 @@ public class GestorBD {
 		disconnect();
 		return res;
 	}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/Feature-GestorMatriculacion
-=======
->>>>>>> refs/heads/Feature-GestorConsultas
+	
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de

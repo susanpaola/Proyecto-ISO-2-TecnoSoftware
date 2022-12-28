@@ -8,25 +8,19 @@ public class Centro {
 	Collection<ProfesorUCLM> plantilla;
 	private String nombre;
 	private String localizacion;
-	private int attribute;
-	private int Id;
+	private int attribute;		
+
 	
 	public Centro(Collection<CursoPropio> cursoPropios, Collection<ProfesorUCLM> plantilla, String nombre,
-			String localizacion, int attribute, int id) {
+			String localizacion, int attribute) {
 		super();
 		this.cursoPropios = cursoPropios;
 		this.plantilla = plantilla;
 		this.nombre = nombre;
 		this.localizacion = localizacion;
 		this.attribute = attribute;
-		Id = id;
 	}
-	public int getId() {
-		return Id;
-	}
-	public void setId(int id) {
-		Id = id;
-	}
+	
 	public Collection<CursoPropio> getCursoPropios() {
 		return cursoPropios;
 	}
