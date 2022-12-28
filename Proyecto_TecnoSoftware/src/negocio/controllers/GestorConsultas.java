@@ -58,14 +58,65 @@ public class GestorConsultas {
 	 * @param fechaInicio
 	 * @param fechaFin
 	 */
-	public List<CursoPropio> consultarEstadoCursos(EstadoCurso estadoCurso, Date fechaInicio, Date fechaFin) {
-		// TODO - implement GestorConsultas.consultarEstadoCursos
+	public List<CursoPropio> consultarEstadoCursos(EstadoCurso estado, String fechaInicio, String fechaFin) {
+		String charsToRemove = "[] ";
 		List<CursoPropio> listaEstadoCurso = new ArrayList<>();
-		CursoPropioDAO<CursoPropio> curso = new CursoPropioDAO<>();
+		String sql = "SELECT * FROM CursoPropio WHERE estado='" + estado.toString() + "' AND fechaIni >='" + fechaInicio + "' AND fechaFin <='" + fechaFin + "'";
+		Vector<Object> vectorCursos = new Vector<Object>();
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		vectorCursos = cursoDAO.seleccionarCursos(sql);
 		
-		listaEstadoCurso = curso.listarCursosPorEstado(estadoCurso, fechaInicio, fechaFin);
+		for (int i = 0; i < vectorCursos.size(); i++) {
+			String curso = vectorCursos.get(i).toString();
+				 
+		       	for (char c : charsToRemove.toCharArray()) {
+		        	curso = curso.replace(String.valueOf(c), "");
+			}
+		       
+		        String[] parts = curso.split(",");
+			
+			int id = Integer.parseInt(parts[0]);
+			String nombre = parts[1];
+			int ECTS = Integer.parseInt(parts[2]);
+			String fechaIni = parts[3];
+			String fechaFin = parts[4];
+			double tasa = Double.parseDouble(parts[5]);
+			int edicion = Integer.parseInt(parts[6]);
+			String centro = parts[7];
+			String director = parts[8];
+			String secretario = parts[9];
+			String tipoCurso = parts[11];
+			
+			TipoCurso tipo = null;
+			switch(tipoCurso) {
+				case "MASTER":
+					tipo = TipoCurso.MASTER;
+					break;
+				case "EXPERTO":
+					tipo = TipoCurso.EXPERTO;
+					break;
+				case "ESPECIALISTA":
+					tipo = TipoCurso.ESPECIALISTA;
+					break;
+				case "FORMACION_AVANZADA":
+					tipo = TipoCurso.FORMACION_AVANZADA;
+					break;
+				case "FORMACION_AVANZADA":
+					tipo = TipoCurso.FORMACION_AVANZADA;
+					break;
+				case "MICROCREDENCIALES":
+					tipo = TipoCurso.MICROCREDENCIALES;
+					break;
+				case "CORTA_DURACION":
+					tipo = TipoCurso.CORTA_DURACION;
+					break;
+			}
+			
+			CursoPropio cursoCreado = new CursoPropio(id, nombre, ECTS, fechaIni, fechaFin, tasa, edicion, centro, director, secretario, estado, tipo);
+			listaEstadoCurso.add(cursoCreado);
+		}
+		
 		return listaEstadoCurso;
-		//throw new UnsupportedOperationException();
 	}
 
 	/**
