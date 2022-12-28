@@ -25,7 +25,7 @@ public class Centro {
 		return Id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.Id = id;
 	}
 	public Collection<CursoPropio> getCursoPropios() {
 		return cursoPropios;
