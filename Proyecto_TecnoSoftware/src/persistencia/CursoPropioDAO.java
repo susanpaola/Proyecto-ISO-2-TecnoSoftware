@@ -43,9 +43,16 @@ public class CursoPropioDAO {
 	return agenteBD.select(sql);
 	}*/
 
-	//Dado un tipo de curso, devolver un double con la suma de sus campos tasa
-	public double listarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
-		return 0.00;
+
+	/**
+	 * 
+	 * @param tipo
+	 * @param fechaInicio
+	 * @param fechaFin
+	 */
+	public List<List<String>> listarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
+		// TODO - implement CursoPropioDAO.listarIngresos
+		throw new UnsupportedOperationException();
 	}
 	
 	//Devolver una EDA con los ids de las ediciones
