@@ -15,15 +15,41 @@ public class GestorConsultas {
 	 * @param fechaInicio
 	 * @param fechaFin
 	 */
-	public List<List<String>> consultarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
-		// TODO - implement GestorConsultas.consultarIngresos
-		List<List<String>> ingreso = new ArrayList<>();
-		CursoPropioDAO<CursoPropio> curso = new CursoPropioDAO<>();
-				
-		ingreso = curso.listarIngresos(tipo, fechaInicio, fechaFin);
-		return ingreso;
-		//throw new UnsupportedOperationException();
-				
+	public List<List<String>> consultarIngresos(TipoCurso tipo, String fechaInicio, String fechaFin) {
+		double ganancia = 0.00;
+		String charsToRemove = "[] ";
+			
+		String sql = "SELECT * FROM CursoPropio WHERE tipo='" + tipo.toString() + "' AND fechaIni >='" + ini + "' AND fechaFin <='" + fin + "' AND estado='VALIDADO'";
+		Vector<Object> vectorCursos = new Vector<Object>();
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		vectorCursos = cursoDAO.seleccionarCursos(sql);
+		
+		for (int i = 0; i < vectorCursos.size(); i++) {
+			String curso = vectorCursos.get(i).toString();
+				 
+		       	for (char c : charsToRemove.toCharArray()) {
+		        	curso = curso.replace(String.valueOf(c), "");
+			}
+		       
+		        String[] parts = curso.split(",");
+		        int id = Integer.parseInt(parts[0]);
+		        double tasa = Double.parseDouble(parts[5]);
+		        
+		        String sql2 = "SELECT COUNT(*) FROM Matricula WHERE titulo=" + id;
+		        Vector<Object> vectorMatriculas = new Vector<Object>();
+			vectorMatriculas = cursoDAO.seleccionarCursos(sql2);
+			
+			String num_matriculas = vectorMatriculas.get(0).toString();
+				 
+		        for (char c : charsToRemove.toCharArray()) {
+		        	num_matriculas = num_matriculas.replace(String.valueOf(c), "");
+		        }
+		        
+		        int num = Integer.parseInt(num_matriculas);
+				ganancia += tasa * num;
+		}
+		
+		return ganancia;		
 	}
 
 	/**
