@@ -1,0 +1,86 @@
+
+Bnegocio.controllers.GestorPropuestasCursos#preguntaContinuacion()Z†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javaq q($"3*ƒ
+3†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javar r(Ñ
+Î
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javas s(
+%0java.io.PrintStream"__id*"
+
+__unknown_file (
+""‚ÿ
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javas s(U
+
+%1void"0java.io.PrintStream#println(Ljava/lang/String;)V*7
+
+__unknown_file (
+
+%0java.io.PrintStream*`
+
+__unknown_file (DB
+@Â¿Desea editar mÃ¡s valores? (Introduzca S para sÃ­ | N para no)2println(Ljava/lang/String;)Ñ
+Î
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javat( t(1
+%2java.io.InputStream"__id*"
+
+__unknown_file (
+""¸µ
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javat t(&
+%3java.util.Scanner"java.util.Scanner´
+±
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javat t(2
+%4"0java.util.Scanner#<init>(Ljava/io/InputStream;)V*5
+
+__unknown_file (
+
+%3java.util.Scanner*7
+
+__unknown_file (
+
+%2java.io.InputStreamî
+ë
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javat t(3#
+entradaEscanerjava.util.Scanner"__id*5
+
+__unknown_file (
+
+%3java.util.Scanner£ 
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javau u(3
+%5java.lang.String".java.util.Scanner#nextLine()Ljava/lang/String;*A
+
+__unknown_file (%
+#
+entradaEscanerjava.util.Scanner2
+nextLine()ì
+é
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javau u(4"
+entradaTecladojava.lang.String"__id*4
+
+__unknown_file (
+
+%5java.lang.StringÊÇ
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javaw w( 
+%6boolean",java.lang.String#equals(Ljava/lang/Object;)Z*@
+
+__unknown_file ($
+"
+entradaTecladojava.lang.String*!
+
+__unknown_file (
+S2equals(Ljava/lang/Object;)*
+1* 
+1†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javaz	 z("‘
+†
+|C:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/negocio/controllers/GestorPropuestasCursos.javaz z(
+""B.,
+*negocio.controllers.GestorPropuestasCursosH

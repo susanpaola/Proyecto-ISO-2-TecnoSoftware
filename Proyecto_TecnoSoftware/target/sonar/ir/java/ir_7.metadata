@@ -1,0 +1,3 @@
+persistencia.GestorBD#delete(Ljava/lang/String;)I
+persistencia.GestorBD#desconectar()V
+persistencia.GestorBD#conectar()V

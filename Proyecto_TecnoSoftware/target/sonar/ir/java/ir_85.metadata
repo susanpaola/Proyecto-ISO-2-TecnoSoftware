@@ -1,0 +1,3 @@
+persistencia.CursoPropioDAO#crearNuevoCurso(Lnegocio/entities/CursoPropio;)I
+java.lang.UnsupportedOperationException#<init>()V
+java.lang.UnsupportedOperationException#instance-init#
