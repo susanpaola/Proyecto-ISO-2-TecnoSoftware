@@ -70,6 +70,10 @@ public class GestorBD {
 		return res;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Feature-GestorMatriculacion
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de

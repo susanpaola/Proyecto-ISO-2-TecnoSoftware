@@ -1,52 +1,41 @@
 package negocio.controllers;
+import java.sql.SQLException;
 
+import java.sql.*;
+import persistencia.*;
 import negocio.entities.*;
 
+
 public class GestorMatriculacion {
-
 	/**
 	 * 
-	 * @param curso
-	 * @param estudiante
+	 * @param matricula
 	 */
-	public void realizarMatriculacion(CursoPropio curso, Estudiante estudiante) {
-		// TODO - implement GestorMatriculacion.realizarMatriculacion
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param curso
-	 * @param estudiante
-	 */
-	public void realizarPagoMatricula(CursoPropio curso, Estudiante estudiante) {
-		// TODO - implement GestorMatriculacion.realizarPagoMatricula
-		throw new UnsupportedOperationException();
+	public void realizarMatriculacion(Matricula matricula) {
+		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
+		
+		try {
+			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago().toString() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.getAtributo() + "," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
+			agenteMatriculaDAO.insertMatricula(sql);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	/**
 	 * 
-	 * @param curso
-	 * @param estudiante
+	 * @param matricula
 	 */
-	private void realizarPagoTarjeta(CursoPropio curso, Estudiante estudiante) {
-		// TODO - implement GestorMatriculacion.realizarPagoTarjeta
-		throw new UnsupportedOperationException();
+	private void realizarPago(Matricula matricula) {
+		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
+		
+		try {
+			String sql = "UPDATE Matricula SET pagado=" + matricula.isPagado() +", tipoPago=" + "'" + matricula.getTipoPago().toString() + "'" + " WHERE id=" +  matricula.getIdMatricula();
+			agenteMatriculaDAO.updateMatricula(sql);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
-
-	/**
-	 * 
-	 * @param curso
-	 * @param estudiante
-	 */
-	private void realizarPagoTransferencia(CursoPropio curso, Estudiante estudiante) {
-		// TODO - implement GestorMatriculacion.realizarPagoTransferencia
-		throw new UnsupportedOperationException();
-	}
-
-	private void operation() {
-		// TODO - implement GestorMatriculacion.operation
-		throw new UnsupportedOperationException();
-	}
-
 }
