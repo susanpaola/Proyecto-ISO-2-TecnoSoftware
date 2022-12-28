@@ -15,7 +15,7 @@ public class GestorConsultas {
 	 * @param fechaInicio
 	 * @param fechaFin
 	 */
-	public List<List<String>> consultarIngresos(TipoCurso tipo, String fechaInicio, String fechaFin) {
+	public double consultarIngresos(TipoCurso tipo, String fechaInicio, String fechaFin) {
 		double ganancia = 0.00;
 		String charsToRemove = "[] ";
 			
