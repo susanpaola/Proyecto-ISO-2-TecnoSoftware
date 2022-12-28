@@ -8,24 +8,22 @@ public class Centro {
 	Collection<ProfesorUCLM> plantilla;
 	private String nombre;
 	private String localizacion;
+<<<<<<< HEAD
 	private int attribute;		
+=======
+	private int attribute;
+>>>>>>> branch 'Develop' of https://github.com/susanpaola/Proyecto-ISO-2-TecnoSoftware.git
 	
 	public Centro(Collection<CursoPropio> cursoPropios, Collection<ProfesorUCLM> plantilla, String nombre,
-			String localizacion, int attribute, int id) {
+			String localizacion, int attribute) {
 		super();
 		this.cursoPropios = cursoPropios;
 		this.plantilla = plantilla;
 		this.nombre = nombre;
 		this.localizacion = localizacion;
 		this.attribute = attribute;
-		Id = id;
 	}
-	public int getId() {
-		return Id;
-	}
-	public void setId(int id) {
-		this.Id = id;
-	}
+	
 	public Collection<CursoPropio> getCursoPropios() {
 		return cursoPropios;
 	}
