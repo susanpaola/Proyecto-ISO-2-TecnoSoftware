@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import persistencia.CursoPropioDAO;
 import persistencia.GestorBD;
 
 import javax.swing.ImageIcon;
@@ -20,11 +21,13 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class PantallaDireccionCursos extends JFrame {
+	
 
 		public void altaCurso() {
 			// TODO - implement PantallaDireccionCursos.altaCurso
@@ -38,8 +41,10 @@ public class PantallaDireccionCursos extends JFrame {
 
 
 	private JPanel contentPane;
-	private JTextField NombreUsu;
-	private JTextField TipoUsuario;
+	public final JTextField NombreUsu;
+	public final JTextField TipoUsuario;
+	presentacion.PantallaLogin p = new presentacion.PantallaLogin();
+	CursoPropioDAO cDAO = new CursoPropioDAO();
 
 	/**
 	 * Launch the application.
@@ -49,7 +54,6 @@ public class PantallaDireccionCursos extends JFrame {
 			public void run() {
 				try {
 					PantallaDireccionCursos frame = new PantallaDireccionCursos();
-					
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -82,9 +86,20 @@ public class PantallaDireccionCursos extends JFrame {
 		btnMostrarPendientes.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					//presentacion.PantallaLogin p = new presentacion.PantallaLogin();
-					//p.mostrar();
-					setVisible(false);
+					presentacion.PantallaPropuestasPendientes p;
+					try {
+						 if (cDAO.estadoPendiente().size()==0) {
+					    	 JOptionPane.showMessageDialog(null, "No existen propuestas pendientes en este momento.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);}
+						 else {
+						p = new presentacion.PantallaPropuestasPendientes();
+						p.setVisible(true);
+						setVisible(false);
+						}
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
 				}
 		});
 		
@@ -106,36 +121,84 @@ public class PantallaDireccionCursos extends JFrame {
 				
 					presentacion.PantallaRealizarPropuesta p = new presentacion.PantallaRealizarPropuesta();
 					p.setVisible(true);
+					p.CategoriaProf.setText(TipoUsuario.getText());
+					p.NombreProf.setText(devolverDNI(NombreUsu.getText().split(" ")[0].toString()));
 					setVisible(false);
 				}
 		});
 		
 		
 		NombreUsu = new JTextField();
+		NombreUsu.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		NombreUsu.setEditable(false);
 		NombreUsu.setHorizontalAlignment(SwingConstants.RIGHT);
 		NombreUsu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		NombreUsu.setText("NOMBRE");
-		NombreUsu.setEditable(false);
 		NombreUsu.setColumns(10);
 		NombreUsu.setBorder(null);
 		NombreUsu.setBackground(Color.WHITE);
 		NombreUsu.setBounds(327, 103, 252, 19);
 		contentPane.add(NombreUsu);
 		
+		
 		TipoUsuario = new JTextField();
+		TipoUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		TipoUsuario.setHorizontalAlignment(SwingConstants.RIGHT);
 		TipoUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
-		TipoUsuario.setText("TIPO USUARIO\r\n");
 		TipoUsuario.setEditable(false);
 		TipoUsuario.setColumns(10);
 		TipoUsuario.setBorder(null);
 		TipoUsuario.setBackground(Color.WHITE);
 		TipoUsuario.setBounds(327, 145, 252, 19);
 		contentPane.add(TipoUsuario);
+		 
+		
 		
 		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("");
 		lblNewJgoodiesLabel_1.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\images2.jpg"));
 		lblNewJgoodiesLabel_1.setBounds(609, 39, 125, 125);
 		contentPane.add(lblNewJgoodiesLabel_1);
+		
+		JButton btnMostrarResueltos = new JButton("Propuestas resueltas");
+		btnMostrarResueltos.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnMostrarResueltos.setForeground(Color.WHITE);
+		btnMostrarResueltos.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnMostrarResueltos.setBackground(SystemColor.textHighlight);
+		btnMostrarResueltos.setBounds(103, 146, 228, 99);
+		btnMostrarResueltos.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				presentacion.PantallaPropuestasResueltas p;
+				try {
+					 if (cDAO.estadoResuelto().size()==0) {
+				    	 JOptionPane.showMessageDialog(null, "No existen propuestas resueltas en este momento.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);}
+					 else {
+					p = new presentacion.PantallaPropuestasResueltas();
+					p.setVisible(true);
+					setVisible(false);
+					}
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+	});
+		contentPane.add(btnMostrarResueltos);
 	}
+	public String devolverDNI(String usu) {
+		String tipo;
+		String sql= "SELECT dni FROM Profesor WHERE nombre = '"+usu+"'";
+		 Vector<Object> nom;
+		try {
+			nom = GestorBD.getAgente().select(sql);
+			tipo=(nom.get(0).toString().replace("[", "").replace("]", ""));
+			
+			return tipo;
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return "";
+}
 }

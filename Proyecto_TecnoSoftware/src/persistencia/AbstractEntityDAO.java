@@ -3,10 +3,16 @@ package persistencia;
 import java.util.Date;
 
 public abstract class AbstractEntityDAO<E> {
-
+	
+	private Class<E> entityClass;
 	private String id;
 	private Date fechaCreacion;
 	private Date fechaActualizacion;
+	
+	public AbstractEntityDAO(Class<E> entityClass) {
+		super();
+		this.entityClass = entityClass;
+	}
 
 	/**
 	 * 
@@ -22,7 +28,7 @@ public abstract class AbstractEntityDAO<E> {
 	 * @param entity
 	 */
 	public int insert(E entity) {
-		// TODO - implement AbstEntityDAO.insert
+		// TODO - implement AbstEntityDAO.update
 		throw new UnsupportedOperationException();
 	}
 
