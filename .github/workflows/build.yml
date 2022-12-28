@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - Master
-      -Feature-BBDD
+      - Feature-BBDD
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
