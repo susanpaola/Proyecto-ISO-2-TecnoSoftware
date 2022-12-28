@@ -1,0 +1,74 @@
+
+1persistencia.GestorBD#delete(Ljava/lang/String;)Iq
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaA A("1*¼
+1q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaB B(Ü
+Ù
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaB B(
+
+%0void"!persistencia.GestorBD#conectar()V*5
+
+__unknown_file ("
+persistencia.GestorBD×
+Ô
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaC C(
+%1java.sql.Connection"__id*>
+
+__unknown_file ("* 
+persistencia.GestorBD"
+mBD„
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaC C(5 
+%2java.sql.PreparedStatement"Tjava.sql.Connection#prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement;*7
+
+__unknown_file (
+
+%1java.sql.Connection*5
+
+__unknown_file (
+
+SQLjava.lang.String2$prepareStatement(Ljava/lang/String;)à
+Ý
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaC C(6"
+stmtjava.sql.PreparedStatement"__id*>
+
+__unknown_file ("
+ 
+%2java.sql.PreparedStatementÔÑ
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaD D($	
+%3int"5java.sql.Statement#executeUpdate(Ljava/lang/String;)I*@
+
+__unknown_file ($
+"
+stmtjava.sql.PreparedStatement*5
+
+__unknown_file (
+
+SQLjava.lang.String2!executeUpdate(Ljava/lang/String;)êç
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaE E(
+
+%4void"java.sql.Statement#close()V*@
+
+__unknown_file ($
+"
+stmtjava.sql.PreparedStatement2close()ß
+Ü
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaF F(
+
+%5void"$persistencia.GestorBD#desconectar()V*5
+
+__unknown_file ("
+persistencia.GestorBD"{
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaG G(
+"":Œ
+q
+gC:/Users/Usuario/git/Proyecto-ISO-2-TecnoSoftware/Proyecto_TecnoSoftware/src/persistencia/GestorBD.javaA A(
+SQLjava.lang.StringB
+persistencia.GestorBDH
