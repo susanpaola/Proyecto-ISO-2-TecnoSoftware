@@ -437,6 +437,7 @@ mostrarFechas();
 	    	
 	    case "Especialización":
 	    	if (num >29 && num<60) {
+	    		mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -445,6 +446,7 @@ mostrarFechas();
 	    	break;
 	    case "Diploma de Experto":
 	    	if (num >14 && num<30) {
+	    		mostrarFechas();
 	   
 	    	}
 	    	else {
@@ -455,7 +457,7 @@ mostrarFechas();
 	    case "Microcredenciales":
 	    	if (num >1 && num<15) {
 	    		
-			
+	    		mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -465,7 +467,7 @@ mostrarFechas();
 	    case "Curso de Formacion Avanzada":
 	    	if (num >14 && num<31) {
 	    	
-
+	    		mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -474,6 +476,7 @@ mostrarFechas();
 	    	break;
 	    case "Curso de Formacion Continua":
 	    	if (num >2 && num<15) {
+	    		mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -482,6 +485,7 @@ mostrarFechas();
 	    	break;
 	    case "Actividades de Corta Duración":
 	    	if (num >0 && num<2) {
+	    		mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -489,10 +493,10 @@ mostrarFechas();
 	    	} 
 	    	break;
 	    case "Cursos de Verano":
-	    	
+	    	mostrarFechas();
 				break;
 	    case "Extensión de Mayores":
-
+	    	mostrarFechas();
 	    	break;
 	  }
 		
