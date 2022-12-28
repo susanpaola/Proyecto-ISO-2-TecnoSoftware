@@ -60,7 +60,6 @@ public class GestorBD {
 		return res;
 	}
 
-	// Metodo para realizar una eliminacion en la base de datos
 	public int update(String SQL) throws SQLException, Exception {
 		connect();
 		PreparedStatement stmt = mBD.prepareStatement(SQL);
@@ -70,16 +69,6 @@ public class GestorBD {
 		return res;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/Feature-GestorMatriculacion
-=======
->>>>>>> refs/heads/Feature-GestorConsultas
-=======
->>>>>>> refs/heads/Feature-GestorPropuestasCursos
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de
