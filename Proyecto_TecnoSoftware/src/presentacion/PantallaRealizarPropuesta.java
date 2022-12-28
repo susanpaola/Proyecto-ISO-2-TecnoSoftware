@@ -13,23 +13,36 @@ import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
 import java.awt.Color;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import negocio.entities.CursoPropio;
+import persistencia.CursoPropioDAO;
+import presentacion.PantallaElegirFechas.DateLabelFormatter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Cursor;
 import javax.swing.border.SoftBevelBorder;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.AbstractListModel;
 import javax.swing.ListSelectionModel;
+import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.DefaultComboBoxModel;
@@ -40,14 +53,12 @@ import java.awt.Panel;
 public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 
 	public JPanel contentPane;
-	public JTextField NombreCurso;
-	public JTextField NumCreditos;
-	public JTextField Facultad;
-	public JTextField Edicion;
-	public JTextField NombreProf;
-	public JTextField CategoriaProf;
-	//public JComboBox<String> comboBox ;
-	public JTextField textPrecio;
+	public JTextField NombreCurso,CategoriaProf,NombreProf,Edicion,Facultad,NumCreditos,textPrecio;
+	public JButton btnNewButton,btnFinalizar,btnSiguiente,btnNext;
+	public JDatePickerImpl datePickerFin,datePickerIni;
+	public JLabel label,lblNewLabel,lblPrecio,lblNombreDelProfesor,lblNombreDelCurso,lblNmeroDeCrditos,lblFacultadDondeSe,lblTitulacinDelProfesor,lblDuracinDelCurso;
+	public JComboBox comboBox;
+	presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
 	CursoPropio curso;
 
 	/**
@@ -85,6 +96,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
+		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("");
 		lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\ImagenUCLM.png"));
 		lblNewJgoodiesLabel.setBounds(20, 10, 310, 99);
@@ -97,7 +110,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		contentPane.add(NombreCurso);
 		NombreCurso.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Volver");
+		btnNewButton = new JButton("Volver");
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(SystemColor.textHighlight);
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -109,6 +122,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 				
 					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
 					p.setVisible(true);
+					p.TipoUsuario.setText(CategoriaProf.getText());
+					p.NombreUsu.setText(NombreProf.getText());
 					setVisible(false);
 				}
 		});
@@ -148,6 +163,13 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		NombreProf.setBounds(71, 259, 259, 39);
 		contentPane.add(NombreProf);
 		
+		UtilDateModel model = new UtilDateModel();
+		Properties p = new Properties();
+		p.put("text.today", "Today");
+		p.put("text.month", "Month");
+		p.put("text.year", "Year");
+		JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
+		
 		CategoriaProf = new JTextField();
 		CategoriaProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
 		CategoriaProf.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -156,12 +178,95 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		CategoriaProf.setBounds(71, 337, 259, 39);
 		contentPane.add(CategoriaProf);
 		
-		JButton btnSiguiente = new JButton("Siguiente");
+		datePickerFin = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+		datePickerFin.setBorder(null);
+		datePickerFin.setSize(200, 200);
+		datePickerFin.setLocation(245, 195);
+		datePickerFin.hide();
+		datePickerFin.setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerFin.getJFormattedTextField().setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerFin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		datePickerFin.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 120, 215)));
+		datePickerFin.setBackground(new Color(255, 255, 255));
+		datePickerFin.getJFormattedTextField().setBackground(new Color(255, 255, 255));
+		contentPane.add(datePickerFin);
+		
+		
+
+		
+		datePickerIni = new JDatePickerImpl(datePanel,new DateLabelFormatter());
+		datePickerIni.getJFormattedTextField().setEditable(true);
+		datePickerIni.hide();
+		datePickerIni.setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerIni.getJFormattedTextField().setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerIni.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		datePickerIni.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 120, 215)));
+		datePickerIni.setSize(200, 200);
+		datePickerIni.setLocation(245, 195);
+		datePickerIni.setBackground(new Color(255, 255, 255));
+		datePickerIni.getJFormattedTextField().setBackground(new Color(255, 255, 255));
+		contentPane.add(datePickerIni);
+		
+		label = new JLabel("Seleccione la fecha de inicio:");
+		label.hide();
+		label.setFont(new Font("Tahoma", Font.BOLD, 20));
+		label.setBounds(30, 115, 379, 42);
+		contentPane.add(label);
+		
+		
+		
+		btnFinalizar = new JButton("Finalizar");
+		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnFinalizar.setForeground(Color.WHITE);
+		btnFinalizar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnFinalizar.setBackground(SystemColor.textHighlight);
+		btnFinalizar.setBounds(594, 490, 114, 49);
+		btnFinalizar.hide();
+		contentPane.add(btnFinalizar);
+		
+		btnFinalizar.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (datePickerFin.getJFormattedTextField().getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					
+				
+				int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea enviar su propuesta de curso?", "ATENCIÓN", JOptionPane.OK_CANCEL_OPTION);
+				if (respuesta == JOptionPane.OK_OPTION) {
+					JOptionPane.showMessageDialog(null, "Su propuesta ha sido enviada de manera correcta.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
+					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
+					
+
+					p.setVisible(true);
+					setVisible(false);
+					try {
+						String estado="PROPUESTO";
+					CursoPropioDAO cDAO=new CursoPropioDAO(); 
+						CursoPropio	curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),datePickerIni.getJFormattedTextField().getText(),datePickerFin.getJFormattedTextField().getText(),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()),estado);
+					String insert = "INSERT INTO CursoPropio"
+			                + "(id, nombre, ECTS, fechaIni, fechaFin, tasa, edicion, centro, director, estado, tipo, secretario) VALUES"
+			                + "('"+curso.getId()+"','"+curso.getNombre()+"','"+curso.getECTS()+"','"+curso.getFechaInicio()+"','"+curso.getFechaFin()+"','"+curso.getTasaMatricula()+"','"+curso.getEdicion()+"','"+curso.getCentro()+"','"+curso.getDirector()+"','"+curso.getEstado()+"','"+curso.getTipo()+"', '25895175N')";
+					cDAO.insertarCurso(insert);
+						 } catch (NumberFormatException e1) {
+						e1.printStackTrace();
+					}
+				
+				}
+				
+				}}
+			
+		});
+		
+
+
+		
+		btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.setForeground(Color.WHITE);
 		btnSiguiente.setBackground(SystemColor.textHighlight);
 		btnSiguiente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnSiguiente.setBounds(599, 496, 114, 49);
+		btnSiguiente.setBounds(594, 490, 114, 49);
 		contentPane.add(btnSiguiente);
 		btnSiguiente.addActionListener((ActionListener) new ActionListener() {
 	
@@ -177,11 +282,11 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 					JOptionPane.showMessageDialog(null, "Introduzca los créditos de manera correcta.", "ERROR", JOptionPane.ERROR_MESSAGE);
 				else {
 				compruebaCreditos(c);
-			System.out.println(curso.toString());
+			
 				
 				}}}});
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		 comboBox.addItem("Master de Formación Permanente");
 		 comboBox.addItem("Especialización");
@@ -206,43 +311,43 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		comboBox.setBounds(71, 181, 259, 39);
 		contentPane.add(comboBox);
 		
-		JLabel lblNewLabel = new JLabel("Tipo de curso:");
+		lblNewLabel = new JLabel("Tipo de curso:");
 		lblNewLabel.setForeground(SystemColor.textHighlight);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNewLabel.setBounds(71, 142, 259, 39);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNombreDelProfesor = new JLabel("Nombre del profesor:");
+		lblNombreDelProfesor = new JLabel("Nombre del profesor:");
 		lblNombreDelProfesor.setForeground(SystemColor.textHighlight);
 		lblNombreDelProfesor.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNombreDelProfesor.setBounds(71, 230, 259, 39);
 		contentPane.add(lblNombreDelProfesor);
 		
-		JLabel lblNombreDelCurso = new JLabel("Nombre del Curso:");
+		lblNombreDelCurso = new JLabel("Nombre del Curso:");
 		lblNombreDelCurso.setForeground(SystemColor.textHighlight);
 		lblNombreDelCurso.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNombreDelCurso.setBounds(454, 113, 259, 39);
 		contentPane.add(lblNombreDelCurso);
 		
-		JLabel lblNmeroDeCrditos = new JLabel("N\u00FAmero de cr\u00E9ditos:");
+		lblNmeroDeCrditos = new JLabel("N\u00FAmero de cr\u00E9ditos:");
 		lblNmeroDeCrditos.setForeground(SystemColor.textHighlight);
 		lblNmeroDeCrditos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNmeroDeCrditos.setBounds(454, 191, 259, 39);
 		contentPane.add(lblNmeroDeCrditos);
 		
-		JLabel lblFacultadDondeSe = new JLabel("Facultad donde se imparte:");
+		lblFacultadDondeSe = new JLabel("Facultad donde se imparte:");
 		lblFacultadDondeSe.setForeground(SystemColor.textHighlight);
 		lblFacultadDondeSe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblFacultadDondeSe.setBounds(454, 269, 259, 39);
 		contentPane.add(lblFacultadDondeSe);
 		
-		JLabel lblTitulacinDelProfesor = new JLabel("Titulaci\u00F3n del profesor:");
+		lblTitulacinDelProfesor = new JLabel("Titulaci\u00F3n del profesor:");
 		lblTitulacinDelProfesor.setForeground(SystemColor.textHighlight);
 		lblTitulacinDelProfesor.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblTitulacinDelProfesor.setBounds(71, 308, 259, 39);
 		contentPane.add(lblTitulacinDelProfesor);
 		
-		JLabel lblDuracinDelCurso = new JLabel("Edici\u00F3n del curso:");
+		lblDuracinDelCurso = new JLabel("Edici\u00F3n del curso:");
 		lblDuracinDelCurso.setForeground(SystemColor.textHighlight);
 		lblDuracinDelCurso.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblDuracinDelCurso.setBounds(454, 347, 259, 39);
@@ -257,25 +362,71 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		contentPane.add(textPrecio);
 		
 		
-		JLabel lblPrecio = new JLabel("Precio de la matr\u00EDcula:");
+		lblPrecio = new JLabel("Precio de la matr\u00EDcula:");
 		lblPrecio.setForeground(SystemColor.textHighlight);
 		lblPrecio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblPrecio.setBounds(232, 453, 259, 39);
 		contentPane.add(lblPrecio);
 		System.out.println();
+		
+		btnNext = new JButton("Siguiente");
+		btnNext.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNext.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				if (datePickerIni.getJFormattedTextField().getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					datePickerFin.show();
+					datePickerIni.hide();
+					btnFinalizar.show();
+				label.setText("Seleccione la fecha de fin:");
+				datePickerFin.getJFormattedTextField().setText("");
+				}
+			}
+		});
+		btnNext.setForeground(Color.WHITE);
+		btnNext.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNext.setBackground(SystemColor.textHighlight);
+		btnNext.setBounds(594, 490, 114, 49);
+		contentPane.add(btnNext);
 	}
+    public void mostrarFechas() {
+    	NombreCurso.hide();
+    	CategoriaProf.hide();
+    	NombreProf.hide();
+    	Edicion.hide();
+    	Facultad.hide();
+    	NumCreditos.hide();
+    	textPrecio.hide();
+    	btnNewButton.hide();
+    	btnFinalizar.hide();
+    	btnSiguiente.hide();
+    	btnNext.show();
+    	label.show();;
+    	lblNewLabel.hide();
+    	lblPrecio.hide();
+    	lblNombreDelProfesor.hide();
+    	lblNombreDelCurso.hide();
+    	lblNmeroDeCrditos.hide();
+    	lblFacultadDondeSe.hide();
+    	lblTitulacinDelProfesor.hide();
+    	lblDuracinDelCurso.hide();
+    	datePickerIni.show();
+    	comboBox.hide();
+    	
+    	
+    }
 	public void compruebaCreditos (String c) {
 		int num = Integer.parseInt(Num);
-		presentacion.PantallaElegirFechas p = new presentacion.PantallaElegirFechas();
 		switch (c) { 
 	    case "Master de Formación Permanente":
 	    
 	    	if (num ==60 || num ==90 || num ==120) {
-	    	curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
-				new String ();
-				
+
+mostrarFechas();
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -285,9 +436,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	
 	    case "Especialización":
 	    	if (num >29 && num<60) {
-	    		curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -296,9 +444,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	break;
 	    case "Diploma de Experto":
 	    	if (num >14 && num<30) {
-	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
+	   
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -307,9 +453,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	break;
 	    case "Microcredenciales":
 	    	if (num >1 && num<15) {
-	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
+	    		
 			
 	    	}
 	    	else {
@@ -319,9 +463,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	break;
 	    case "Curso de Formacion Avanzada":
 	    	if (num >14 && num<31) {
-	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
+	    	
+
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -330,9 +473,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	break;
 	    case "Curso de Formacion Continua":
 	    	if (num >2 && num<15) {
-	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -341,9 +481,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	break;
 	    case "Actividades de Corta Duración":
 	    	if (num >0 && num<2) {
-	    		 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
 	    	}
 	    	else {
 	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -351,14 +488,10 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	    	} 
 	    	break;
 	    case "Cursos de Verano":
-	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
+	    	
 				break;
 	    case "Extensión de Mayores":
-	    	 curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()));
-				p.setVisible(true);
-				setVisible(false);
+
 	    	break;
 	  }
 		
@@ -396,5 +529,27 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 	public int numRand() {
 		int numero = (int)(Math.random()*100+1);
 		return numero;
+	}
+	public class DateLabelFormatter extends AbstractFormatter {
+
+	    private String datePattern = "yyyy-MM-dd";
+	    private SimpleDateFormat dateFormatter = new SimpleDateFormat(datePattern);
+
+	    @Override
+	    public Object stringToValue(String text) throws java.text.ParseException {
+	        return dateFormatter.parseObject(text);
+	    }
+
+	    @Override
+	    public String valueToString(Object value) {
+	        if (value != null) {
+	            Calendar cal = (Calendar) value;
+	            return dateFormatter.format(cal.getTime());
+	        }
+
+	        return "";
+	    }
+
+
 	}
 }

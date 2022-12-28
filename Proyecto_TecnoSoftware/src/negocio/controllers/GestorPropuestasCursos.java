@@ -6,20 +6,15 @@ import java.util.*;
 import negocio.entities.*;
 
 public class GestorPropuestasCursos {
-	persistencia.CursoPropioDAO cDAO = new persistencia.CursoPropioDAO(null);
 	/**
 	 * 
 	 * @param curso
 	 * 
 	 */
 	
-	public CursoPropio realizarPropuestaCurso(String centro, String director, String tipo, int id, String nombre,int ects,Date fechaInicio, Date fechaFin, double tasaMatricula, int edicion)  {
-	
-		
-		CursoPropio curso=new CursoPropio(centro,director,tipo,id,nombre,ects,/*fechaInicio,fechaFin,*/tasaMatricula,edicion);
-		cDAO.crearNuevoCurso(curso);
+	public CursoPropio realizarPropuestaCurso(CursoPropio curso)  {
 		return curso;
-
+	
 	}
 	public void editarPropuestaCurso(CursoPropio curso) {
 	}

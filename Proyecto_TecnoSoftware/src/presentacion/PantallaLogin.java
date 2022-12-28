@@ -224,12 +224,11 @@ public class PantallaLogin  {
 										 
 										 if (usuario.isEmpty()==false && contra.isEmpty()==false) {
 											 JOptionPane.showMessageDialog(null, "Bienvenido.", "UCLM", JOptionPane.INFORMATION_MESSAGE);
-											 presentacion.PantallaDireccionCursos pa = new presentacion.PantallaDireccionCursos();
-											 pa.show();
-											pa.NombreUsu.setText(devolverNombre(UsuarioText.getText()));
-											pa.TipoUsuario.setText(devolverTipo(UsuarioText.getText()));
+											 tipoPerfil(devolverTipo(UsuarioText.getText()),devolverNombre(UsuarioText.getText()));
 											 frmUclm.dispose();
-
+											 presentacion.PantallaRealizarPropuesta pa = new presentacion.PantallaRealizarPropuesta();
+											 pa.NombreProf.setText(devolverNombre(UsuarioText.getText()));
+											 pa.CategoriaProf.setText(devolverTipo(UsuarioText.getText()));
 										 }
 										 else {
 											 JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos. Por favor, introduzca correctamente los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -281,6 +280,7 @@ public class PantallaLogin  {
 			try {
 				nom = GestorBD.getAgente().select(sql);
 				tipo=(nom.get(0).toString());
+				
 				for(char c :charsToRemove.toCharArray()) {
 					tipo=tipo.replace(String.valueOf(c),"");
 				}
@@ -291,6 +291,26 @@ public class PantallaLogin  {
 			}
 			return "";
 }
+		public static void tipoPerfil(String a, String nom) throws Exception {	
+			switch (a) { 
+		    case "Profesor":
+		    	presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
+		    	p.NombreUsu.setText(nom);
+				p.TipoUsuario.setText(a);
+		    	p.setVisible(true);
+		    	
+		     break;
+		    case "estudiante":
+//HACER
+		     break;
+		    case "Vicerrector" :
+		    	presentacion.PantallaEmpleadosVicerrectorado v = new presentacion.PantallaEmpleadosVicerrectorado();
+		    	v.NombreUsu.setText(nom);
+				v.TipoUsuario.setText(a);
+		    	v.setVisible(true);
+		     break;
+		}
+		}
 }		
 
 	

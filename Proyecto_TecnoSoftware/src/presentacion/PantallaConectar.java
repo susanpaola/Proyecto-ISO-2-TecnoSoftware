@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 
+import persistencia.CursoPropioDAO;
 import persistencia.GestorBD;
 
 import javax.swing.ImageIcon;
@@ -77,6 +78,7 @@ public class PantallaConectar extends JFrame {
 			
 			try {
 				GestorBD.connect();
+				
 				presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 				p.mostrar();
 				setVisible(false);

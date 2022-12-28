@@ -108,6 +108,8 @@ public class PantallaDireccionCursos extends JFrame {
 				
 					presentacion.PantallaRealizarPropuesta p = new presentacion.PantallaRealizarPropuesta();
 					p.setVisible(true);
+					p.CategoriaProf.setText(TipoUsuario.getText());
+					p.NombreProf.setText(NombreUsu.getText());
 					setVisible(false);
 				}
 		});
