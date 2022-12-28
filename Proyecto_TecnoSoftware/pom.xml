@@ -224,6 +224,7 @@
 	<properties>
 		<sonar.organization>tecnosoftware</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			<sonar.sources>C:\Users\Usuario\git\PROYECTOS_GIT\TecnoSoftware\Proyecto-ISO-2-TecnoSoftware </sonar.sources>
 	</properties>
 
 </project>
