@@ -69,7 +69,7 @@ public class PantallaLogin  {
 		 */
 		public static void mostrar() {
 			JFrame frmUclm = new JFrame("Demo application");
-			frmUclm.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\IconUCLM.png"));
+			frmUclm.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 			frmUclm.setTitle("UCLM");
 			frmUclm.setSize(625, 428);
 			frmUclm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,7 +85,7 @@ public class PantallaLogin  {
 			loginButton.setBackground(SystemColor.textHighlight);
 			loginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			loginButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-			loginButton.setBounds(380, 300, 168, 48);
+			loginButton.setBounds(406, 316, 168, 48);
 			panel.add(loginButton);
 			
 			JPasswordField ContraseñaText = new JPasswordField(20);
@@ -109,7 +109,7 @@ public class PantallaLogin  {
 			
 		
 			JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("");
-			lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\ImagenUCLM.png"));
+			lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\ImagenUCLM.png"));
 			lblNewJgoodiesLabel.setBounds(44, 10, 310, 99);
 			panel.add(lblNewJgoodiesLabel);
 			
@@ -130,7 +130,7 @@ public class PantallaLogin  {
 			btnSiguiente.setForeground(Color.WHITE);
 			btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 15));
 			btnSiguiente.setBackground(SystemColor.textHighlight);
-			btnSiguiente.setBounds(380, 300, 148, 48);
+			btnSiguiente.setBounds(406, 316, 168, 48);
 			panel.add(btnSiguiente);
 			
 			JLabel userLabel = new JLabel("Iniciar sesi\u00F3n");
@@ -146,6 +146,7 @@ public class PantallaLogin  {
 			panel.add(passwordLabel);
 			
 			user = new JTextField();
+			user.setFont(new Font("Tahoma", Font.BOLD, 10));
 			user.setBackground(Color.WHITE);
 			user.setBorder(null);
 			user.setEditable(false);
@@ -163,6 +164,25 @@ public class PantallaLogin  {
 			btnNoAcceder.setBackground(Color.WHITE);
 			btnNoAcceder.setBounds(79, 258, 216, 21);
 			panel.add(btnNoAcceder);
+			
+			JButton btnNewButton = new JButton("Volver");
+			btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			btnNewButton.setForeground(Color.WHITE);
+			btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+			btnNewButton.setBackground(SystemColor.textHighlight);
+			btnNewButton.setBounds(44, 316, 114, 49);
+			panel.add(btnNewButton);
+			btnNewButton.hide();
+			btnNewButton.addActionListener((ActionListener) new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+						presentacion.PantallaLogin p = new presentacion.PantallaLogin();
+						p.mostrar();
+						
+						frmUclm.dispose();
+						
+					}
+			});
 			
 			
 
@@ -183,6 +203,7 @@ public class PantallaLogin  {
 				userLabel.hide();
 				passwordLabel.show();
 				btnNoAcceder.hide();
+				btnNewButton.show();
 				user.show();
 				user.setText(" Usuario: "+ UsuarioText.getText());	
 				
@@ -204,11 +225,11 @@ public class PantallaLogin  {
 										 
 										 if (usuario.isEmpty()==false && contra.isEmpty()==false) {
 											 JOptionPane.showMessageDialog(null, "Bienvenido.", "UCLM", JOptionPane.INFORMATION_MESSAGE);
-											 PantallaEnDesarrollo pa = new PantallaEnDesarrollo();
+											 presentacion.PantallaDireccionCursos pa = new presentacion.PantallaDireccionCursos();
 											 pa.show();
 											 frmUclm.dispose();
 											 
-							//SIGUIENTES PANTALLAS.... 
+	
 										 }
 										 else {
 											 JOptionPane.showMessageDialog(null, "El usuario o la contraseña son incorrectos. Por favor, introduzca correctamente los datos.", "ERROR", JOptionPane.ERROR_MESSAGE);

@@ -47,10 +47,10 @@ public class PantallaConectar extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaConectar() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\IconUCLM.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\IconUCLM.png"));
 		setTitle("UCLM");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 528, 347);
+		setBounds(100, 100, 551, 385);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -58,17 +58,19 @@ public class PantallaConectar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("New JGoodies label");
-		lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Im\u00E1genes\\ImagenUCLM.png"));
+		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("");
+		lblNewJgoodiesLabel.setIcon(new ImageIcon("C:\\Users\\Usuario\\git\\PROYECTOS_GIT\\TecnoSoftware\\Proyecto-ISO-2-TecnoSoftware\\Proyecto_TecnoSoftware\\Imagenes\\ImagenUCLM.png"));
 		lblNewJgoodiesLabel.setBounds(10, 10, 310, 99);
 		contentPane.add(lblNewJgoodiesLabel);
+		
+		
 		
 		JButton conectBtn = new JButton("ENTRAR");
 		conectBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		conectBtn.setForeground(Color.WHITE);
-		conectBtn.setFont(new Font("Tahoma", Font.BOLD, 15));
+		conectBtn.setFont(new Font("Tahoma", Font.BOLD, 18));
 		conectBtn.setBackground(SystemColor.textHighlight);
-		conectBtn.setBounds(148, 158, 220, 93);
+		conectBtn.setBounds(141, 172, 274, 113);
 		contentPane.add(conectBtn);
 	conectBtn.addActionListener((ActionListener) new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
