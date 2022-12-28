@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - Master
+      - Develop
       - Feature-BBDD
   pull_request:
     types: [opened, synchronize, reopened]
@@ -34,6 +35,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          run: mvn -f-B C:\Users\Usuario\git\PROYECTOS_GIT\TecnoSoftware\Proyecto-ISO-2-TecnoSoftware\Proyecto_TecnoSoftware\pom.xml verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=susanpaola_Proyecto-ISO-2-TecnoSoftware
-
-        
+        run: mvn -B -fn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=susanpaola_Proyecto-ISO-2-TecnoSoftware
