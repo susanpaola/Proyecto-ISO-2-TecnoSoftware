@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+      - Develop
+      - Feature-BBDD
   pull_request:
       types: [opened, synchronize, reopened]
 name: Main Workflow
