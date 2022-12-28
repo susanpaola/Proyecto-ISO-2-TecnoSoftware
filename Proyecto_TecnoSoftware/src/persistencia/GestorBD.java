@@ -11,7 +11,6 @@ public class GestorBD {
 	// Identificador ODBC de la base de datos
 	private static String url = "jdbc:mysql://db4free.net:3306/proyecto_iso";
 	// Driven para conectar con bases de datos MySQL
-		
 	private static String driver= "com.mysql.cj.jdbc.Driver";
 	private static String user= "proyecto_iso";
 	private static String password="contrase\u00f1a";
@@ -70,16 +69,6 @@ public class GestorBD {
 		return res;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/Feature-GestorMatriculacion
-=======
->>>>>>> refs/heads/Feature-GestorConsultas
-=======
->>>>>>> refs/heads/Feature-GestorPropuestasCursos
 	public Vector<Object>  select(String SQL) throws Exception {
 			/*
 			 * Metodo para realizar una busqueda o seleccion de informacion enla base de
