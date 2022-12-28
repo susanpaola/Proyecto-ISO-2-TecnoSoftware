@@ -1,12 +1,6 @@
 package persistencia;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 import java.sql.SQLException;
-=======
->>>>>>> refs/heads/Feature-GestorConsultas
-=======
->>>>>>> refs/heads/Feature-GestorPropuestasCursos
 import java.util.*;
 import negocio.entities.*;
 import persistencia.*;
