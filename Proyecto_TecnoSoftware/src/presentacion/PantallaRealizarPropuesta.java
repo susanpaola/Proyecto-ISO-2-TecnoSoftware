@@ -239,6 +239,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 					
 
 					p.setVisible(true);
+					p.TipoUsuario.setText(CategoriaProf.getText());
+					p.NombreUsu.setText(NombreProf.getText());
 					setVisible(false);
 					try {
 						String estado="PROPUESTO";
