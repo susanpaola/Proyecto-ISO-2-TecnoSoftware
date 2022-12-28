@@ -26,19 +26,4 @@ public class CursoPropioDAO {
 	public int editarCurso(String sql) {
 		return agenteBD.update(sql);
 	}
-
-	//Dado un estado, devolver un Vector<Object> con ellos
-	public Vector<Object> listarCursosPorEstado(EstadoCurso estado) {
-		return agenteBD.select(sql);
-	}
-
-	//Dado un tipo de curso, devolver un double con la suma de sus campos tasa
-	public double listarIngresos(TipoCurso tipo, Date fechaInicio, Date fechaFin) {
-		return 0.00;
-	}
-	
-	//Devolver una EDA con los ids de las ediciones
-	public void listarEdicionesCursos(Date fechaInicio, Date fechaFin) {
-		
-	}
 }
