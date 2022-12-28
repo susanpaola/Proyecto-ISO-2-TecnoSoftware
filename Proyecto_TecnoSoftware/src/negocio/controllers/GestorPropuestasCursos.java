@@ -86,4 +86,4 @@ public class GestorPropuestasCursos {
 		}
 	}
 }
->>>>>>> refs/heads/Feature-GestorPropuestasCursos
+

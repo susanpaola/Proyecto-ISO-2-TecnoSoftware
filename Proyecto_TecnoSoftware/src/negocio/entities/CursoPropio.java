@@ -4,7 +4,6 @@ import java.util.*;
 import persistencia.*;
 
 public class CursoPropio {
-
 	private Collection<Matricula> matriculas;
 	private String centro;
 	private String director;
@@ -19,7 +18,7 @@ public class CursoPropio {
 	private String fechaFin;
 	private double tasaMatricula;
 	private int edicion;
-	
+
 	public CursoPropio(int id, String nombre, int ECTS, String fechaIni, String fechaFin, double tasa, int edicion, String centro, String director, String secretario, EstadoCurso estado, TipoCurso tipo) {
 		this.id = id;
 		this.nombre = nombre,
@@ -42,11 +41,11 @@ public class CursoPropio {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -54,11 +53,11 @@ public class CursoPropio {
 	public int getECTS() {
 		return ECTS;
 	}
-	
+
 	public void setECTS(int eCTS) {
 		this.ECTS = eCTS;
 	}
-	
+
 	public String getFechaInicio() {
 		return fechaIni;
 	}
@@ -70,23 +69,23 @@ public class CursoPropio {
 	public String getFechaFin() {
 		return fechaFin;
 	}
-	
+
 	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
-	
+
 	public double getTasaMatricula() {
 		return tasaMatricula;
 	}
-	
+
 	public void setTasaMatricula(double tasaMatricula) {
 		this.tasaMatricula = tasaMatricula;
 	}
-	
+
 	public int getEdicion() {
 		return edicion;
 	}
-	
+
 	public void setEdicion(int edicion) {
 		this.edicion = edicion;
 	}
@@ -130,4 +129,25 @@ public class CursoPropio {
 	public void setTipoCurso(TipoCurso tipo) {
 		this.tipo = tipo;
 	}
+		
+	@Override
+	public String toString() {
+		return "CursoPropio [centro=" + centro + ", director=" + director + ", estado=" + estado + ", tipo=" + tipo
+				+ ", id=" + id + ", nombre=" + nombre + ", ECTS=" + ECTS + ", fechaInicio=" + fechaInicio
+				+ ", fechaFin=" + fechaFin + ", tasaMatricula=" + tasaMatricula + ", edicion=" + edicion + "]";
+	}
 }
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

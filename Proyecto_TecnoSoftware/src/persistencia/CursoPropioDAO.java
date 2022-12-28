@@ -1,5 +1,4 @@
 package persistencia;
-import java.sql.SQLException;
 
 import java.util.*;
 import negocio.entities.*;
@@ -24,9 +23,8 @@ public class CursoPropioDAO {
 		return agenteBD.select(sql);
 	}
 
-
-
 	public int editarCurso(String sql) {
 		return agenteBD.update(sql);
 	}
-	
+}
+
