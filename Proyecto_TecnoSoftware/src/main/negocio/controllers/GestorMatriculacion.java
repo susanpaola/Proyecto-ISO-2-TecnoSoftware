@@ -15,7 +15,7 @@ public class GestorMatriculacion {
 		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
 		
 		try {
-			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago().toString() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.getAtributo() + "," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
+			String sql = "INSERT INTO Matricula VALUES (" + matricula.getIdMatricula() + ",'" + matricula.getTipoPago().toString() + "'," + matricula.getIdTitulo() + ",'" + matricula.getIdEstudiante() + "'," + matricula.isPagado() + ",'" + matricula.getFecha() + "')";
 			agenteMatriculaDAO.insertMatricula(sql);
 			
 		} catch (Exception e) {
