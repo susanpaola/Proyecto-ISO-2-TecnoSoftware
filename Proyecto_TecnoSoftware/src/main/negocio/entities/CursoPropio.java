@@ -14,15 +14,16 @@ public class CursoPropio {
 	private int id;
 	private String nombre;
 	private int ECTS;
-	private Date fechaIni;
-	private Date fechaFin;
+	private String fechaIni;
+	private String fechaFin;
 	private double tasaMatricula;
 	private int edicion;
-
-	public CursoPropio() {
+	
+	public CursoPropio(int id, String nombre, int eCTS, String fechaIni, String fechaFin, double tasaMatricula,
+			int edicion, String centro, String director, String secretario, EstadoCurso estado, TipoCurso tipo) {
 		this.id = id;
 		this.nombre = nombre;
-		this.ECTS = ECTS;
+		this.ECTS = eCTS;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
 		this.tasaMatricula = tasaMatricula;
@@ -33,7 +34,7 @@ public class CursoPropio {
 		this.estado = estado;
 		this.tipo = tipo;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -58,19 +59,19 @@ public class CursoPropio {
 		this.ECTS = eCTS;
 	}
 
-	public Date getFechaInicio() {
+	public String getFechaInicio() {
 		return fechaIni;
 	}
 	
-	public void setFechaInicio(Date date) {
+	public void setFechaInicio(String date) {
 		this.fechaIni = date;
 	}
 	
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date date) {
+	public void setFechaFin(String date) {
 		this.fechaFin = date;
 	}
 

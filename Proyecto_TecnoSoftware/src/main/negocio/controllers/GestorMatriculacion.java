@@ -27,7 +27,7 @@ public class GestorMatriculacion {
 	 * 
 	 * @param matricula
 	 */
-	private void realizarPago(Matricula matricula) {
+	public void realizarPago(Matricula matricula) {
 		MatriculaDAO agenteMatriculaDAO = new MatriculaDAO();
 		
 		try {

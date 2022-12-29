@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Matricula {
 	private static ModoPago tipoPago;
-	private Date fecha;
+	private String fecha;
 	private boolean pagado;
-	private String atributo;
+	private int atributo;
 	private int idMatricula;
 	private int idTitulo;
 	private String idEstudiante;
 	
-	public Matricula() {
+	public Matricula(int idMatricula, String fecha, boolean pagado, int atributo, ModoPago tipoPago, int idTitulo, String idEstudiante) {
 		this.idEstudiante = idEstudiante;
 		this.idTitulo = idTitulo;
 		this.tipoPago = tipoPago;
@@ -20,7 +20,7 @@ public class Matricula {
 		this.idMatricula = idMatricula;
 		this.atributo = atributo;
 	}
-	
+
 	public int getIdMatricula() {
 		return idMatricula;
 	}
@@ -53,11 +53,11 @@ public class Matricula {
 		this.tipoPago = tipoPago;
 	}
 	
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 	
-	public void setFecha(Date date) {
+	public void setFecha(String date) {
 		this.fecha = date;
 	}
 	
@@ -69,11 +69,11 @@ public class Matricula {
 		this.pagado = pagado;
 	}
 	
-	public String getAtributo() {
+	public int getAtributo() {
 		return atributo;
 	}
 	
-	public void setAtributo(String string) {
+	public void setAtributo(int string) {
 		this.atributo = string;
 	}
 }
