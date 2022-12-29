@@ -135,7 +135,7 @@ public class PantallaMatricula extends JFrame {
         		       
         		        int idTit = Integer.parseInt(idTitulo);
             			
-            			Matricula m= new Matricula(numRand(), miFechaCad, true, 0, tipoPago, idTit, d.devolverDNI("Samuel"));
+            			Matricula m= new Matricula(numRand(), miFechaCad, true, 0, tipoPago, idTit, d.devolverDNI("Samuel", 1));
             			
             			GestorMatriculacion gestorMatriculacion = new GestorMatriculacion();
             			int res = gestorMatriculacion.realizarMatriculacion(m);
@@ -165,7 +165,7 @@ public class PantallaMatricula extends JFrame {
         		       
             				int idTit = Integer.parseInt(idTitulo);
             			
-            				Matricula m= new Matricula(numRand(), miFechaCad, true, 0, tipoPago, idTit, d.devolverDNI("Samuel"));
+            				Matricula m= new Matricula(numRand(), miFechaCad, true, 0, tipoPago, idTit, d.devolverDNI("Samuel", 1));
             			
             				GestorMatriculacion gestorMatriculacion = new GestorMatriculacion();
             				int res = gestorMatriculacion.realizarMatriculacion(m);
