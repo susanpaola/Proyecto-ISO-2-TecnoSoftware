@@ -292,8 +292,11 @@ public class PantallaLogin  {
 		    	p.setVisible(true);
 		    	
 		     break;
-		    case "estudiante":
-//HACER
+		    case "Estudiante":
+		    	presentacion.PantallaEstudiante e = new presentacion.PantallaEstudiante();
+		    	e.NombreUsu.setText(nom);
+				e.TipoUsuario.setText(a);
+		    	e.setVisible(true);
 		     break;
 		    case "Vicerrector" :
 		    	presentacion.PantallaEmpleadosVicerrectorado v = new presentacion.PantallaEmpleadosVicerrectorado();
