@@ -1,5 +1,0 @@
-negocio.controllers.GestorPropuestasCursos#preguntaContinuacion()Z
-java.util.Scanner#instance-init#
-java.util.Scanner#nextLine()Ljava/lang/String;
-java.lang.String#equals(Ljava/lang/Object;)Z
-java.util.Scanner#<init>(Ljava/io/InputStream;)V

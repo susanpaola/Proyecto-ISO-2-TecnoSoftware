@@ -1,3 +1,0 @@
-persistencia.CursoPropioDAO#listarIngresos(Lnegocio/entities/TipoCurso;Ljava/util/Date;Ljava/util/Date;)D
-java.lang.UnsupportedOperationException#<init>()V
-java.lang.UnsupportedOperationException#instance-init#

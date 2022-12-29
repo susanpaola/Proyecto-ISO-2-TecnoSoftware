@@ -1,3 +1,0 @@
-persistencia.AbstractEntityDAO#delete(Ljava/lang/Object;)I
-java.lang.UnsupportedOperationException#<init>()V
-java.lang.UnsupportedOperationException#instance-init#

@@ -1,7 +1,0 @@
-organization=tecnosoftware
-projectKey=Proyecto_TecnoSoftware:Proyecto_TecnoSoftware
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.35945
-dashboardUrl=https://sonarcloud.io/dashboard?id=Proyecto_TecnoSoftware%3AProyecto_TecnoSoftware
-ceTaskId=AYVYWRCHmyRVjh15nNZO
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYVYWRCHmyRVjh15nNZO

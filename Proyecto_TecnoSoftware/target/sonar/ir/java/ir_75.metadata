@@ -1,5 +1,0 @@
-presentacion.PantallaRealizarPropuesta#compruebaCreditos(Ljava/lang/String;)V
-presentacion.PantallaElegirFechas#instance-init#
-java.lang.Integer#parseInt(Ljava/lang/String;)I
-javax.swing.JOptionPane#showMessageDialog(Ljava/awt/Component;Ljava/lang/Object;Ljava/lang/String;I)V
-presentacion.PantallaElegirFechas#<init>()V

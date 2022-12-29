@@ -1,3 +1,0 @@
-negocio.controllers.GestorPropuestasCursos#realizarPropuestaCurso()Lnegocio/entities/CursoPropio;
-negocio.entities.CursoPropio#<init>()V
-negocio.entities.CursoPropio#instance-init#
