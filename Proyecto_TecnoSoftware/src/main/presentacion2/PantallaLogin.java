@@ -86,7 +86,7 @@ public class PantallaLogin  {
 			ContrasenaText.setActionCommand("");
 			ContrasenaText.hide();
 			ContrasenaText.setBounds(79, 191, 434, 42);
-			panel.add(ContraseñaText);
+			panel.add(ContrasenaText);
 			
 			UsuarioText = new JTextField();
 			UsuarioText.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -188,7 +188,7 @@ public class PantallaLogin  {
 				btnRecuperar.show();
 				btnSiguiente.hide();
 				UsuarioText.hide();
-				ContraseñaText.show();
+				ContrasenaText.show();
 				loginButton.show();
 				userLabel.hide();
 				passwordLabel.show();
@@ -199,7 +199,7 @@ public class PantallaLogin  {
 				
 				loginButton.addActionListener((ActionListener) new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						String pass =ContraseñaText.getText();
+						String pass =ContrasenaText.getText();
 						if (pass.length()==0) {
 							JOptionPane.showMessageDialog(null, "Debe introducir su contraseña.", "ERROR", JOptionPane.ERROR_MESSAGE);
 						}
