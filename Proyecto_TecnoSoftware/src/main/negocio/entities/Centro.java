@@ -21,6 +21,13 @@ public class Centro {
 		this.attribute = attribute;
 	}
 	
+	public Centro(String nombre, String localizacion, int attribute) {
+		super();
+		this.nombre = nombre;
+		this.localizacion = localizacion;
+		this.attribute = attribute;
+	}
+
 	public Collection<CursoPropio> getCursoPropios() {
 		return cursoPropios;
 	}

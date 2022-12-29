@@ -57,4 +57,14 @@ public class Estudiante {
 		this.cualificacion = cualificacion;
 		this.matriculas = matriculas;
 	}
+	public Estudiante(String dni, String nombre, String apellidos, String titulacion, String cualificacion) {
+		// TODO Auto-generated constructor stub
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.titulacion = titulacion;
+		this.cualificacion = cualificacion;
+		//this.matriculas = matriculas;
+	}
 }
