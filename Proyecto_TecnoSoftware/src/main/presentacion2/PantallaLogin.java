@@ -44,7 +44,7 @@ import java.awt.Toolkit;
 public class PantallaLogin  {
 
 	protected static JTextField UsuarioText;
-	protected static JTextField ContraseñaText;
+	protected static JTextField ContrasenaText;
 	protected static JTextField user;
 	
 
@@ -78,14 +78,14 @@ public class PantallaLogin  {
 			loginButton.setBounds(406, 316, 168, 48);
 			panel.add(loginButton);
 			
-			JPasswordField ContraseñaText = new JPasswordField(20);
-			ContraseñaText.setToolTipText("Introduzca su contrase\u00F1a");
-			ContraseñaText.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			ContraseñaText.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
+			JPasswordField ContrasenaText = new JPasswordField(20);
+			ContrasenaText.setToolTipText("Introduzca su contrase\u00F1a");
+			ContrasenaText.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			ContrasenaText.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
 			
-			ContraseñaText.setActionCommand("");
-			ContraseñaText.hide();
-			ContraseñaText.setBounds(79, 191, 434, 42);
+			ContrasenaText.setActionCommand("");
+			ContrasenaText.hide();
+			ContrasenaText.setBounds(79, 191, 434, 42);
 			panel.add(ContraseñaText);
 			
 			UsuarioText = new JTextField();
