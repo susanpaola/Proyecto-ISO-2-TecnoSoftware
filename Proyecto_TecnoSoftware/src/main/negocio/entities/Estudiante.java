@@ -1,4 +1,4 @@
-package negocio.entities;
+package main.negocio.entities;
 
 import java.util.*;
 

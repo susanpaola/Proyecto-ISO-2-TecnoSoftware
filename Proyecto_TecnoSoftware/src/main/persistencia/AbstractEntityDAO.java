@@ -1,4 +1,4 @@
-package persistencia;
+package main.persistencia;
 
 import java.util.Date;
 

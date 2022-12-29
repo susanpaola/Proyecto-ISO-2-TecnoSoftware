@@ -1,11 +1,12 @@
-package negocio.controllers;
+package main.negocio.controllers;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
-import negocio.entities.*;
-import persistencia.CursoPropioDAO;
+import main.negocio.entities.*;
+import main.persistencia.CursoPropioDAO;
 
 public class GestorConsultas {
 
@@ -19,10 +20,14 @@ public class GestorConsultas {
 		double ganancia = 0.00;
 		String charsToRemove = "[] ";
 			
-		String sql = "SELECT * FROM CursoPropio WHERE tipo='" + tipo.toString() + "' AND fechaIni >='" + ini + "' AND fechaFin <='" + fin + "' AND estado='VALIDADO'";
+		String sql = "SELECT * FROM CursoPropio WHERE tipo='" + tipo.toString() + "' AND fechaIni >='" + fechaInicio + "' AND fechaFin <='" + fechaFin + "' AND estado='VALIDADO'";
 		Vector<Object> vectorCursos = new Vector<Object>();
 		CursoPropioDAO cursoDAO = new CursoPropioDAO();
-		vectorCursos = cursoDAO.seleccionarCursos(sql);
+		try {
+			vectorCursos = cursoDAO.seleccionarCursos(sql);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		for (int i = 0; i < vectorCursos.size(); i++) {
 			String curso = vectorCursos.get(i).toString();
@@ -37,7 +42,11 @@ public class GestorConsultas {
 		        
 		        String sql2 = "SELECT COUNT(*) FROM Matricula WHERE titulo=" + id;
 		        Vector<Object> vectorMatriculas = new Vector<Object>();
-			vectorMatriculas = cursoDAO.seleccionarCursos(sql2);
+			try {
+				vectorMatriculas = cursoDAO.seleccionarCursos(sql2);
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 			
 			String num_matriculas = vectorMatriculas.get(0).toString();
 				 
@@ -64,7 +73,11 @@ public class GestorConsultas {
 		String sql = "SELECT * FROM CursoPropio WHERE estado='" + estado.toString() + "' AND fechaIni >='" + fechaInicio + "' AND fechaFin <='" + fechaFin + "'";
 		Vector<Object> vectorCursos = new Vector<Object>();
 		CursoPropioDAO cursoDAO = new CursoPropioDAO();
-		vectorCursos = cursoDAO.seleccionarCursos(sql);
+		try {
+			vectorCursos = cursoDAO.seleccionarCursos(sql);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		for (int i = 0; i < vectorCursos.size(); i++) {
 			String curso = vectorCursos.get(i).toString();
@@ -79,7 +92,7 @@ public class GestorConsultas {
 			String nombre = parts[1];
 			int ECTS = Integer.parseInt(parts[2]);
 			String fechaIni = parts[3];
-			String fechaFin = parts[4];
+			String fechaFinParts = parts[4];
 			double tasa = Double.parseDouble(parts[5]);
 			int edicion = Integer.parseInt(parts[6]);
 			String centro = parts[7];
@@ -101,8 +114,8 @@ public class GestorConsultas {
 				case "FORMACION_AVANZADA":
 					tipo = TipoCurso.FORMACION_AVANZADA;
 					break;
-				case "FORMACION_AVANZADA":
-					tipo = TipoCurso.FORMACION_AVANZADA;
+				case "FORMACION_CONTINUA":
+					tipo = TipoCurso.FORMACION_CONTINUA;
 					break;
 				case "MICROCREDENCIALES":
 					tipo = TipoCurso.MICROCREDENCIALES;
@@ -112,7 +125,7 @@ public class GestorConsultas {
 					break;
 			}
 			
-			CursoPropio cursoCreado = new CursoPropio(id, nombre, ECTS, fechaIni, fechaFin, tasa, edicion, centro, director, secretario, estado, tipo);
+			CursoPropio cursoCreado = new CursoPropio(id, nombre, ECTS, fechaIni, fechaFinParts, tasa, edicion, centro, director, secretario, estado, tipo);
 			listaEstadoCurso.add(cursoCreado);
 		}
 		
@@ -126,12 +139,16 @@ public class GestorConsultas {
 	 */
 	public List<CursoPropio> listarEdicionesCursos(String fechaInicio, String fechaFin) {
 		List<CursoPropio> listaEdicionesCurso = new ArrayList<>();
-		CursoPropioDAO<CursoPropio> cursoDAO = new CursoPropioDAO<>();
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
 		
 		String charsToRemove = "[] ";
 		String sql = "SELECT * FROM CursoPropio WHERE fechaIni >='" + fechaInicio + "' AND fechaFin <='" + fechaFin + "'";
 		Vector<Object> vectorCursos = new Vector<Object>();
-		vectorCursos = cursoDAO.seleccionarCursos(sql);
+		try {
+			vectorCursos = cursoDAO.seleccionarCursos(sql);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		
 		for (int i = 0; i < vectorCursos.size(); i++) {
 			String curso = vectorCursos.get(i).toString();
@@ -146,7 +163,7 @@ public class GestorConsultas {
 			String nombre = parts[1];
 			int ECTS = Integer.parseInt(parts[2]);
 			String fechaIni = parts[3];
-			String fechaFin = parts[4];
+			String fechaFinParts = parts[4];
 			double tasa = Double.parseDouble(parts[5]);
 			int edicion = Integer.parseInt(parts[6]);
 			String centro = parts[7];
@@ -191,8 +208,8 @@ public class GestorConsultas {
 				case "FORMACION_AVANZADA":
 					tipo = TipoCurso.FORMACION_AVANZADA;
 					break;
-				case "FORMACION_AVANZADA":
-					tipo = TipoCurso.FORMACION_AVANZADA;
+				case "FORMACION_CONTINUA":
+					tipo = TipoCurso.FORMACION_CONTINUA;
 					break;
 				case "MICROCREDENCIALES":
 					tipo = TipoCurso.MICROCREDENCIALES;
@@ -202,10 +219,11 @@ public class GestorConsultas {
 					break;
 			}
 			
-			CursoPropio cursoCreado = new CursoPropio(id, nombre, ECTS, fechaIni, fechaFin, tasa, edicion, centro, director, secretario, estado, tipo);
-			listaEstadoCurso.add(cursoCreado);
+			CursoPropio cursoCreado = new CursoPropio(id, nombre, ECTS, fechaIni, fechaFinParts, tasa, edicion, centro, director, secretario, estado, tipo);
+			listaEdicionesCurso.add(cursoCreado);
 		}
 		
+		return listaEdicionesCurso;
 	}
 
 }

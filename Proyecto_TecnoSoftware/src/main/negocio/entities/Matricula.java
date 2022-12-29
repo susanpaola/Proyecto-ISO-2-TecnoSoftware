@@ -1,8 +1,6 @@
-package negocio.entities;
+package main.negocio.entities;
 
 import java.util.Date;
-
-import persistencia.MatriculaDAO;
 
 public class Matricula {
 	private static ModoPago tipoPago;
@@ -45,14 +43,6 @@ public class Matricula {
 	
 	public void setIdTitulo(int idTitulo) {
 		this.idTitulo = idTitulo;
-	}
-	
-	public int getIdTitulo() {
-		return idTitulo;
-	}
-	
-	public void setIdTitulo(int titulo) {
-		this.idTitulo = titulo;
 	}
 	
 	public ModoPago getTipoPago() {

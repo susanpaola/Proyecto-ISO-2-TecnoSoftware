@@ -1,4 +1,4 @@
-package presentacion;
+package main.presentacion;
 
 import java.awt.EventQueue;
 

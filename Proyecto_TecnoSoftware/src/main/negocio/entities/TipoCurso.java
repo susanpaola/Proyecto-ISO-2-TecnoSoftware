@@ -1,4 +1,4 @@
-package negocio.entities;
+package main.negocio.entities;
 
 public enum TipoCurso {
 	MASTER,

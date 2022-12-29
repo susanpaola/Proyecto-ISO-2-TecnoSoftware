@@ -1,4 +1,4 @@
-package negocio.entities;
+package main.negocio.entities;
 
 import java.util.Date;
 
@@ -62,10 +62,10 @@ public class Materia {
 	}
 	
 	public int getCurso() {
-		return fechaFin;
+		return curso;
 	}
 	
-	public void setCurso(int fechaFin) {
-		this.fechaFin = fechaFin;
+	public void setCurso(int curso) {
+		this.curso = curso;
 	}
 }

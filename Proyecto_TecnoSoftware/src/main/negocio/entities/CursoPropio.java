@@ -1,7 +1,7 @@
-package negocio.entities;
+package main.negocio.entities;
 
 import java.util.*;
-import persistencia.*;
+import main.persistencia.*;
 
 public class CursoPropio {
 	private Collection<Matricula> matriculas;
@@ -21,7 +21,7 @@ public class CursoPropio {
 
 	public CursoPropio(int id, String nombre, int ECTS, String fechaIni, String fechaFin, double tasa, int edicion, String centro, String director, String secretario, EstadoCurso estado, TipoCurso tipo) {
 		this.id = id;
-		this.nombre = nombre,
+		this.nombre = nombre;
 		this.ECTS = ECTS;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
@@ -133,7 +133,7 @@ public class CursoPropio {
 	@Override
 	public String toString() {
 		return "CursoPropio [centro=" + centro + ", director=" + director + ", estado=" + estado + ", tipo=" + tipo
-				+ ", id=" + id + ", nombre=" + nombre + ", ECTS=" + ECTS + ", fechaInicio=" + fechaInicio
+				+ ", id=" + id + ", nombre=" + nombre + ", ECTS=" + ECTS + ", fechaInicio=" + fechaIni
 				+ ", fechaFin=" + fechaFin + ", tasaMatricula=" + tasaMatricula + ", edicion=" + edicion + "]";
 	}
 }

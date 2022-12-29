@@ -1,4 +1,4 @@
-package presentacion;
+package main.presentacion;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -310,7 +310,7 @@ public class RealizarPropuestaPantalla extends JFrame {
 					int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea realizar propuesta Curso?", "ATENCION", JOptionPane.OK_CANCEL_OPTION);
 					if (respuesta == JOptionPane.OK_OPTION) {
 						JOptionPane.showMessageDialog(null, "Su propuesta ha sido enviada de manera correcta.", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
-						presentacion.DireccionCursosPantalla p = new presentacion.DireccionCursosPantalla();
+						main.presentacion.DireccionCursosPantalla p = new main.presentacion.DireccionCursosPantalla();
 						p.setVisible(true);
 						setVisible(false);
 					}

@@ -1,4 +1,4 @@
-package presentacion;
+package main.presentacion;
 
 import java.awt.EventQueue;
 
@@ -134,7 +134,7 @@ public class MatriculacionPantalla extends JFrame {
 				}else {
 					int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea realizar la Matricula?", "ATENCION", JOptionPane.OK_CANCEL_OPTION);
 					if (respuesta == JOptionPane.OK_OPTION) {
-						presentacion.RealizarPagoPantalla p = new presentacion.RealizarPagoPantalla();
+						main.presentacion.RealizarPagoPantalla p = new main.presentacion.RealizarPagoPantalla();
 						p.setVisible(true);
 						setVisible(false);
 					}

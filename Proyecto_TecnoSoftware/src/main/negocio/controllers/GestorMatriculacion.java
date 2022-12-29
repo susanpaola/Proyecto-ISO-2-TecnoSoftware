@@ -1,9 +1,9 @@
-package negocio.controllers;
+package main.negocio.controllers;
 import java.sql.SQLException;
 
 import java.sql.*;
-import persistencia.*;
-import negocio.entities.*;
+import main.persistencia.*;
+import main.negocio.entities.*;
 
 
 public class GestorMatriculacion {

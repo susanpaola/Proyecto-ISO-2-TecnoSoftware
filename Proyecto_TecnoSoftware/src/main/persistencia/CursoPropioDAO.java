@@ -1,8 +1,9 @@
-package persistencia;
+package main.persistencia;
 
+import java.sql.SQLException;
 import java.util.*;
-import negocio.entities.*;
-import persistencia.*;
+import main.negocio.entities.*;
+import main.persistencia.*;
 
 public class CursoPropioDAO {
 	private GestorBD agenteBD;
@@ -19,11 +20,11 @@ public class CursoPropioDAO {
 		return agenteBD.insert(sql);
 	}
 
-	public Vector<Object> seleccionarCursos(String sql) {
+	public Vector<Object> seleccionarCursos(String sql) throws Exception {
 		return agenteBD.select(sql);
 	}
 
-	public int editarCurso(String sql) {
+	public int editarCurso(String sql) throws SQLException, Exception {
 		return agenteBD.update(sql);
 	}
 }

@@ -1,11 +1,11 @@
-package persistencia;
+package main.persistencia;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
-import negocio.entities.*;
-import persistencia.*;
+import main.negocio.entities.*;
+import main.persistencia.*;
 
 public class MatriculaDAO {
 	private GestorBD agenteBD;

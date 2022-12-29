@@ -1,11 +1,11 @@
-package negocio.controllers;
+package main.negocio.controllers;
 
 import java.text.*;
 import java.time.*;
 import java.util.*;
 
-import negocio.entities.*;
-import persistencia.*;
+import main.negocio.entities.*;
+import main.persistencia.*;
 
 public class GestorPropuestasCursos {
 	public void realizarPropuestaCurso(CursoPropio curso) {
@@ -34,10 +34,10 @@ public class GestorPropuestasCursos {
 
 	public EstadoCurso evaluarPropuesta(CursoPropio curso) {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
-		
+		Vector<Object> res = null;
 		try {
 			String sql = "SELECT estado FROM CursoPropio WHERE id=" + curso.getId();
-			Vector<Object> res = agenteCursoPropioDAO.seleccionarCursos(sql);
+			res = agenteCursoPropioDAO.seleccionarCursos(sql);
 			
 		} catch (Exception e) {
 			System.out.println(e);
