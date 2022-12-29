@@ -192,3 +192,6 @@ Indice
   configuración, para tener en cuenta los nuevos añadidos mencionados anteriormente.
   Una vez el responsable de la gestión de la configuración del software termina su labor, para que estos cambios sean finalmente validados, el nuevo plan de gestión 
   de la configuración deberá ser aprobado por el comité de control de cambio.
+  <img width="453" alt="image" src="https://user-images.githubusercontent.com/72880327/209924515-b579c6e8-3218-4e13-9a4a-fa777e743475.png">
+Para comprobar la calidad del software se realiza un analisis en sonar donde se hace uso de la rama Master en la que se encuantra todo el codigo final. 
+El las graficas se muestran picos que son en lo que se encuentras los bug, las vulnerabilidades (que no hay) los code smell y el porcentaje de Security Hotspots que es de 0 porciento. 
