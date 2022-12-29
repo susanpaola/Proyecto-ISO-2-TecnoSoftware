@@ -38,8 +38,7 @@ class CursoPropioTest {
 		cursopropio.setId(2);
 		cursopropio.setNombre("Ingeniería Informática");
 		cursopropio.setECTS(30);
-		@SuppressWarnings("deprecation")
-		Date date = new Date(2022,9,10);
+		String date = "2022-09-10";
 		cursopropio.setFechaInicio(date);
 		cursopropio.setFechaFin(date);
 		cursopropio.setTasaMatricula(1100.5);
@@ -158,27 +157,27 @@ class CursoPropioTest {
 
 	@Test
 	public void testGetfechaInicio() {
-		Date date = new Date(2022,9,10);
+		String date = "2022-09-10";
 		assertEquals(date, cursopropio.getFechaInicio(), "FALLO");
 
 	}
 
 	@Test
 	public void testSetfechaInicio() {
-		Date date = new Date(2021,9,25);
+		String date = "2021-09-25";
 		cursopropio.setFechaInicio(date);
 		assertEquals(date, cursopropio.getFechaInicio(), "FALLO");
 	}
 
 	@Test
 	public void testGetfechaFin() {
-		Date date = new Date(2022,9,10);
+		String date = "2022-09-10";
 		assertEquals(date, cursopropio.getFechaFin(), "FALLO");
 	}
 
 	@Test
 	public void testSetfechaFin() {
-		Date date = new Date(2012,1,23);
+		String date = "2012-01-23";
 		cursopropio.setFechaFin(date);
 		assertEquals(date, cursopropio.getFechaFin(), "FALLO");
 	}
@@ -204,7 +203,4 @@ class CursoPropioTest {
 		cursopropio.setEdicion(2);
 		assertEquals(2, cursopropio.getEdicion(), "FALLO");
 	}
-
-	
-
 }

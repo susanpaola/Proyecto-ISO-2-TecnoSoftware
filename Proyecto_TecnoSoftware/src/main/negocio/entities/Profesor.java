@@ -14,6 +14,9 @@ public class Profesor {
 		this.apellidos = apellidos;
 		this.doctor = doctor;
 	}
+	public Profesor() {
+		
+	}
 	public String getDni() {
 		return dni;
 	}

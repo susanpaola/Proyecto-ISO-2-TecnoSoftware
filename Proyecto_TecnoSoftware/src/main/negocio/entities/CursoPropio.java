@@ -35,6 +35,9 @@ public class CursoPropio {
 		this.tipo = tipo;
 	}
 
+	public CursoPropio() {
+	}
+
 	public int getId() {
 		return id;
 	}

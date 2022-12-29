@@ -23,17 +23,25 @@ public class Materia {
 		this.curso = curso;
 	}
 	
-	public Materia(String responsable, String nombre, int horas, LocalDate of, LocalDate of2, int curso) {
+	public Materia(String responsable, String nombre, int horas, String of1, String of2, int curso) {
 		// TODO Auto-generated constructor stub
 		super();
 		this.responsable2 = responsable;
 		this.nombre = nombre;
 		this.horas = horas;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
+		this.fechaInicio = of1;
+		this.fechaFin = of2;
 		this.curso = curso;
 	}
 
+	public String getResponsable2() {
+		return responsable2;
+	}
+	
+	public void setResponsable2(String responsable) {
+		this.responsable2 = responsable;
+	}
+	
 	public Profesor getResponsable() {
 		return responsable;
 	}

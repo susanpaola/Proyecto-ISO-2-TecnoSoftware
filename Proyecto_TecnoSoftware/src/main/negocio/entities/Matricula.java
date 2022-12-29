@@ -21,6 +21,10 @@ public class Matricula {
 		this.atributo = atributo;
 	}
 
+	public Matricula() {
+		
+	}
+
 	public int getIdMatricula() {
 		return idMatricula;
 	}

@@ -18,7 +18,7 @@ class testGestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		EstadoCurso estado = EstadoCurso.PROPUESTA_RECHAZADA;
 		TipoCurso tipo = TipoCurso.FORMACION_AVANZADA;
-		CursoPropio curso = new CursoPropio(100, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
+		CursoPropio curso = new CursoPropio(1000, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
 		
 		GestorPropuestasCursos gestor = new GestorPropuestasCursos();
 		
@@ -46,7 +46,7 @@ class testGestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		EstadoCurso estado = EstadoCurso.PROPUESTA_RECHAZADA;
 		TipoCurso tipo = TipoCurso.FORMACION_AVANZADA;
-		CursoPropio curso = new CursoPropio(101, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
+		CursoPropio curso = new CursoPropio(1001, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
 		
 		GestorPropuestasCursos gestor = new GestorPropuestasCursos();
 		
@@ -86,7 +86,7 @@ class testGestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		EstadoCurso estado = EstadoCurso.PROPUESTA_RECHAZADA;
 		TipoCurso tipo = TipoCurso.FORMACION_AVANZADA;
-		CursoPropio curso = new CursoPropio(102, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
+		CursoPropio curso = new CursoPropio(1002, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
 		
 		GestorPropuestasCursos gestor = new GestorPropuestasCursos();
 		String sql = null;
@@ -112,12 +112,13 @@ class testGestorPropuestasCursos {
 		CursoPropioDAO agenteCursoPropioDAO = new CursoPropioDAO();
 		EstadoCurso estado = EstadoCurso.PROPUESTA_RECHAZADA;
 		TipoCurso tipo = TipoCurso.FORMACION_AVANZADA;
-		CursoPropio curso = new CursoPropio(103, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
+		CursoPropio curso = new CursoPropio(1003, "Curso_Test", 100, "2022-12-20", "2022-12-29", 900.0, 1, "Facultad de ciencias sociales", "76943196M", "25895175N", estado, tipo);
 		
 		GestorPropuestasCursos gestor = new GestorPropuestasCursos();
 		String sql = null;
 		try {
 			gestor.realizarPropuestaCurso(curso);
+			curso.setEstadoCurso(EstadoCurso.VALIDADO);
 			gestor.altaCursoAprobado(curso);
 			
 			sql = "SELECT estado FROM CursoPropio WHERE nombre='Curso_Test'";

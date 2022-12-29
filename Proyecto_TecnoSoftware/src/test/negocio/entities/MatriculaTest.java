@@ -30,11 +30,10 @@ public class MatriculaTest {
 	public void setUp() throws Exception {
 		matricula = new Matricula();
 		matricula.setIdMatricula(3);
-		@SuppressWarnings("deprecation")
-		Date date = new Date(2022,12,28);
+		String date = "2022-12-28";
 		matricula.setFecha(date);
 		matricula.setPagado(true);
-		matricula.setAtributo("15");
+		matricula.setAtributo(15);
 		matricula.setIdEstudiante("04258756F");
 		matricula.setTipoPago(ModoPago.TARJETA_CREDITO);
 	}
@@ -56,13 +55,13 @@ public class MatriculaTest {
 
 	@Test
 	public void testGetfecha() {
-		Date date = new Date(2022,12,28);
+		String date = "2022-12-28";
 		assertEquals(date, matricula.getFecha(), "FALLO");
 	}
 
 	@Test
 	public void testSetfecha() {
-		Date date = new Date(2005,5,5);
+		String date = "2005-05-05";
 		matricula.setFecha(date);
 		assertEquals(date, matricula.getFecha(), "FALLO");
 	}
@@ -85,8 +84,8 @@ public class MatriculaTest {
 
 	@Test
 	public void testSetattribute() {
-		matricula.setAtributo("6");
-		assertEquals("6", matricula.getAtributo(), "FALLO");
+		matricula.setAtributo(6);
+		assertEquals(6, matricula.getAtributo(), "FALLO");
 	}
 
 	@Test

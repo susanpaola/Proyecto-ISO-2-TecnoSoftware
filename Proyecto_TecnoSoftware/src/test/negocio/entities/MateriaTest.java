@@ -16,7 +16,7 @@ import main.negocio.entities.Profesor;
 
 public class MateriaTest {
 
-	Materia materia = new Materia("25895175N", "Programacion I", 40, LocalDate.of(2022, 9, 10), LocalDate.of(2022, 12, 22), 2);
+	Materia materia = new Materia("25895175N", "Programacion I", 40, "2022-9-10", "2022-12-22", 2);
 
 	@Before
 	public void setUp() throws Exception {
@@ -37,7 +37,7 @@ public class MateriaTest {
 	@Test
 	public void testGetresponsable() {
 		String expected = "25895175N";
-		Profesor actual = materia.getResponsable();
+		String actual = materia.getResponsable2();
 		assertEquals(expected, actual);
 		//fail("Not yet implemented");
 	}
@@ -52,14 +52,14 @@ public class MateriaTest {
 
 	@Test
 	public void testGetfechaini(){
-		LocalDate expected = LocalDate.of(2022, 9, 10);
+		String expected = "2022-9-10";
 		String actual = materia.getFechaInicio();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testGetfechafin(){
-		LocalDate expected = LocalDate.of(2022, 12, 22);
+		String expected = "2022-12-22";
 		String actual = materia.getFechaFin();
 		assertEquals(expected, actual);
 	}
@@ -71,6 +71,4 @@ public class MateriaTest {
 		assertEquals(expected, actual);
 		//fail("Not yet implemented");
 	}
-
-
 }
