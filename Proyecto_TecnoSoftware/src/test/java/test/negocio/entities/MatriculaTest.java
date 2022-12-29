@@ -31,10 +31,10 @@ public class MatriculaTest {
 		matricula = new Matricula();
 		matricula.setIdMatricula(3);
 		@SuppressWarnings("deprecation")
-		Date date = new Date(2010,10,10);
+		Date date = new Date(2022,12,28);
 		matricula.setFecha(date);
-		matricula.setPagado(false);
-		matricula.setAtributo("atributo");
+		matricula.setPagado(true);
+		matricula.setAtributo("15");
 		matricula.setIdEstudiante("04258756F");
 		matricula.setTipoPago(ModoPago.TARJETA_CREDITO);
 	}
@@ -45,7 +45,7 @@ public class MatriculaTest {
 
 	@Test
 	public void testGetiD() {
-		assertEquals(1, matricula.getIdMatricula(), "FALLO");
+		assertEquals(3, matricula.getIdMatricula(), "FALLO");
 	}
 
 	@Test
@@ -55,8 +55,8 @@ public class MatriculaTest {
 	}
 
 	@Test
-	public void testGet_fecha() {
-		Date date = new Date(2010,10,10);
+	public void testGetfecha() {
+		Date date = new Date(2022,12,28);
 		assertEquals(date, matricula.getFecha(), "FALLO");
 	}
 
@@ -69,35 +69,35 @@ public class MatriculaTest {
 
 	@Test
 	public void testIspagado() {
-		assertEquals(false, matricula.isPagado(), "FALLO");
-	}
-
-	@Test
-	public void testSetpagado() {
-		matricula.setPagado(true);
 		assertEquals(true, matricula.isPagado(), "FALLO");
 	}
 
 	@Test
+	public void testSetpagado() {
+		matricula.setPagado(false);
+		assertEquals(false, matricula.isPagado(), "FALLO");
+	}
+
+	@Test
 	public void testGetattribute() {
-		assertEquals("atributo", matricula.getAtributo(), "FALLO");
+		assertEquals("15", matricula.getAtributo(), "FALLO");
 	}
 
 	@Test
 	public void testSetattribute() {
-		matricula.setAtributo("atr");
-		assertEquals("atr", matricula.getAtributo(), "FALLO");
+		matricula.setAtributo("6");
+		assertEquals("6", matricula.getAtributo(), "FALLO");
 	}
 
 	@Test
 	public void testGetIdestudiante() {
-		assertEquals("01", matricula.getIdEstudiante(), "FALLO");
+		assertEquals("04258756F", matricula.getIdEstudiante(), "FALLO");
 	}
 
 	@Test
 	public void testSetIdestudiante() {
-		matricula.setIdEstudiante("02");
-		assertEquals("02", matricula.getIdEstudiante(), "FALLO");
+		matricula.setIdEstudiante("04258755T");
+		assertEquals("04258755T", matricula.getIdEstudiante(), "FALLO");
 	}
 
 	@Test
