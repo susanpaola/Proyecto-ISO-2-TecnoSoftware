@@ -38,6 +38,11 @@ public class CursoPropio {
 	public CursoPropio() {
 	}
 
+	public CursoPropio(int idTit, EstadoCurso estado2) {
+		this.id = idTit;
+		this.estado = estado2;
+	}
+
 	public int getId() {
 		return id;
 	}

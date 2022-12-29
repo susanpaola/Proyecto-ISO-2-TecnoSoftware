@@ -225,5 +225,29 @@ public class GestorConsultas {
 		
 		return listaEdicionesCurso;
 	}
+	
+	public Vector<Object> estadoResuelto() throws Exception {
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		Vector<Object> a = cursoDAO.seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`<>'PROPUESTO'");
+		return a;
+	}
+	
+	public Vector<Object> estadoPendiente() throws Exception {
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		Vector<Object> a = cursoDAO.seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`='PROPUESTO'");
+		return a;
+	}
+	
+	public Vector<Object> consultarCusos(String sql) throws Exception {
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		Vector<Object> a = cursoDAO.seleccionarCursos(sql);
+		return a;
+	}
+	
+	public Vector<Object> cursosDisponibles() throws Exception {
+		CursoPropioDAO cursoDAO = new CursoPropioDAO();
+		Vector<Object> a = cursoDAO.seleccionarCursos("SELECT id,nombre,centro,tipo,estado FROM CursoPropio WHERE `estado`='VALIDADO'");
+		return a;
+	}
 
 }
