@@ -28,21 +28,9 @@ import javax.swing.SwingConstants;
 
 public class PantallaEstudiante extends JFrame {
 	
-
-		public void altaCurso() {
-			// TODO - implement PantallaDireccionCursos.altaCurso
-			throw new UnsupportedOperationException();
-		}
-
-		public void edicionCurso() {
-			// TODO - implement PantallaDireccionCursos.edicionCurso
-			throw new UnsupportedOperationException();
-		}
-
-
 	private JPanel contentPane;
-	public final JTextField NombreUsu;
-	public final JTextField TipoUsuario;
+	protected final JTextField NombreUsu;
+	protected final JTextField TipoUsuario;
 	presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 	CursoPropioDAO cDAO = new CursoPropioDAO();
 
@@ -140,19 +128,5 @@ public class PantallaEstudiante extends JFrame {
 		lblNewJgoodiesLabel_1.setBounds(609, 39, 125, 125);
 		contentPane.add(lblNewJgoodiesLabel_1);
 	}
-	public String devolverDNI(String usu) {
-		String tipo;
-		String sql= "SELECT dni FROM Profesor WHERE nombre = '"+usu+"'";
-		 Vector<Object> nom;
-		try {
-			nom = GestorBD.getAgente().select(sql);
-			tipo=(nom.get(0).toString().replace("[", "").replace("]", ""));
-			
-			return tipo;
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		return "";
-}
+
 }

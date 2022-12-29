@@ -53,14 +53,34 @@ import java.awt.Panel;
 
 public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 
-	public JPanel contentPane;
-	public JTextField NombreCurso,CategoriaProf,NombreProf,Edicion,Facultad,NumCreditos,textPrecio;
-	public JButton btnNewButton,btnFinalizar,btnSiguiente,btnNext;
-	public JDatePickerImpl datePickerFin,datePickerIni;
-	public JLabel label,lblNewLabel,lblPrecio,lblNombreDelProfesor,lblNombreDelCurso,lblNmeroDeCrditos,lblFacultadDondeSe,lblTitulacinDelProfesor,lblDuracinDelCurso;
-	public JComboBox comboBox;
+	protected JPanel contentPane;
+	protected JTextField NombreCurso;
+	protected JTextField CategoriaProf;
+	protected JTextField NombreProf;
+	protected JTextField Edicion;
+	protected JTextField Facultad; 
+	protected JTextField NumCreditos;
+	protected JTextField textPrecio;
+	protected JButton btnNewButton;
+	protected JButton btnFinalizar;
+	protected JButton btnSiguiente;
+	protected JButton btnNext;
+	protected JDatePickerImpl datePickerFin;
+	protected JDatePickerImpl datePickerIni;
+	protected JLabel label;
+	protected JLabel lblNewLabel;
+	protected JLabel lblPrecio;
+	protected JLabel lblNombreDelProfesor;
+	protected JLabel lblNombreDelCurso;
+	protected JLabel lblNmeroDeCrditos;
+	protected JLabel lblFacultadDondeSe;
+	protected JLabel lblTitulacinDelProfesor;
+	protected JLabel lblDuracinDelCurso;
+	protected JComboBox comboBox;
 	presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
 	CursoPropio curso;
+	private String tipoLetra= "Tahoma";
+	private String ERROR= "ERROR";
 
 	/**
 	 * Launch the application.
@@ -90,7 +110,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 770, 618);
 		contentPane = new JPanel();
-		contentPane.setFont(new Font("Tahoma", Font.BOLD, 15));
+		contentPane.setFont(new Font(tipoLetra, Font.BOLD, 15));
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -105,8 +125,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		contentPane.add(lblNewJgoodiesLabel);
 		
 		NombreCurso = new JTextField();
-		NombreCurso.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
-		NombreCurso.setFont(new Font("Tahoma", Font.BOLD, 13));
+		NombreCurso.setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 120, 215)));
+		NombreCurso.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		NombreCurso.setBounds(454, 142, 259, 39);
 		contentPane.add(NombreCurso);
 		NombreCurso.setColumns(10);
@@ -115,13 +135,13 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setBackground(SystemColor.textHighlight);
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setFont(new Font(tipoLetra, Font.BOLD, 15));
 		btnNewButton.setBounds(20, 496, 114, 49);
 		contentPane.add(btnNewButton);
-		btnNewButton.addActionListener((ActionListener) new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
+					
 					p.setVisible(true);
 					p.TipoUsuario.setText(CategoriaProf.getText());
 					p.NombreUsu.setText(NombreProf.getText());
@@ -130,8 +150,8 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		});
 		
 		NumCreditos  = new JTextField ();
-		NumCreditos.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
-		NumCreditos.setFont(new Font("Tahoma", Font.BOLD, 13));
+		NumCreditos.setBorder(new MatteBorder(0, 0, 1, 0, SystemColor.textHighlight));
+		NumCreditos.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		NumCreditos.setColumns(10);
 		NumCreditos.setBounds(454, 220, 259, 39);
 		NumCreditos.addFocusListener(this);
@@ -143,36 +163,36 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		
 		
 		Facultad = new JTextField();
-		Facultad.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
-		Facultad.setFont(new Font("Tahoma", Font.BOLD, 13));
+		Facultad.setBorder(new MatteBorder(0, 0, 1, 0,  SystemColor.textHighlight));
+		Facultad.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		Facultad.setColumns(10);
 		Facultad.setBounds(454, 298, 259, 39);
 		contentPane.add(Facultad);
 		
 		Edicion = new JTextField();
-		Edicion.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
-		Edicion.setFont(new Font("Tahoma", Font.BOLD, 13));
+		Edicion.setBorder(new MatteBorder(0, 0, 1, 0,  SystemColor.textHighlight));
+		Edicion.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		Edicion.setColumns(10);
 		Edicion.setBounds(454, 376, 259, 39);
 		contentPane.add(Edicion);
 		
 		NombreProf = new JTextField();
-		NombreProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
-		NombreProf.setFont(new Font("Tahoma", Font.BOLD, 13));
+		NombreProf.setBorder(new MatteBorder(0, 0, 1, 0,  new Color(0, 120, 215)));
+		NombreProf.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		NombreProf.setColumns(10);
 		NombreProf.setBounds(71, 259, 259, 39);
 		contentPane.add(NombreProf);
 		
 		UtilDateModel model = new UtilDateModel();
-		Properties p = new Properties();
-		p.put("text.today", "Today");
-		p.put("text.month", "Month");
-		p.put("text.year", "Year");
-		JDatePanelImpl datePanel = new JDatePanelImpl(model,p);
+		Properties pr = new Properties();
+		pr.put("text.today", "Today");
+		pr.put("text.month", "Month");
+		pr.put("text.year", "Year");
+		JDatePanelImpl datePanel = new JDatePanelImpl(model,pr);
 		
 		CategoriaProf = new JTextField();
 		CategoriaProf.setBorder(new MatteBorder(0, 0, 1, 0, (Color) SystemColor.textHighlight));
-		CategoriaProf.setFont(new Font("Tahoma", Font.BOLD, 13));
+		CategoriaProf.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		CategoriaProf.setColumns(10);
 		CategoriaProf.setBounds(71, 337, 259, 39);
 		contentPane.add(CategoriaProf);
@@ -182,10 +202,10 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		datePickerFin.setSize(200, 200);
 		datePickerFin.setLocation(245, 195);
 		datePickerFin.hide();
-		datePickerFin.setFont(new Font("Tahoma", Font.BOLD, 15));
-		datePickerFin.getJFormattedTextField().setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerFin.setFont(new Font(tipoLetra, Font.BOLD, 15));
+		datePickerFin.getJFormattedTextField().setFont(new Font(tipoLetra, Font.BOLD, 15));
 		datePickerFin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		datePickerFin.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 120, 215)));
+		datePickerFin.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 120, 215)));
 		datePickerFin.setBackground(new Color(255, 255, 255));
 		datePickerFin.getJFormattedTextField().setBackground(new Color(255, 255, 255));
 		contentPane.add(datePickerFin);
@@ -196,10 +216,10 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		datePickerIni = new JDatePickerImpl(datePanel,new DateLabelFormatter());
 		datePickerIni.getJFormattedTextField().setEditable(true);
 		datePickerIni.hide();
-		datePickerIni.setFont(new Font("Tahoma", Font.BOLD, 15));
-		datePickerIni.getJFormattedTextField().setFont(new Font("Tahoma", Font.BOLD, 15));
+		datePickerIni.setFont(new Font(tipoLetra, Font.BOLD, 15));
+		datePickerIni.getJFormattedTextField().setFont(new Font(tipoLetra, Font.BOLD, 15));
 		datePickerIni.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		datePickerIni.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 120, 215)));
+		datePickerIni.getJFormattedTextField().setBorder(new MatteBorder(1, 1, 1, 1, new Color(0, 120, 215)));
 		datePickerIni.setSize(200, 200);
 		datePickerIni.setLocation(245, 195);
 		datePickerIni.setBackground(new Color(255, 255, 255));
@@ -208,7 +228,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		
 		label = new JLabel("Seleccione la fecha de inicio:");
 		label.hide();
-		label.setFont(new Font("Tahoma", Font.BOLD, 20));
+		label.setFont(new Font(tipoLetra, Font.BOLD, 20));
 		label.setBounds(30, 115, 379, 42);
 		contentPane.add(label);
 		
@@ -217,16 +237,16 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		btnFinalizar = new JButton("Finalizar");
 		btnFinalizar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnFinalizar.setForeground(Color.WHITE);
-		btnFinalizar.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnFinalizar.setFont(new Font(tipoLetra, Font.BOLD, 15));
 		btnFinalizar.setBackground(SystemColor.textHighlight);
 		btnFinalizar.setBounds(594, 490, 114, 49);
 		btnFinalizar.hide();
 		contentPane.add(btnFinalizar);
 		
-		btnFinalizar.addActionListener((ActionListener) new ActionListener() {
+		btnFinalizar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (datePickerFin.getJFormattedTextField().getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", ERROR, JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 					
@@ -234,8 +254,6 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 				int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea enviar su propuesta de curso?", "ATENCIÓN", JOptionPane.OK_CANCEL_OPTION);
 				if (respuesta == JOptionPane.OK_OPTION) {
 					JOptionPane.showMessageDialog(null, "Su propuesta ha sido enviada de manera correcta.", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
-					presentacion.PantallaDireccionCursos p = new presentacion.PantallaDireccionCursos();
-					
 
 					p.setVisible(true);
 					p.TipoUsuario.setText(CategoriaProf.getText());
@@ -244,7 +262,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 					try {
 						String estado="PROPUESTO";
 					CursoPropioDAO cDAO=new CursoPropioDAO(); 
-						CursoPropio	curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),datePickerIni.getJFormattedTextField().getText(),datePickerFin.getJFormattedTextField().getText(),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()),estado);
+					curso = new CursoPropio(Facultad.getText(),NombreProf.getText(),c,numRand(),NombreCurso.getText(),Integer.parseInt(NumCreditos.getText()),datePickerIni.getJFormattedTextField().getText(),datePickerFin.getJFormattedTextField().getText(),Double.parseDouble(textPrecio.getText()),Integer.parseInt(Edicion.getText()),estado);
 					String insert = "INSERT INTO CursoPropio"
 			                + "(id, nombre, ECTS, fechaIni, fechaFin, tasa, edicion, centro, director, estado, tipo, secretario) VALUES"
 			                + "('"+curso.getId()+"','"+curso.getNombre()+"','"+curso.getECTS()+"','"+curso.getFechaInicio()+"','"+curso.getFechaFin()+"','"+curso.getTasaMatricula()+"','"+curso.getEdicion()+"','"+curso.getCentro()+"','"+curso.getDirector()+"','"+curso.getEstado()+"','"+curso.getTipo()+"', '25895175N')";
@@ -266,10 +284,10 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 		btnSiguiente.setForeground(Color.WHITE);
 		btnSiguiente.setBackground(SystemColor.textHighlight);
 		btnSiguiente.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnSiguiente.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSiguiente.setFont(new Font(tipoLetra, Font.BOLD, 15));
 		btnSiguiente.setBounds(594, 490, 114, 49);
 		contentPane.add(btnSiguiente);
-		btnSiguiente.addActionListener((ActionListener) new ActionListener() {
+		btnSiguiente.addActionListener(new ActionListener() {
 	
 
 			public void actionPerformed(ActionEvent e) {
@@ -277,10 +295,10 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 				Num=NumCreditos.getText();
 				
 					if (!textoVacio(Facultad)||!textoVacio(Edicion) || !textoVacio(NombreCurso) || !textoVacio(NombreProf)||!textoVacio(CategoriaProf) ) {
-						JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos para realizar la propuesta.", "ERROR", JOptionPane.ERROR_MESSAGE);}
+						JOptionPane.showMessageDialog(null, "Debe rellenar todos los campos para realizar la propuesta.", ERROR, JOptionPane.ERROR_MESSAGE);}
 					else {
 				if (NumCreditos.getText().isEmpty()|| !isNumeric(NumCreditos.getText()))
-					JOptionPane.showMessageDialog(null, "Introduzca los créditos de manera correcta.", "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Introduzca los créditos de manera correcta.", ERROR, JOptionPane.ERROR_MESSAGE);
 				else {
 				compruebaCreditos(c);
 			
@@ -308,76 +326,76 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 					}
 					
 			});
-		comboBox.setFont(new Font("Tahoma", Font.BOLD, 13));
+		comboBox.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		comboBox.setBounds(71, 181, 259, 39);
 		contentPane.add(comboBox);
 		
 		lblNewLabel = new JLabel("Tipo de curso:");
 		lblNewLabel.setForeground(SystemColor.textHighlight);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNewLabel.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblNewLabel.setBounds(71, 142, 259, 39);
 		contentPane.add(lblNewLabel);
 		
 		lblNombreDelProfesor = new JLabel("DNI del profesor");
 		lblNombreDelProfesor.setForeground(SystemColor.textHighlight);
-		lblNombreDelProfesor.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNombreDelProfesor.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblNombreDelProfesor.setBounds(71, 230, 259, 39);
 		contentPane.add(lblNombreDelProfesor);
 		
 		lblNombreDelCurso = new JLabel("Nombre del Curso:");
 		lblNombreDelCurso.setForeground(SystemColor.textHighlight);
-		lblNombreDelCurso.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNombreDelCurso.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblNombreDelCurso.setBounds(454, 113, 259, 39);
 		contentPane.add(lblNombreDelCurso);
 		
 		lblNmeroDeCrditos = new JLabel("N\u00FAmero de cr\u00E9ditos:");
 		lblNmeroDeCrditos.setForeground(SystemColor.textHighlight);
-		lblNmeroDeCrditos.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNmeroDeCrditos.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblNmeroDeCrditos.setBounds(454, 191, 259, 39);
 		contentPane.add(lblNmeroDeCrditos);
 		
 		lblFacultadDondeSe = new JLabel("Facultad donde se imparte:");
 		lblFacultadDondeSe.setForeground(SystemColor.textHighlight);
-		lblFacultadDondeSe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblFacultadDondeSe.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblFacultadDondeSe.setBounds(454, 269, 259, 39);
 		contentPane.add(lblFacultadDondeSe);
 		
 		lblTitulacinDelProfesor = new JLabel("Titulaci\u00F3n del profesor:");
 		lblTitulacinDelProfesor.setForeground(SystemColor.textHighlight);
-		lblTitulacinDelProfesor.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblTitulacinDelProfesor.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblTitulacinDelProfesor.setBounds(71, 308, 259, 39);
 		contentPane.add(lblTitulacinDelProfesor);
 		
 		lblDuracinDelCurso = new JLabel("Edici\u00F3n del curso:");
 		lblDuracinDelCurso.setForeground(SystemColor.textHighlight);
-		lblDuracinDelCurso.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblDuracinDelCurso.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblDuracinDelCurso.setBounds(454, 347, 259, 39);
 		contentPane.add(lblDuracinDelCurso);
 		
 		textPrecio = new JTextField();
 		textPrecio.setEditable(false);
-		textPrecio.setFont(new Font("Tahoma", Font.BOLD, 13));
+		textPrecio.setFont(new Font(tipoLetra, Font.BOLD, 13));
 		textPrecio.setColumns(10);
-		textPrecio.setBorder(new MatteBorder(0, 0, 1, 0, (Color) new Color(0, 120, 215)));
+		textPrecio.setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 120, 215)));
 		textPrecio.setBounds(232, 502, 259, 39);
 		contentPane.add(textPrecio);
 		
 		
 		lblPrecio = new JLabel("Precio de la matr\u00EDcula:");
 		lblPrecio.setForeground(SystemColor.textHighlight);
-		lblPrecio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblPrecio.setFont(new Font(tipoLetra, Font.BOLD | Font.ITALIC, 13));
 		lblPrecio.setBounds(232, 453, 259, 39);
 		contentPane.add(lblPrecio);
-		System.out.println();
+		
 		
 		btnNext = new JButton("Siguiente");
 		btnNext.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNext.addActionListener((ActionListener) new ActionListener() {
+		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 
 				if (datePickerIni.getJFormattedTextField().getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Introduzca los campos necesarios.", ERROR, JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 					datePickerFin.show();
@@ -389,7 +407,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 			}
 		});
 		btnNext.setForeground(Color.WHITE);
-		btnNext.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNext.setFont(new Font(tipoLetra, Font.BOLD, 15));
 		btnNext.setBackground(SystemColor.textHighlight);
 		btnNext.setBounds(594, 490, 114, 49);
 		contentPane.add(btnNext);
@@ -422,6 +440,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
     }
 	public void compruebaCreditos (String c) {
 		int num = Integer.parseInt(Num);
+		String err="Introduzca los créditos adecuados para la modalidad elegida.";
 		switch (c) { 
 	    case "Master de Formación Permanente":
 	    
@@ -430,7 +449,7 @@ public class PantallaRealizarPropuesta extends JFrame implements FocusListener{
 mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -440,7 +459,7 @@ mostrarFechas();
 	    		mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err , ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -450,7 +469,7 @@ mostrarFechas();
 	   
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -460,7 +479,7 @@ mostrarFechas();
 	    		mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -470,7 +489,7 @@ mostrarFechas();
 	    		mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -479,7 +498,7 @@ mostrarFechas();
 	    		mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;
@@ -488,7 +507,7 @@ mostrarFechas();
 	    		mostrarFechas();
 	    	}
 	    	else {
-	    		JOptionPane.showMessageDialog(null, "Introduzca los créditos adecuados para la modalidad elegida.", "ERROR", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, err, ERROR, JOptionPane.ERROR_MESSAGE);
 
 	    	} 
 	    	break;

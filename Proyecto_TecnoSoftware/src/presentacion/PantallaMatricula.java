@@ -114,8 +114,9 @@ public class PantallaMatricula extends JFrame {
                 	btnTar.addActionListener((ActionListener) new ActionListener() {
             			public void actionPerformed(ActionEvent e) { 
             				LocalDate miFecha = LocalDate.now();
+            				PantallaDireccionCursos d = new PantallaDireccionCursos();
             			
-        Matricula m= new Matricula(devolverDNI("Samuel") ,a.get(0).toString().split(",")[1] , "TARJETA_CREDITO", miFecha, 0);
+        Matricula m= new Matricula(d.devolverDNI("Samuel") ,a.get(0).toString().split(",")[1] , "TARJETA_CREDITO", miFecha, 0);
             				
         String insert = "INSERT INTO Matricula"
         			                + "(id, tipoPago, titulo, estudiante, pagado, fecha ) VALUES"
@@ -131,8 +132,9 @@ public class PantallaMatricula extends JFrame {
                 	btnTrans.addActionListener((ActionListener) new ActionListener() {
             			public void actionPerformed(ActionEvent e) {
             				LocalDate miFecha = LocalDate.now();
+            				PantallaDireccionCursos d = new PantallaDireccionCursos();
                 			
-            		        Matricula m= new Matricula(devolverDNI("Samuel") ,a.get(0).toString().split(",")[1] , "TRANSFERENCIA", miFecha, 0);
+            		        Matricula m= new Matricula(d.devolverDNI("Samuel") ,a.get(0).toString().split(",")[1] , "TRANSFERENCIA", miFecha, 0);
             		            				
             		        String insert = "INSERT INTO Matricula"
             		        			                + "(id, tipoPago, titulo, estudiante, pagado, fecha ) VALUES"
@@ -170,19 +172,5 @@ public class PantallaMatricula extends JFrame {
 
 
 	}
-	public String devolverDNI(String usu) {
-		String tipo;
-		String sql= "SELECT dni FROM Estudiante WHERE nombre = '"+usu+"'";
-		 Vector<Object> nom;
-		try {
-			nom = GestorBD.getAgente().select(sql);
-			tipo=(nom.get(0).toString().replace("[", "").replace("]", ""));
-			
-			return tipo;
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		return "";
-}
+
 }

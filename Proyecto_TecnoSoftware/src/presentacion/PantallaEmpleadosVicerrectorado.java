@@ -31,8 +31,8 @@ public class PantallaEmpleadosVicerrectorado extends JFrame {
 
 
 	private JPanel contentPane;
-	public JTextField NombreUsu;
-	public JTextField TipoUsuario;
+	protected JTextField NombreUsu;
+	protected JTextField TipoUsuario;
 	presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 	CursoPropioDAO cDAO = new CursoPropioDAO ();
 

@@ -28,21 +28,9 @@ import javax.swing.SwingConstants;
 
 public class PantallaDireccionCursos extends JFrame {
 	
-
-		public void altaCurso() {
-			// TODO - implement PantallaDireccionCursos.altaCurso
-			throw new UnsupportedOperationException();
-		}
-
-		public void edicionCurso() {
-			// TODO - implement PantallaDireccionCursos.edicionCurso
-			throw new UnsupportedOperationException();
-		}
-
-
 	private JPanel contentPane;
-	public final JTextField NombreUsu;
-	public final JTextField TipoUsuario;
+	protected final JTextField NombreUsu;
+	protected final JTextField TipoUsuario;
 	presentacion.PantallaLogin p = new presentacion.PantallaLogin();
 	CursoPropioDAO cDAO = new CursoPropioDAO();
 

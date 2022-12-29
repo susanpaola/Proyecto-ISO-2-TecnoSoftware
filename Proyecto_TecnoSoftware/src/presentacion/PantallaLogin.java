@@ -42,20 +42,10 @@ import java.awt.Toolkit;
 
 public class PantallaLogin  {
 
-	public static JTextField UsuarioText;
-	public static JTextField ContraseñaText;
-	public static JTextField user;
+	protected static JTextField UsuarioText;
+	protected static JTextField ContraseñaText;
+	protected static JTextField user;
 	
-
-	public void login() {
-		// TODO - implement PantallaLogin.login
-		throw new UnsupportedOperationException();
-	}
-
-	public void logout() {
-		// TODO - implement PantallaLogin.logout
-		throw new UnsupportedOperationException();
-	}
 
 	private static void placeComponents(JPanel panel) {
 
