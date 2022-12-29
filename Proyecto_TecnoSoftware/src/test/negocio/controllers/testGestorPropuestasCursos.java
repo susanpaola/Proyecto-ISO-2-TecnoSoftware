@@ -55,8 +55,9 @@ class testGestorPropuestasCursos {
 			gestor.realizarPropuestaCurso(curso);
 			
 			curso.setTasaMatricula(700.0);
+			curso.setEstadoCurso(EstadoCurso.VALIDADO);
 			
-			gestor.editarPropuestaCurso(curso, 0);
+			gestor.editarPropuestaCurso(curso, 0); //Probamos el método de alterar todos los parametros
 			
 			sql = "SELECT tasa FROM CursoPropio WHERE nombre='Curso_Test'";
 			Vector<Object> cursoModificado = agenteCursoPropioDAO.seleccionarCursos(sql);
