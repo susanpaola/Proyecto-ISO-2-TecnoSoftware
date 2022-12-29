@@ -159,7 +159,7 @@ public class PantallaAceptarCursos extends JFrame {
                 		       	}
                 		       
                 		        int idTit = Integer.parseInt(b);
-                		        EstadoCurso estado = EstadoCurso.PROPUESTA_RECHAZADA;
+                		        EstadoCurso estado = EstadoCurso.VALIDADO;
                 		        CursoPropio curso = new CursoPropio(idTit, estado);
             					
             					gestorCursos.editarPropuestaCurso(curso, 1);
