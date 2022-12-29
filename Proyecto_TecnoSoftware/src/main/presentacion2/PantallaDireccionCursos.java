@@ -113,7 +113,7 @@ public class PantallaDireccionCursos extends JFrame {
 					main.presentacion2.PantallaRealizarPropuesta p = new main.presentacion2.PantallaRealizarPropuesta();
 					p.setVisible(true);
 					p.CategoriaProf.setText(TipoUsuario.getText());
-					p.NombreProf.setText(devolverDNI(NombreUsu.getText().split(" ")[0].toString()));
+					p.NombreProf.setText(devolverDNI(NombreUsu.getText().split(" ")[0].toString(), 0));
 					setVisible(false);
 				}
 		});
@@ -178,9 +178,14 @@ public class PantallaDireccionCursos extends JFrame {
 	});
 		contentPane.add(btnMostrarResueltos);
 	}
-	public String devolverDNI(String usu) {
+	public String devolverDNI(String usu, int tipoUsu) {
 		String tipo;
-		String sql= "SELECT dni FROM Profesor WHERE nombre='"+usu+"'";
+		String sql= null;
+		if (tipoUsu == 0) {
+			sql= "SELECT dni FROM Profesor WHERE nombre='"+usu+"'";
+		} else {
+			sql= "SELECT dni FROM Estudiante WHERE nombre='"+usu+"'";
+		}
 		 Vector<Object> nom;
 		try {
 			nom = GestorBD.getAgente().select(sql);
